@@ -1,4 +1,4 @@
-# � Plataforma Interativa de Jogos Digitais
+#  Plataforma Interativa de Jogos Digitais (em desenvolvimento versão beta)
 
 **Plataforma Educativa para Desenvolvimento de Jogos**
 
