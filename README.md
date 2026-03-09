@@ -1,4 +1,4 @@
-#  Plataforma Web Interativa Gamificado para Ensino de Desenvolvimento de Jogos Digitais (em desenvolvimento versão beta)
+#  Plataforma Web Interativa Gamificado para Ensino de Desenvolvimento de Jogos Digitais (em desenvolvimento)
 
 **Plataforma Educativa para Desenvolvimento de Jogos**
 
