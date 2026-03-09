@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração - Sistema de Avaliação por Estrelas</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .demo-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            font-size: 1.1em;
+        }
+
+        .rating-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px 0;
+        }
+
+        .star {
+            font-size: 36px;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            user-select: none;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .star:hover,
+        .star.active,
+        .star.hover {
+            color: #ffd700;
+            transform: scale(1.3) rotate(5deg);
+            filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.4));
+        }
+
+        .star.active {
+            animation: starPulse 0.6s ease;
+        }
+
+        @keyframes starPulse {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.5) rotate(10deg); }
+            100% { transform: scale(1.3) rotate(5deg); }
+        }
+
+        .rating-text {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 20px 0;
+            min-height: 30px;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .rating-text.show {
+            opacity: 1;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes ratingSuccess {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .instructions h3 {
+            margin-top: 0;
+            color: #ffd700;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1>⭐ Sistema de Avaliação</h1>
+        <p class="subtitle">Demonstração interativa do sistema de estrelas</p>
+
+        <div class="rating-container">
+            <h2>O que achou desta demonstração?</h2>
+            <p>Sua avaliação nos ajuda a melhorar!</p>
+
+            <div class="rating-stars">
+                <span class="star" data-rating="1" title="Não gostei">⭐</span>
+                <span class="star" data-rating="2" title="Mais ou menos">⭐</span>
+                <span class="star" data-rating="3" title="Gostei">⭐</span>
+                <span class="star" data-rating="4" title="Muito bom!">⭐</span>
+                <span class="star" data-rating="5" title="Excelente!">⭐</span>
+            </div>
+            <div class="rating-text feedback-text"></div>
+        </div>
+
+        <div class="instructions">
+            <h3>🚀 Funcionalidades</h3>
+            <ul class="feature-list">
+                <li><strong>Hover interativo:</strong> Passe o mouse sobre as estrelas para ver preview</li>
+                <li><strong>Clique para avaliar:</strong> Clique em qualquer estrela para definir sua avaliação</li>
+                <li><strong>Feedback visual:</strong> Animações suaves e efeitos visuais</li>
+                <li><strong>Persistência:</strong> Sua avaliação é salva automaticamente</li>
+                <li><strong>Texto dinâmico:</strong> Mensagens personalizadas para cada avaliação</li>
+                <li><strong>Responsivo:</strong> Funciona perfeitamente em dispositivos móveis</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        class RatingSystem {
+            constructor() {
+                this.stars = document.querySelectorAll('.rating-stars .star');
+                this.selectedRating = 0;
+                this.ratingText = document.querySelector('.rating-text');
+                this.init();
+            }
+
+            init() {
+                if (this.stars.length === 0) return;
+
+                this.stars.forEach((star, index) => {
+                    star.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.setRating(index + 1);
+                    });
+                    star.addEventListener('mouseenter', () => this.hoverRating(index + 1));
+                    star.addEventListener('mouseleave', () => {
+                        if (!this.selectedRating) {
+                            this.resetHover();
+                        }
+                    });
+                });
+
+                const ratingContainer = document.querySelector('.rating-stars');
+                if (ratingContainer) {
+                    ratingContainer.addEventListener('mouseleave', () => {
+                        if (!this.selectedRating) {
+                            this.resetHover();
+                        }
+                    });
+                }
+
+                this.loadRating();
+            }
+
+            hoverRating(rating) {
+                if (this.selectedRating) return;
+
+                this.stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.add('hover');
+                    } else {
+                        star.classList.remove('hover');
+                    }
+                });
+
+                this.showRatingText(rating, true);
+            }
+
+            resetHover() {
+                if (this.selectedRating) return;
+
+                this.stars.forEach(star => star.classList.remove('hover'));
+                this.hideRatingText();
+            }
+
+            setRating(rating) {
+                this.selectedRating = rating;
+
+                this.stars.forEach(star => {
+                    star.classList.remove('hover', 'active');
+                });
+
+                this.stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.add('active');
+                    }
+                });
+
+                this.showRatingText(rating, false);
+                this.saveRating(rating);
+                this.showSuccessFeedback();
+            }
+
+            showRatingText(rating, isPreview = false) {
+                const texts = {
+                    1: '😞 Não gostei',
+                    2: '😐 Mais ou menos',
+                    3: '😊 Gostei',
+                    4: '😄 Muito bom!',
+                    5: '🤩 Excelente!'
+                };
+
+                if (this.ratingText) {
+                    this.ratingText.textContent = texts[rating] || '';
+                    this.ratingText.classList.add('show');
+
+                    if (isPreview) {
+                        this.ratingText.style.opacity = '0.7';
+                    } else {
+                        this.ratingText.style.opacity = '1';
+                    }
+                }
+            }
+
+            hideRatingText() {
+                if (this.ratingText) {
+                    this.ratingText.classList.remove('show');
+                }
+            }
+
+            saveRating(rating) {
+                try {
+                    let data = JSON.parse(localStorage.getItem('demoRatings') || '{}');
+                    data['demo'] = rating;
+                    localStorage.setItem('demoRatings', JSON.stringify(data));
+                } catch (error) {
+                    console.error('Error saving rating:', error);
+                }
+            }
+
+            loadRating() {
+                try {
+                    let data = JSON.parse(localStorage.getItem('demoRatings') || '{}');
+                    const savedRating = data['demo'];
+
+                    if (savedRating) {
+                        this.setRating(savedRating);
+                    }
+                } catch (error) {
+                    console.error('Error loading rating:', error);
+                }
+            }
+
+            showSuccessFeedback() {
+                const ratingContainer = document.querySelector('.rating-container');
+                if (ratingContainer) {
+                    ratingContainer.style.animation = 'none';
+                    setTimeout(() => {
+                        ratingContainer.style.animation = 'ratingSuccess 0.5s ease';
+                    }, 10);
+                }
+            }
+        }
+
+        window.addEventListener('load', () => {
+            new RatingSystem();
+        });
+    </script>
+</body>
+</html>

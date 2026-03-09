@@ -1,0 +1,134 @@
+/* ====================================== */
+/* LAYOUT.CSS - Layout Principal        */
+/* ====================================== */
+
+/* Container Principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+}
+
+/* FOOTER */
+.footer {
+    background-color: var(--text-primary);
+    color: white;
+    padding: var(--spacing-xl) 0;
+    margin-top: var(--spacing-2xl);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.footer p {
+    margin-bottom: var(--spacing-sm);
+    color: white;
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.breadcrumb a {
+    color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+}
+
+/* Grid Layout 2 Colunas */
+.layout-2col {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .layout-2col {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Flex utilities */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-gap {
+    gap: var(--spacing-md);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 1024px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Main Section Spacing */
+section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+/* Typography Spacing */
+h1 + p,
+h2 + p,
+h3 + p {
+    margin-top: -var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}

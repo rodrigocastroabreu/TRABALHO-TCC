@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Rating System</title>
+    <style>
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 20px 0;
+        }
+        .star {
+            font-size: 24px;
+            color: #cbd5e1;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .star:hover,
+        .star.active {
+            color: #f59e0b;
+        }
+        .rating-text {
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste do Sistema de Avaliação</h1>
+    <div class="rating-container">
+        <div class="rating-stars">
+            <span class="star" data-rating="1" title="Não gostei">⭐</span>
+            <span class="star" data-rating="2" title="Mais ou menos">⭐</span>
+            <span class="star" data-rating="3" title="Gostei">⭐</span>
+            <span class="star" data-rating="4" title="Muito bom!">⭐</span>
+            <span class="star" data-rating="5" title="Excelente!">⭐</span>
+        </div>
+        <div class="rating-text feedback-text"></div>
+    </div>
+
+    <script>
+        class RatingSystem {
+            constructor() {
+                this.stars = document.querySelectorAll('.rating-stars .star');
+                this.selectedRating = 0;
+                console.log('RatingSystem constructor - stars found:', this.stars.length);
+                this.init();
+            }
+
+            init() {
+                if (this.stars.length === 0) {
+                    console.log('RatingSystem: No stars found!');
+                    return;
+                }
+
+                console.log('RatingSystem: Initializing with', this.stars.length, 'stars');
+                this.stars.forEach((star, index) => {
+                    star.addEventListener('click', () => {
+                        console.log('Star clicked:', index + 1);
+                        alert('Star ' + (index + 1) + ' clicked!');
+                        this.setRating(index + 1);
+                    });
+                    star.addEventListener('mouseenter', () => this.hoverRating(index + 1));
+                });
+
+                document.addEventListener('mouseleave', () => this.resetHover());
+                this.loadRating();
+            }
+
+            hoverRating(rating) {
+                this.stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.add('hover');
+                    } else {
+                        star.classList.remove('hover');
+                    }
+                });
+            }
+
+            resetHover() {
+                this.stars.forEach(star => star.classList.remove('hover'));
+            }
+
+            setRating(rating) {
+                this.selectedRating = rating;
+                this.stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.add('active');
+                    } else {
+                        star.classList.remove('active');
+                    }
+                });
+
+                // Atualizar texto
+                const texts = {
+                    1: '😞 Não gostei',
+                    2: '😐 Mais ou menos',
+                    3: '😊 Gostei',
+                    4: '😄 Muito bom!',
+                    5: '🤩 Excelente!'
+                };
+
+                const ratingText = document.querySelector('.rating-text');
+                if (ratingText) {
+                    ratingText.textContent = texts[rating] || '';
+                }
+
+                this.saveRating(rating);
+            }
+
+            saveRating(rating) {
+                let data = JSON.parse(localStorage.getItem('chapterRatings') || '{}');
+                const chapterName = 'Test Chapter';
+                data[chapterName] = rating;
+                localStorage.setItem('chapterRatings', JSON.stringify(data));
+                console.log('Rating saved:', rating);
+            }
+
+            loadRating() {
+                let data = JSON.parse(localStorage.getItem('chapterRatings') || '{}');
+                const chapterName = 'Test Chapter';
+                const savedRating = data[chapterName];
+
+                if (savedRating) {
+                    this.setRating(savedRating);
+                }
+            }
+        }
+
+        // Inicializar quando a página carregar
+        window.addEventListener('load', () => {
+            console.log('Page loaded, initializing RatingSystem...');
+            new RatingSystem();
+            console.log('RatingSystem initialized');
+        });
+    </script>
+</body>
+</html>

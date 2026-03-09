@@ -1,0 +1,289 @@
+/* ====================================== */
+/* BASE.CSS - Reset e Estilos Globais   */
+/* ====================================== */
+
+/* Variáveis CSS Globais */
+:root {
+    /* Paleta educacional moderna - Cores do Sumário */
+    --primary: #2563EB;        /* Azul educacional */
+    --primary-dark: #1D4ED8;   /* Azul mais escuro */
+    --primary-light: #DBEAFE;  /* Azul muito claro */
+    --secondary: #7C3AED;      /* Roxo complementar */
+    --success: #22C55E;        /* Verde sucesso */
+    --success-dark: #16A34A;   /* Verde escuro */
+    --warning: #F59E0B;        /* Amarelo warning */
+    --danger: #EF4444;         /* Vermelho danger */
+
+    /* Backgrounds */
+    --bg-primary: #FFFFFF;     /* Branco puro */
+    --bg-secondary: #F8FAFC;   /* Cinza muito claro */
+    --bg-tertiary: #F1F5F9;    /* Cinza claro */
+    --bg-accent: #E2E8F0;      /* Cinza médio */
+
+    /* Textos */
+    --text-primary: #0563fc;   /* Cinza escuro */
+    --text-secondary: #526947; /* Cinza médio */
+    --text-tertiary: #64748B;  /* Cinza claro */
+    --text-muted: #94A3B8;     /* Cinza muito claro */
+
+    /* Bordas e sombras */
+    --border-color: #E2E8F0;
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Espaçamento */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    
+    /* Transições */
+    --transition: all 0.3s ease;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+/* Body */
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tipografia Padrão */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+/* Imagens */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tabelas */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    text-align: left;
+}
+
+th {
+    background-color: var(--bg-tertiary);
+    font-weight: 600;
+}
+
+/* Inputs e Forms */
+input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Botões Base */
+button {
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 4px;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Lists */
+ul, ol {
+    margin-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+li {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Code */
+code, pre {
+    background-color: #f4f4f4;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+code {
+    padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+pre {
+    padding: var(--spacing-md);
+    overflow-x: auto;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Blockquote */
+blockquote {
+    border-left: 4px solid var(--primary);
+    padding-left: var(--spacing-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+}
+
+/* HR */
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Scrollbar Custom */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.25rem;
+    }
+    
+    h3 {
+        font-size: 1rem;
+    }
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus Visible para keyboard navigation */
+*:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}

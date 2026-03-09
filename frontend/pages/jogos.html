@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jogos educativos para aprender lógica de programação e algoritmos">
+    <title>Jogos - Plataforma Interativa de Jogos Digitais</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/games.css">
+</head>
+<body>
+    <!-- HEADER/NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <h1 class="logo">🎮 Plataforma Interativa de Jogos Digitais</h1>
+                <p class="tagline">Aprenda a Desenvolver Jogos Digitais</p>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="../sumário/sumário.html" class="nav-link">Sumário</a>
+                <a href="jogos.html" class="nav-link active">Jogos</a>
+                <a href="quiz.html" class="nav-link">Quizzes</a>
+                <a href="progress.html" class="nav-link">Progresso</a>
+            </nav>
+
+            <a href="perfil.html" class="user-profile-link">
+                <img src="../images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+                <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
+            </a>
+
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- BREADCRUMB -->
+        <div class="breadcrumb">
+            <a href="index.html">Início</a> / <span>Jogos</span>
+        </div>
+
+        <!-- SECTION: Header -->
+        <section class="section-header">
+            <h1>🎮 Jogos para Aprender Lógica e Algoritmos</h1>
+            <p>Aprenda conceitos fundamentais da programação jogando. Estes jogos ajudam a desenvolver raciocínio lógico, pensamento computacional e resolução de problemas.</p>
+        </section>
+
+        <!-- SECTION: Games Grid -->
+        <section class="games-section">
+            <h2 class="section-title">Escolha um Jogo</h2>
+            
+            <div class="games-container">
+                <!-- CARD 1: Jogo de Lógica -->
+                <article class="game-card">
+                    <div class="game-image">
+                        <img src="../images/jogodelogica.jpg" alt="Jogo de Lógica - resolva puzzles" loading="lazy">
+                    </div>
+                    <div class="game-content">
+                        <h3>Jogo de Lógica</h3>
+                        <p class="game-description">
+                            Desafie sua capacidade de raciocínio com este jogo de lógica interativo. Resolva puzzles progressivamente mais complexos e teste seus limites de pensamento computacional!
+                        </p>
+                        <div class="game-meta">
+                            <span class="difficulty easy">Fácil</span>
+                            <span class="duration">variável</span>
+                        </div>
+                        <button class="btn-play" onclick="loadGame('logica')">🎮 Jogar Agora</button>
+                    </div>
+                </article>
+
+                <!-- CARD 2: Jogo de Algoritmo -->
+                <article class="game-card">
+                    <div class="game-image">
+                        <img src="../images/algoritmo-game.gif" alt="Jogo de Algoritmo - organize passos" loading="lazy">
+                    </div>
+                    <div class="game-content">
+                        <h3>Jogo de Algoritmo</h3>
+                        <p class="game-description">
+                            Aprenda como funcionam os algoritmos organizando passos corretos para resolver problemas.
+                        </p>
+                        <div class="game-meta">
+                            <span class="difficulty medium">Médio</span>
+                            <span class="duration">10-15 min</span>
+                        </div>
+                        <a href="#jogo-algoritmo" class="btn-play">🎮 Jogar</a>
+                    </div>
+                </article>
+
+                <!-- CARD 3: Jogo de Estrutura de Dados -->
+                <article class="game-card">
+                    <div class="game-image">
+                        <img src="../images/estrutura-game.gif" alt="Jogo de Estrutura de Dados" loading="lazy">
+                    </div>
+                    <div class="game-content">
+                        <h3>Estrutura de Dados</h3>
+                        <p class="game-description">
+                            Explore arrays, listas e outras estruturas de dados de forma interativa e divertida.
+                        </p>
+                        <div class="game-meta">
+                            <span class="difficulty hard">Difícil</span>
+                            <span class="duration">15-20 min</span>
+                        </div>
+                        <a href="#jogo-estrutura" class="btn-play">🎮 Jogar</a>
+                    </div>
+                </article>
+
+                <!-- CARD 4: Jogo de Condicionais -->
+                <article class="game-card">
+                    <div class="game-image">
+                        <img src="../images/condicionais-game.gif" alt="Jogo de Condicionais" loading="lazy">
+                    </div>
+                    <div class="game-content">
+                        <h3>Condicionais e Loops</h3>
+                        <p class="game-description">
+                            Domine as estruturas de controle (if, else, while, for) com desafios práticos e interativos.
+                        </p>
+                        <div class="game-meta">
+                            <span class="difficulty medium">Médio</span>
+                            <span class="duration">10-15 min</span>
+                        </div>
+                        <a href="#jogo-condicionais" class="btn-play">🎮 Jogar</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECTION: Play Game in Platform -->
+        <section class="play-section">
+            <h2 class="section-title">🕹️ Jogar na Plataforma</h2>
+            <p class="section-description">
+                Nesta área você pode jogar diretamente dentro da plataforma. Os jogos são carregados em tempo real e podem ser criados em Construct 3, Unity WebGL, ou HTML5.
+            </p>
+
+            <!-- Game Frame -->
+            <div class="game-frame-wrapper">
+                <div class="game-frame" id="game-frame-container">
+                    <div class="frame-placeholder">
+                        <p>🎮 Selecione um jogo acima para jogá-lo aqui</p>
+                        <p class="placeholder-hint">Ou insira a URL do seu jogo nos links acima</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="play-instructions">
+                <h3>Como Jogar:</h3>
+                <ul>
+                    <li><strong>Clique em "Jogar"</strong> no card do jogo desejado</li>
+                    <li><strong>O jogo carregará</strong> na área acima</li>
+                    <li><strong>Divirta-se</strong> aprendendo programação!</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION: Progress Overview -->
+        <section class="progress-overview">
+            <h2 class="section-title">📊 Seu Progresso</h2>
+            
+            <div class="progress-grid">
+                <div class="progress-card">
+                    <div class="progress-icon">🎮</div>
+                    <div class="progress-info">
+                        <h3>Jogos Completados</h3>
+                        <p class="progress-value">2/4</p>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-icon">⭐</div>
+                    <div class="progress-info">
+                        <h3>Pontuação Total</h3>
+                        <p class="progress-value">250 pts</p>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-icon">🏆</div>
+                    <div class="progress-info">
+                        <h3>Nível Atual</h3>
+                        <p class="progress-value">Intermediário</p>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-icon">⏱️</div>
+                    <div class="progress-info">
+                        <h3>Tempo Total</h3>
+                        <p class="progress-value">2h 30min</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Plataforma Interativa de Jogos Digitais. Desenvolvido para educadores e aprendizes.</p>
+            <p>Feito com ❤️ para o aprendizado de desenvolvimento de jogos</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="../js/app.js"></script>
+    <script src="../js/games.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+﻿{
+  "chapters": [
+    {
+      "id": "cap-1",
+      "number": "1",
+      "title": "Introdução ao Desenvolvimento de Jogos",
+      "description": "Aprenda os conceitos básicos e fundamentos do desenvolvimento de jogos digitais",
+      "color": "#2563EB",
+      "lessons": [
+        {
+          "id": "aula-1-1",
+          "number": "1",
+          "title": "Conhecendo a Interface do Desenvolvimento de Jogos",
+          "duration": "15 minutos",
+          "difficulty": "Iniciante",
+          "content": "<h3>O que são Jogos Digitais?</h3><p>Jogos digitais são aplicações interativas que combinam elementos visuais, áudio e lógica para criar experiências imersivas. Eles podem ser desenvolvidos para diversas plataformas como computadores, consoles, dispositivos móveis e navegadores web.</p><h3>Elementos Básicos de um Jogo</h3><ul><li><strong>Gráficos:</strong> Sprites, animações e efeitos visuais</li><li><strong>Áudio:</strong> Música de fundo, efeitos sonoros e voz</li><li><strong>Lógica:</strong> Regras do jogo, eventos e comportamentos</li><li><strong>Interface:</strong> Menus, HUD e controles do jogador</li><li><strong>Progressão:</strong> Sistema de níveis, pontuação e conquistas</li></ul><div class=\"lesson-note\"><strong>💡 Dica:</strong> Todo jogo bem-sucedido tem uma jogabilidade clara e intuitiva. Foque primeiro na experiência do jogador!</div><h3>Tipos de Jogos</h3><p>Existem diversos gêneros de jogos digitais:</p><ul><li><strong>Plataforma:</strong> Jogos como Mario, onde o personagem pula entre plataformas</li><li><strong>RPG:</strong> Jogos de interpretação com histórias complexas</li><li><strong>Estratégia:</strong> Jogos que envolvem planejamento e tomada de decisões</li><li><strong>Puzzle:</strong> Jogos que desafiam a lógica e resolução de problemas</li><li><strong>Ação:</strong> Jogos com foco em reflexos e velocidade</li></ul><div class=\"lesson-warning\"><strong>⚠️ Importante:</strong> Independentemente do gênero, todos os jogos seguem princípios fundamentais de design e desenvolvimento.</div>",
+          "exercises": [
+            {
+              "id": "ex-1-1-1",
+              "question": "Qual é o principal elemento que define a jogabilidade de um jogo?",
+              "options": [
+                "Gráficos bonitos",
+                "Música de fundo",
+                "Regras e mecânicas do jogo",
+                "Interface do usuário"
+              ],
+              "correctAnswer": 2,
+              "explanation": "A jogabilidade é definida pelas regras, mecânicas e interações que tornam o jogo divertido e envolvente. Os outros elementos são importantes, mas secundários!"
+            },
+            {
+              "id": "ex-1-1-2",
+              "question": "Qual dos seguintes é considerado um gênero clássico de jogos digitais?",
+              "options": [
+                "Documentário",
+                "Plataforma",
+                "Notícias",
+                "Receita culinária"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Plataforma é um gênero clássico de jogos onde o jogador controla um personagem que pula entre plataformas, evitando obstáculos e inimigos."
+            }
+          ]
+        },
+        {
+          "id": "aula-1-2",
+          "number": "2",
+          "title": "Configuração do Ambiente de Desenvolvimento",
+          "duration": "15 minutos",
+          "difficulty": "Iniciante",
+          "content": "<h3>Ferramentas Essenciais</h3><p>Para desenvolver jogos digitais, você precisa de algumas ferramentas básicas:</p><ol><li><strong>Editor de Código:</strong> VS Code, Sublime Text ou qualquer editor que preferir</li><li><strong>Motor de Jogos:</strong> Desenvolvimento de Jogos, Unity, Godot ou GameMaker</li><li><strong>Software de Design:</strong> GIMP, Photoshop ou Aseprite para criar gráficos</li><li><strong>Editor de Áudio:</strong> Audacity para criar efeitos sonoros</li><li><strong>Controle de Versão:</strong> Git para versionar seu código</li></ol><h3>Organizando Seu Projeto</h3><p>Uma boa organização é fundamental para projetos de jogos:</p><ul><li><strong>Pastas claras:</strong> sprites/, audio/, scripts/, levels/</li><li><strong>Nomenclatura consistente:</strong> player_idle.png, enemy_walk.png</li><li><strong>Documentação:</strong> README.md com instruções do projeto</li><li><strong>Backup regular:</strong> Use Git ou serviços de nuvem</li></ul><div class=\"lesson-note\"><strong>💡 Dica:</strong> Comece pequeno! Crie protótipos simples antes de projetos complexos.</div><h3>Aprendendo com Exemplos</h3><p>A melhor forma de aprender é analisando jogos existentes:</p><ul><li>Jogue jogos similares ao que você quer criar</li><li>Observe mecânicas, controles e interface</li><li>Desconstrua jogos em elementos básicos</li><li>Experimente modificar jogos open-source</li></ul><h3>Comunidade e Recursos</h3><p>Não desenvolva sozinho! A comunidade de desenvolvimento de jogos é muito ativa:</p><ul><li><strong>Fóruns:</strong> Reddit r/gamedev, Stack Overflow</li><li><strong>Tutoriais:</strong> YouTube, Udemy, freeCodeCamp</li><li><strong>Assets gratuitos:</strong> OpenGameArt, Kenney.nl</li><li><strong>Engines gratuitas:</strong> Godot, Unity (versão gratuita)</li></ul><div class=\"lesson-warning\"><strong>⚠️ Lembrete:</strong> Comece com ferramentas gratuitas e open-source para aprender os fundamentos.</div>",
+          "exercises": [
+            {
+              "id": "ex-1-2-1",
+              "question": "Como você adiciona um sprite ao layout do Desenvolvimento de Jogos?",
+              "options": [
+                "Menu File -> Import Sprite",
+                "Insert New Object -> Sprite, depois clicar no layout",
+                "Arrastar da Asset Library direto para o layout",
+                "Ambas as opções B e C são válidas"
+              ],
+              "correctAnswer": 3,
+              "explanation": "Tanto o método de 'Insert New Object' quanto arrastar da Asset Library funcionam para adicionar sprites ao seu layout!"
+            },
+            {
+              "id": "ex-1-2-2",
+              "question": "Qual tecla você pressiona para testar/executar seu projeto no Desenvolvimento de Jogos?",
+              "options": [
+                "F1",
+                "F5",
+                "F10",
+                "Ctrl+Enter"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Pressione F5 para executar seu projeto e testá-lo em tempo real. Isso abre uma janela do navegador com seu jogo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cap-2",
+      "number": "2",
+      "title": "Eventos e Lógica do Jogo",
+      "description": "Domine o sistema de eventos para controlar comportamentos e interações",
+      "color": "#4ECDC4",
+      "lessons": [
+        {
+          "id": "aula-2-1",
+          "number": "1",
+          "title": "Entendendo Eventos e Ações",
+          "duration": "20 minutos",
+          "difficulty": "Intermediário",
+          "content": "<h3>O que são Eventos?</h3><p>Eventos são 'se isto acontecer, faça aquilo'. Por exemplo: \"Se a tecla de seta direita for pressionada, mova o sprite para a direita\".</p><p>A estrutura é: <strong>Evento</strong> → <strong>Condição</strong> → <strong>Ação</strong></p><h3>Tipos de Eventos Comuns</h3><ul><li><strong>System:</strong> Eventos do sistema como \"Start of Layout\", \"Every Tick\"</li><li><strong>Keyboard:</strong> Detecção de teclado (teclas pressionadas)</li><li><strong>Mouse:</strong> Eventos de mouse (clique, movimento)</li><li><strong>Object:</strong> Eventos específicos de objetos (colisão, fora da tela)</li><li><strong>Trigger:</strong> Eventos que acontecem uma vez quando acionados</li></ul><h3>Estrutura de um Evento</h3><p>Um evento no Desenvolvimento de Jogos segue esta estrutura:</p><ol><li><strong>Seleção do Objeto:</strong> Qual objeto será afetado?</li><li><strong>Condição:</strong> Quando isso deve acontecer?</li><li><strong>Ação:</strong> O que fazer quando a condição for atendida?</li></ol><div class=\"lesson-note\"><strong>💡 Dica:</strong> Você pode adicionar múltiplas ações a um evento. Elas ocorrerão em sequência quando a condição for atendida.</div><h3>Exemplo Prático: Controles de Movimento</h3><p><strong>Para mover um sprite para a direita quando a seta direita é pressionada:</strong></p><ol><li>Add Event > Keyboard > On \"Right\" key pressed</li><li>Selecione seu sprite</li><li>Add Action > Sprite > Move > Right</li><li>Configure a velocidade (pixels por segundo)</li></ol><div class=\"lesson-warning\"><strong>⚠️ Importante:</strong> Cuidado com eventos que se disparam a cada frame (Every Tick). Eles podem causar comportamentos inesperados!</div>",
+          "exercises": [
+            {
+              "id": "ex-2-1-1",
+              "question": "Qual é a estrutura básica de um evento no Desenvolvimento de Jogos?",
+              "options": [
+                "Ação → Condição → Seleção do Objeto",
+                "Seleção do Objeto → Condição → Ação",
+                "Condição → Ação → Seleção do Objeto",
+                "Seleção do Objeto → Ação → Condição"
+              ],
+              "correctAnswer": 1,
+              "explanation": "A ordem correta é: primeiro você seleciona qual objeto será afetado, depois define a condição (quando), e por fim a ação (o que fazer)."
+            },
+            {
+              "id": "ex-2-1-2",
+              "question": "Qual tipo de evento deve ser usado para detectar quando uma tecla é pressionada?",
+              "options": [
+                "System Event",
+                "Keyboard Event",
+                "Mouse Event",
+                "Collision Event"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Use 'Keyboard Event' para detectar teclas pressionadas. Cada tecla tem um evento correspondente."
+            }
+          ]
+        },
+        {
+          "id": "aula-2-2",
+          "number": "2",
+          "title": "Variáveis e Pontuação",
+          "duration": "25 minutos",
+          "difficulty": "Intermediário",
+          "content": "<h3>O que são Variáveis?</h3><p>Variáveis são recipientes que armazenam dados. Elas podem guardar números, texto ou outros tipos de informação que seu jogo precisa rastrear, como pontuação, vidas ou nível.</p><h3>Tipos de Variáveis</h3><ul><li><strong>Variáveis Globais:</strong> Acessíveis em todo o jogo, em qualquer evento sheet</li><li><strong>Variáveis de Objeto:</strong> Específicas de um objeto individual</li><li><strong>Variáveis de Layout:</strong> Acessíveis apenas no layout específico</li><li><strong>Variáveis Locais:</strong> Existem apenas durante a execução de um função</li></ul><h3>Como Criar Variáveis Globais</h3><ol><li>Clique no menu \"Project\" → \"Global Variables\"</li><li>Clique em \"Add Variable\"</li><li>Dê um nome (exemplo: \"Score\")</li><li>Escolha o tipo (Number, Text, Boolean)</li><li>Defina o valor inicial</li></ol><div class=\"lesson-note\"><strong>💡 Dica:</strong> Use nomes descritivos para variáveis! \"playerScore\" é melhor que \"s1\".</div><h3>Como Criar Variáveis de Objeto</h3><ol><li>Clique com botão direito no objeto</li><li>Selecione \"Add Variable\"</li><li>Configure da mesma forma que variáveis globais</li></ol><h3>Aumentando a Pontuação</h3><p>Para aumentar a pontuação quando algo acontece (por exemplo, coletar uma moeda):</p><ol><li>Create an event for \"Coin On Collision with Player\"</li><li>Add Action → System → Add to \"Score\"</li><li>Defina a quantidade a adicionar (exemplo: 10 pontos)</li></ol><h3>Exibindo a Pontuação</h3><p>Para exibir a pontuação na tela:</p><ol><li>Insira um objeto \"Text\"</li><li>No Event Sheet: \"System On Start of Layout\"</li><li>Add Action → Text → Set Text → \"Score: \" & global('Score')\"</li></ol><div class=\"lesson-warning\"><strong>⚠️ Cuidado:</strong> Use \"Set\" para atribuir um novo valor e \"Add\" para incrementar o valor existente!</div>",
+          "exercises": [
+            {
+              "id": "ex-2-2-1",
+              "question": "Qual é a diferença entre uma variável global e uma variável de objeto?",
+              "options": [
+                "Não há diferença, são a mesma coisa",
+                "Variáveis globais são acessíveis em todo o jogo, variáveis de objeto são específicas de um objeto",
+                "Variáveis globais são mais lentas que variáveis de objeto",
+                "Variáveis de objeto podem armazenar mais dados"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Variáveis globais podem ser acessadas e modificadas em qualquer lugar do seu jogo, enquanto variáveis de objeto pertencem a um objeto específico."
+            },
+            {
+              "id": "ex-2-2-2",
+              "question": "Qual ação você usa para aumentar (não definir) uma variável de 10 pontos?",
+              "options": [
+                "Set Variable = 10",
+                "Add Variable 10",
+                "Increment Variable 10",
+                "Both B and C"
+              ],
+              "correctAnswer": 3,
+              "explanation": "Tanto 'Add' quanto 'Increment' funcionam para aumentar uma variável. 'Add' adiciona um valor, e 'Increment' aumenta em 1 (ou a quantidade especificada)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cap-3",
+      "number": "3",
+      "title": "Física e Comportamentos Avançados",
+      "description": "Implemente física realista e comportamentos complexos para jogos profissionais",
+      "color": "#95E1D3",
+      "lessons": [
+        {
+          "id": "aula-3-1",
+          "number": "1",
+          "title": "Comportamentos e Física",
+          "duration": "25 minutos",
+          "difficulty": "Avançado",
+          "content": "<h3>O que são Comportamentos?</h3><p>Comportamentos (Behaviors) são componentes pré-programados que você pode adicionar a objetos para dar-lhes comportamentos específicos automaticamente. Em vez de criar lógica do zero, você adiciona um comportamento que já faz o trabalho.</p><h3>Comportamentos Nativos do Desenvolvimento de Jogos</h3><ul><li><strong>Platform:</strong> Cria um personagem que pode pular e andar em plataformas</li><li><strong>Bullet:</strong> Faz um objeto se mover continuamente em uma direção</li><li><strong>Physics:</strong> Adiciona realismo com gravidade, fricção e colisões</li><li><strong>Scroll To:</strong> Mantém o objeto centralizado na câmera</li><li><strong>Fade:</strong> Anima a opacidade (desaparece ou aparece gradualmente)</li><li><strong>Sine:</strong> Movimento ondulatório (para floating)</li></ul><h3>Como Adicionar um Comportamento</h3><ol><li>Clique no seu objeto no layout</li><li>Vá para o painel \"Behaviors\"</li><li>Clique em \"+\" para adicionar um novo comportamento</li><li>Escolha o comportamento desejado</li><li>Configure as propriedades no painel de propriedades</li></ol><div class=\"lesson-note\"><strong>💡 Dica:</strong> O comportamento \"Platform\" é perfeito para criar jogos estilo plataforma clássico!</div><h3>Comportamento Physics</h3><p>O comportamento Physics é muito poderoso. Ele permite:</p><ul><li>Simular gravidade realista</li><li>Colisões realistas entre objetos</li><li>Aplicar força e impulso</li><li>Criar pêndulos e trajetórias</li><li>Rotação dinâmica</li></ul><h3>Configurando Physics</h3><p>Propriedades principais do Physics:</p><ul><li><strong>Density:</strong> Quão pesado é o objeto (afeta colisões)</li><li><strong>Friction:</strong> Resistência ao movimento</li><li><strong>Elasticity:</strong> Quão bem o objeto rebota</li><li><strong>Linear Damping:</strong> Resistência ao movimento linear</li><li><strong>Angular Damping:</strong> Resistência à rotação</li></ul><div class=\"lesson-warning\"><strong>⚠️ Importante:</strong> Physics é exigente em relação ao desempenho. Use com moderação em dispositivos móveis!</div>",
+          "exercises": [
+            {
+              "id": "ex-3-1-1",
+              "question": "Qual comportamento você deve usar para criar um personagem que pula e anda em plataformas?",
+              "options": [
+                "Physics",
+                "Bullet",
+                "Platform",
+                "Sine"
+              ],
+              "correctAnswer": 2,
+              "explanation": "O comportamento 'Platform' foi especificamente projetado para criar mecânicas de pulo e caminhada em plataformas, como em Super Mario!"
+            },
+            {
+              "id": "ex-3-1-2",
+              "question": "Qual é a principal diferença entre os comportamentos 'Bullet' e 'Physics'?",
+              "options": [
+                "Bullet tem gravidade, Physics não",
+                "Physics simula realismo e colisões, Bullet apenas move em linha reta",
+                "São exatamente iguais",
+                "Physics é para 2D, Bullet é para 3D"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Physics simula gravidade, densidade, fricção e colisões realistas, enquanto Bullet simplesmente move um objeto continuamente em uma direção."
+            }
+          ]
+        },
+        {
+          "id": "aula-3-2",
+          "number": "2",
+          "title": "Animações e Efeitos Visuais",
+          "duration": "30 minutos",
+          "difficulty": "Avançado",
+          "content": "<h3>Animações em Desenvolvimento de Jogos</h3><p>Animações trazem vida aos seus objetos. No Desenvolvimento de Jogos, você cria animações editando os \"frames\" - imagens individuais que quando exibidas rapidamente criam a ilusão de movimento.</p><h3>O Animation Editor</h3><p>Para acessar o editor de animações:</p><ol><li>Clique no seu sprite no layout</li><li>Vá para a aba \"Animation\" no painel esquerdo</li><li>Aqui você vê todos os frames da animação atual</li><li>Você pode adicionar, remover ou reordenar frames</li></ol><h3>Criando uma Animação</h3><ol><li>Selecione seu sprite</li><li>Clique no botão \"+\" para criar uma nova animação</li><li>Dê um nome (exemplo: \"Walk\", \"Jump\", \"Attack\")</li><li>Importar ou desenhar os frames para essa animação</li><li>Configure a velocidade (quantos frames por segundo)</li><li>Escolha se vai repetir ou não</li></ol><div class=\"lesson-note\"><strong>💡 Dica:</strong> Mantenha as animações consistentes! Se uma animação tem 8 frames, as outras devem ter quantidade similar para parecer natural.</div><h3>Controlando Animações com Eventos</h3><p>Para trocar de animação baseado em eventos:</p><ol><li>Create an event (por exemplo: \"Keyboard - On 'Right' key down\")</li><li>Add Action → Sprite → Set Animation to \"Walk\"</li></ol><h3>Efeitos Visuais</h3><p>Desenvolvimento de Jogos tem vários efeitos visuais embutidos:</p><ul><li><strong>Blend modes:</strong> Como o objeto é renderizado (Normal, Add, Multiply, Screen)</li><li><strong>Opacity/Alpha:</strong> Transparência do objeto</li><li><strong>Tint:</strong> Colorir o objeto</li><li><strong>Color grading:</strong> Ajustar cores como brilho e saturação</li></ul><h3>Usando Efeitos em Eventos</h3><p>Para aplicar um efeito:</p><ol><li>Add Action → Sprite → Set Opacity to 50 (para 50% transparente)</li><li>Add Action → Sprite → Set Color → vermelha (para tingir de vermelho)</li></ol><h3>Partículas</h3><p>Para criar efeitos como explosões ou chuva:</p><ol><li>Insert New Object → Particles</li><li>Configure o tipo de partícula (qual imagem usar)</li><li>No evento apropriado, dispare as partículas com \"Spawn particles\"</li></ol><div class=\"lesson-warning\"><strong>⚠️ Performance:</strong> Muitos efeitos ao mesmo tempo podem diminuir o desempenho. Use com cuidado!</div>",
+          "exercises": [
+            {
+              "id": "ex-3-2-1",
+              "question": "Onde você vai para editar os frames de uma animação de sprite?",
+              "options": [
+                "Event Sheet",
+                "Layout Editor",
+                "Animation Editor (aba Animation)",
+                "Properties Panel"
+              ],
+              "correctAnswer": 2,
+              "explanation": "O Animation Editor fica na aba 'Animation' do painel esquerdo quando você seleciona um sprite. Lá você gerencia todos os frames da animação."
+            },
+            {
+              "id": "ex-3-2-2",
+              "question": "Qual é uma forma comum de trocar a animação de um sprite baseado em input do jogador?",
+              "options": [
+                "Usar 'Set Opacity'",
+                "Usar 'Set Animation to [name]' em um evento de teclado",
+                "Usar 'Set Blend Mode'",
+                "Nenhuma das acima"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Use a ação 'Set Animation' em eventos para mudar qual animação está sendo exibida. Por exemplo, quando o jogador pressiona uma tecla, você muda para uma animação diferente."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

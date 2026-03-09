@@ -1,0 +1,456 @@
+/* ===============================
+GAMES PAGE STYLES
+=============================== */
+
+/* ===============================
+GAMES SECTION
+=============================== */
+
+.games-section {
+    margin: 60px 0;
+    padding: 40px 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.section-description {
+    font-size: 1.125rem;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===============================
+GAMES CONTAINER & CARDS
+=============================== */
+
+.games-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.game-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    border-color: #3b82f6;
+}
+
+/* ===============================
+GAME CARD IMAGE
+=============================== */
+
+.game-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-image img {
+    transform: scale(1.05);
+}
+
+/* ===============================
+GAME CARD CONTENT
+=============================== */
+
+.game-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.game-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.game-description {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+/* ===============================
+GAME METADATA
+=============================== */
+
+.game-meta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.difficulty {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.difficulty.easy {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.difficulty.medium {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.difficulty.hard {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.duration {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    margin-left: auto;
+}
+
+/* ===============================
+PLAY BUTTON
+=============================== */
+
+.btn-play {
+    display: inline-block;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-play:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+.btn-play:active {
+    transform: translateY(0);
+}
+
+/* ===============================
+PLAY SECTION (IFRAME)
+=============================== */
+
+.play-section {
+    background: #f8fafc;
+    padding: 50px 40px;
+    border-radius: 16px;
+    margin: 60px 0;
+}
+
+.game-frame-wrapper {
+    margin: 40px 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.game-frame {
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%;
+    position: relative;
+    background: #ffffff;
+}
+
+.game-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+}
+
+.frame-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: #64748b;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.placeholder-hint {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-top: 12px;
+}
+
+/* ===============================
+PLAY INSTRUCTIONS
+=============================== */
+
+.play-instructions {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    border-left: 4px solid #3b82f6;
+    margin-top: 30px;
+}
+
+.play-instructions h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.play-instructions ul {
+    list-style: none;
+    padding: 0;
+}
+
+.play-instructions li {
+    padding: 8px 0;
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.play-instructions strong {
+    color: #1e3b20;
+    font-weight: 600;
+}
+
+/* ===============================
+PROGRESS OVERVIEW
+=============================== */
+
+.progress-overview {
+    margin: 60px 0;
+}
+
+.progress-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.progress-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.progress-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.progress-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.progress-info h3 {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.progress-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+/* ===============================
+RESPONSIVO
+=============================== */
+
+@media (max-width: 1024px) {
+    .games-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .games-container {
+        grid-template-columns: 1fr;
+    }
+
+    .play-section {
+        padding: 30px 20px;
+    }
+
+    .game-frame {
+        padding-bottom: 100%;
+    }
+
+    .progress-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .game-content {
+        padding: 16px;
+    }
+
+    .game-content h3 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .games-container {
+        gap: 16px;
+    }
+
+    .play-section {
+        padding: 20px 16px;
+        margin: 40px 0;
+    }
+
+    .game-frame {
+        padding-bottom: 120%;
+    }
+
+    .progress-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .game-image {
+        height: 150px;
+    }
+
+    .game-content {
+        padding: 16px;
+    }
+
+    .game-description {
+        font-size: 0.9rem;
+    }
+
+    .btn-play {
+        width: 100%;
+    }
+}
+
+/* ===============================
+ANIMAÇÕES
+=============================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.progress-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ===============================
+ACESSIBILIDADE
+=============================== */
+
+.btn-play:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.game-card:focus-within {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
