@@ -5,10 +5,10 @@
 /* Variáveis CSS Globais */
 :root {
     /* Paleta educacional moderna - Cores do Sumário */
-    --primary: #2563EB;        /* Azul educacional */
-    --primary-dark: #1D4ED8;   /* Azul mais escuro */
-    --primary-light: #DBEAFE;  /* Azul muito claro */
-    --secondary: #7C3AED;      /* Roxo complementar */
+    --primary: #e5ebff;        /* Azul ainda mais suave para leitura */
+    --primary-dark: #eff2ff;   /* Azul médio */
+    --primary-light: #F3F7FF;  /* Azul muito claro */
+    --secondary: #F3F7FF;      /* Verde ainda mais suave */
     --success: #22C55E;        /* Verde sucesso */
     --success-dark: #16A34A;   /* Verde escuro */
     --warning: #F59E0B;        /* Amarelo warning */
@@ -66,7 +66,7 @@ html {
 /* Body */
 body {
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
-    background-color: var(--bg-secondary);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-secondary) 100%);
     color: var(--text-primary);
     line-height: 1.6;
     font-weight: 400;

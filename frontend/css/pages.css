@@ -5,7 +5,7 @@
 /* ===== INDEX/DASHBOARD ===== */
 .section-welcome {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    color: white;
+    color: #000000;
     padding: var(--spacing-xl);
     border-radius: 8px;
     margin-bottom: var(--spacing-2xl);
@@ -13,13 +13,13 @@
 }
 
 .welcome-content h2 {
-    color: white;
+    color: #000000;
     font-size: 2.2rem;
     margin-bottom: var(--spacing-md);
 }
 
 .welcome-content p {
-    color: rgba(255, 255, 255, 0.9);
+    color: #333333;
     font-size: 1.05rem;
 }
 
