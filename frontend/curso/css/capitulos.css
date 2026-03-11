@@ -443,14 +443,16 @@ body {
 }
 
 .credit-link {
-    color: var(--primary);
+    color: #0066cc !important;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
     text-decoration: none;
     font-weight: var(--font-weight-medium);
     transition: color 0.2s ease;
 }
 
 .credit-link:hover {
-    color: var(--primary-dark);
+    color: #0052a3 !important;
     text-decoration: underline;
 }
 
@@ -475,6 +477,10 @@ body {
     padding: var(--space-lg);
     box-shadow: var(--shadow-md);
     overflow: hidden;
+    /* Layout responsivo para os itens */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
     /* Perspectiva para efeito 3D */
     perspective: 1000px;
 }
@@ -552,6 +558,42 @@ body {
     will-change: transform, filter;
     /* Permitir rotação 3D */
     transform-style: preserve-3d;
+}
+
+/* Item da galeria com título e crédito */
+.flow-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flow-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Título da imagem */
+.flow-title {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    margin: 0;
+    text-align: center;
+}
+
+/* Crédito da imagem */
+.flow-credit {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    margin: 0;
+    text-align: center;
+    font-style: italic;
 }
 
 /* Efeito 3D suave ao hover na imagem */
