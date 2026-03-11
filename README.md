@@ -4,6 +4,7 @@
 
 Construtor visual interativo com interface profissional para ensino de Teoria dos Jogos e desenvolvimento prático de jogos digitais.
 
+link: trabalho-tcc-pi.vercel.app
 ---
 
 ## 📋 Conteúdo
