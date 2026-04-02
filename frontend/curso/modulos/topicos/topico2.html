@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogadores - Teoria dos Jogos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../css/topicos.css">
+</head>
+<body>
+    <!-- HEADER/NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <h1 class="logo">🎮 Plataforma Interativa de Jogos Digitais</h1>
+                <p class="tagline">Aprenda a Desenvolver Jogos Digitais</p>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="../../../../index.html" class="nav-link">Início</a>
+                <a href="../../../../frontend/sumário/sumário.html" class="nav-link">Sumário</a>
+                <a href="../../../../frontend/pages/jogos.html" class="nav-link">Jogos</a>
+                <a href="../../../../frontend/pages/quiz.html" class="nav-link">Quizzes</a>
+                <a href="../../../../frontend/pages/progress.html" class="nav-link">Progresso</a>
+            </nav>
+
+            <a href="../../../../frontend/pages/perfil.html" class="user-profile-link">
+                <img src="../../../../frontend/images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+                <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
+            </a>
+
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-title">Capítulo 1</div>
+            <ul class="sidebar-nav">
+                <li><a href="#quem" class="nav-link active">Quem são os Jogadores?</a></li>
+                <li><a href="#tipos" class="nav-link">Tipos de Jogadores</a></li>
+                <li><a href="#caracteristicas" class="nav-link">Características</a></li>
+                <li><a href="#exemplos" class="nav-link">Exemplos</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <header class="header">
+                <h1>Jogadores</h1>
+                <p>Quem participa do jogo e como se comportam</p>
+            </header>
+
+            <section class="section" id="quem">
+                <h2>Quem são os Jogadores?</h2>
+                <div class="paragraph">
+                    <p>Na Teoria dos Jogos, um <strong>"jogador"</strong> é qualquer agente que toma uma decisão que afeta o resultado do jogo e potencialmente o resultado de outros agentes.</p>
+                </div>
+                <div class="paragraph">
+                    <p>Jogadores podem ser:</p>
+                </div>
+                <div class="list-block">
+                    <ol class="ordered-list">
+                        <li>👤 Indivíduos (pessoas físicas)</li>
+                        <li>🏢 Organizações (empresas, governos)</li>
+                        <li>🤖 Entidades artificiais (programas, robôs)</li>
+                        <li>🌍 Coletivos (coalizões, grupos sociais)</li>
+                    </ol>
+                </div>
+
+                <div class="content-flex">
+                    <div class="content-text">
+                        <div class="heading-block">
+                            <h3>Aspecto-chave</h3>
+                        </div>
+                        <div class="paragraph">
+                            <p>O que torna alguém um "jogador" não é sua natureza, mas seu papel: <strong>tomar decisões estratégicas em um contexto onde essas decisões afetam outros</strong>.</p>
+                        </div>
+                        <div class="paragraph">
+                            <p>Um jogador em um contexto pode não ser em outro. Por exemplo, você é jogador em um jogo de xadrez, mas não em uma partida onde você apenas observa.</p>
+                        </div>
+                    </div>
+                    <div class="content-image">
+                        <div class="image-block">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23eef2ff' width='400' height='300'/%3E%3Cg%3E%3Ccircle cx='100' cy='80' r='30' fill='%236366f1'/%3E%3Ctext x='100' y='88' text-anchor='middle' font-size='16' fill='white' font-weight='bold'%3E👤%3C/text%3E%3Ccircle cx='200' cy='80' r='30' fill='%236366f1'/%3E%3Ctext x='200' y='88' text-anchor='middle' font-size='16' fill='white' font-weight='bold'%3E🏢%3C/text%3E%3Ccircle cx='300' cy='80' r='30' fill='%236366f1'/%3E%3Ctext x='300' y='88' text-anchor='middle' font-size='16' fill='white' font-weight='bold'%3E🤖%3C/text%3E%3Ctext x='200' y='180' text-anchor='middle' font-size='14' fill='%231f2937' font-weight='bold'%3ETodos são Jogadores%3C/text%3E%3Ctext x='200' y='210' text-anchor='middle' font-size='12' fill='%236b7280'%3Nnese tomam decisões estratégicas%3C/text%3E%3C/g%3E%3C/svg%3E" alt="Tipos de jogadores" />
+                            <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="tipos">
+                <h2>Tipos de Jogadores</h2>
+                <div class="paragraph">
+                    <p>Os jogadores podem ser classificados de várias formas:</p>
+                </div>
+
+                <div class="content-flex reverse">
+                    <div class="content-text">
+                        <div class="heading-block">
+                            <h3>Classificações</h3>
+                        </div>
+                        <div class="paragraph">
+                            <p><strong>Racionais:</strong> Maximizam seu ganho esperado</p>
+                        </div>
+                        <div class="paragraph">
+                            <p><strong>Irracionais:</strong> Tomam decisões inesperadas ou emocionais</p>
+                        </div>
+                        <div class="paragraph">
+                            <p><strong>Informados:</strong> Conhecem todas as informações relevantes</p>
+                        </div>
+                        <div class="paragraph">
+                            <p><strong>Desinformados:</strong> Têm informação incompleta</p>
+                        </div>
+                        <div class="paragraph">
+                            <p><strong>Cooperativos:</strong> Dispostos a colaborar com outros</p>
+                        </div>
+                        <div class="paragraph">
+                            <p><strong>Competitivos:</strong> Focados em vencer outros jogadores</p>
+                        </div>
+                    </div>
+                    <div class="content-image">
+                        <div class="image-block">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f0f4ff' width='400' height='300'/%3E%3Crect x='30' y='50' width='160' height='200' fill='none' stroke='%236366f1' stroke-width='2' rx='8'/%3E%3Crect x='210' y='50' width='160' height='200' fill='none' stroke='%236366f1' stroke-width='2' rx='8'/%3E%3Ctext x='110' y='90' text-anchor='middle' font-size='13' fill='%231f2937' font-weight='bold'%3ESeu Perfil%3C/text%3E%3Ctext x='110' y='130' text-anchor='middle' font-size='11' fill='%236b7280'%3ERacional?%3C/text%3E%3Ctext x='110' y='155' text-anchor='middle' font-size='11' fill='%236b7280'%3EInformado?%3C/text%3E%3Ctext x='110' y='180' text-anchor='middle' font-size='11' fill='%236b7280'%3ECooperativo?%3C/text%3E%3Ctext x='290' y='90' text-anchor='middle' font-size='13' fill='%231f2937' font-weight='bold'%3EAfeta sua%3C/text%3E%3Ctext x='290' y='107' text-anchor='middle' font-size='13' fill='%231f2937' font-weight='bold'%3EEstratégia%3C/text%3E%3C/g%3E%3C/svg%3E" alt="Características que definem tipo de jogador" />
+                            <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="caracteristicas">
+                <h2>Características Importantes</h2>
+                
+                <div class="interactive-section">
+                    <div class="heading-block">
+                        <h3>Suposições Fundamentais</h3>
+                    </div>
+                    <div class="list-block">
+                        <ol class="ordered-list">
+                            <li><strong>Racionalidade:</strong> Na maioria dos modelos, assume-se que jogadores são racionais e tentam maximizar seu ganho</li>
+                            <li><strong>Conhecimento:</strong> Jogadores conhecem as regras do jogo e as funções de pagamento (payoffs)</li>
+                            <li><strong>Expectativas:</strong> Cada jogador forma expectativas sobre o que outros farão</li>
+                            <li><strong>Reação:</strong> Cada jogador escolhe sua ação baseado em sua expectativa sobre os outros</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="paragraph">
+                    <p>Essas suposições nem sempre são verdadeiras na realidade, por isso a Teoria dos Jogos Comportamental estuda quando e por que as pessoas desviam desses pressupostos.</p>
+                </div>
+            </section>
+
+            <section class="section" id="exemplos">
+                <h2>Exemplos de Jogadores</h2>
+                <div class="list-block">
+                    <ol class="ordered-list">
+                        <li>🏆 <strong>Xadrez:</strong> Dois jogadores humanos ou o computador</li>
+                        <li>💼 <strong>Economia:</strong> Empresas compete por clientes e preços</li>
+                        <li>🤝 <strong>Negociação:</strong> Dois países negociando um tratado</li>
+                        <li>🏃 <strong>Corrida:</strong> Atletas competindo por medalhas</li>
+                        <li>🎓 <strong>Educação:</strong> Estudantes competindo por bolsas</li>
+                        <li>🌍 <strong>Política:</strong> Partidos competindo por votos</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- SLIDES E JOGO INTERATIVO -->
+            <section class="section">
+                <h2>Saiba Mais com Slides</h2>
+                <div class="iframe-block">
+                    <iframe src="https://slides-jogadores.gamma.site/" title="Slides Interativos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-credit">🎬 Slides: "Jogadores e Tomada de Decisão" | Créditos ao autor original</div>
+                <a href="https://slides-jogadores.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse os Slides</a>
+
+                <h3>Jogo Interativo</h3>
+                <div class="iframe-block">
+                    <iframe src="https://jogo-jogadores.gamma.site/" title="Jogo Interativo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-credit">🎮 Jogo: "Simulação de Estratégias de Jogadores" | Créditos ao autor original</div>
+                <a href="https://jogo-jogadores.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse o Jogo Interativo</a>
+            </section>
+
+            <!-- RATING -->
+            <div class="rating-section">
+                <div class="heading-block">
+                    <h3>Avalie este Tópico</h3>
+                </div>
+                <div class="paragraph">
+                    <p>Como foi sua experiência?</p>
+                </div>
+                <div class="star-rating" id="rating">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <div class="rating-feedback" id="feedback"></div>
+                <div class="next-topic-container" style="margin-top: 20px;">
+                    <button id="nextTopicButton" class="btn-primary" disabled style="padding: 12px 18px; border: none; border-radius: 8px; background-color: #6366f1; color: #fff; font-size: 1rem; cursor: not-allowed;">
+                        Próximo Tópico (avaliar primeiro)
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../../js/utils.js"></script>
+    <script src="../../../js/progress.js"></script>
+    <script src="../../js/topicos.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-menu-open');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedPic = localStorage.getItem('userProfilePic');
+            const profilePic = document.getElementById('profilePic');
+            if (savedPic && profilePic) {
+                profilePic.src = savedPic;
+            }
+
+            const userName = localStorage.getItem('userName') || 'Aprendiz';
+            const userNameElement = document.getElementById('userName');
+            if (userNameElement) {
+                userNameElement.textContent = userName;
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

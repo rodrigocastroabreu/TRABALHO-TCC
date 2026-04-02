@@ -1,920 +1,255 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="html-root">
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumário Completo - Plataforma Interativa de Jogos Digitais</title>
 
-<head class="head-section">
-   <meta charset="UTF-8" class="meta-charset">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" class="meta-viewport">
-   <title class="page-title">Sumário Completo - Plataforma Interativa de Jogos Digitais</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-   <!-- Google Fonts -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-   <!-- CSS Global -->
-   <link rel="stylesheet" href="../css/base.css" class="css-link">
-   <link rel="stylesheet" href="../css/layout.css" class="css-link">
-   <link rel="stylesheet" href="../css/navbar.css" class="css-link">
-   <link rel="stylesheet" href="../css/components.css" class="css-link">
-   <link rel="stylesheet" href="../css/pages.css" class="css-link">
-
-   <!-- CSS Específico para Página de Capítulos -->
-   <link rel="stylesheet" href="./sumário.css" class="css-link">
-   
-   <!-- CSS para Table of Contents 3D -->
-   <link rel="stylesheet" href="./toc.css" class="css-link">
-
+    <!-- CSS Modularizado -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="./sumário.css">
 </head>
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <h1 class="logo">🎮 Plataforma Interativa de Jogos Digitais</h1>
+                <p class="tagline">Aprenda a Desenvolver Jogos Digitais</p>
+            </div>
 
-<body class="body-content">
+            <nav class="nav-links">
+                <a href="../pages/index.html" class="nav-link">Início</a>
+                <a href="sumário.html" class="nav-link active">Sumário</a>
+                <a href="../curso/modulos/capitulos/capitulo.html" class="nav-link">Capítulos</a>
+                <a href="../pages/jogos.html" class="nav-link">Jogos</a>
+                <a href="../pages/quiz.html" class="nav-link">Quizzes</a>
+                <a href="../pages/progress.html" class="nav-link">Progresso</a>
+            </nav>
 
-   <!-- HEADER GLOBAL -->
-   <header class="navbar">
-      <div class="navbar-container">
-         <div class="logo-section">
-            <h1 class="logo">🎮 Plataforma Interativa de Jogos Digitais</h1>
-            <p class="tagline">Aprenda a Desenvolver Jogos Digitais</p>
-         </div>
-         
-         <nav class="nav-links">
-            <a href="../pages/index.html" class="nav-link">Início</a>
-            <a href="sumário.html" class="nav-link active">Sumário</a>
-            <a href="../pages/jogos.html" class="nav-link">Jogos</a>
-            <a href="../pages/quiz.html" class="nav-link">Quizzes</a>
-            <a href="../pages/progress.html" class="nav-link">Progresso</a>
-         </nav>
+            <a href="../pages/perfil.html" class="user-profile-link">
+                <img src="../images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+                <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
+            </a>
 
-         <a href="../pages/perfil.html" class="user-profile-link">
-            <img src="../images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
-            <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
-         </a>
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
 
-         <button class="hamburger" onclick="toggleMobileMenu()">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-         </button>
-      </div>
-   </header>
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="../pages/index.html" class="breadcrumb-link">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">Sumário Completo</span>
+    </div>
 
-   <!-- BREADCRUMB -->
-   <div class="breadcrumb breadcrumb-nav">
-      <a href="../pages/index.html" class="breadcrumb-link">Home</a>
-      <span class="breadcrumb-separator">/</span>
-      <span class="breadcrumb-current">Sumário Completo</span>
-   </div>
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Sumário Completo do Curso</h1>
+                <p class="hero-subtitle">
+                    Jornada completa de desenvolvimento de jogos: da teoria à prática, passando por lógica de programação e criação de jogos digitais
+                </p>
+            </div>
+        </section>
 
-   <!-- MAIN CONTENT -->
-   <main class="chapters-main">
+        <!-- MODULES SECTION -->
+        <section class="modules-section">
+            <div class="modules-header">
+                <h2 class="modules-title">Módulos de Aprendizagem</h2>
+                <p class="modules-subtitle">Jornada gamificada: cada módulo é uma fase do seu aprendizado em desenvolvimento de jogos</p>
+            </div>
 
-      <!-- HERO SECTION -->
-      <section class="chapters-hero">
-         <div class="container hero-content">
-            <h1 class="hero-title">Sumário Completo do Curso</h1>
-            <p class="hero-subtitle">
-               Jornada completa de desenvolvimento de jogos: da teoria à prática, passando por lógica de programação e criação de jogos digitais
-            </p>
-         </div>
-      </section>
-
-      <!-- TABLE OF CONTENTS 3D -->
-      <div class="container">
-         <section class="toc-section">
-            <div class="toc-container">
-                <!-- TÍTULO DO SUMÁRIO -->
-                <div class="toc-header">
-                    <h2 class="toc-title">Sumário Completo</h2>
-                    <p class="toc-subtitle">Jornada completa: Introdução → Game Design → Lógica → Programação → Desenvolvimento → Projeto Final</p>
+            <div class="modules-grid">
+                <!-- MÓDULO 1: TEORIA DOS JOGOS -->
+                <div class="module-card module-card--teoria">
+                    <div class="module-card__icon">
+                        <span class="module-card__icon-emoji">🎯</span>
+                    </div>
+                    <div class="module-card__content">
+                        <h3 class="module-card__title">Teoria dos Jogos</h3>
+                        <p class="module-card__description">Fundamentos teóricos que explicam como os jogos funcionam e influenciam o comportamento humano.</p>
+                        <ul class="module-card__topics">
+                            <li>Conceitos básicos de teoria dos jogos</li>
+                            <li>Estratégias e decisões</li>
+                            <li>Jogos cooperativos vs competitivos</li>
+                            <li>Aplicações em jogos digitais</li>
+                        </ul>
+                        <a href="../curso/modulos/capitulos/capitulo.html" class="module-card__cta">Começar Módulo</a>
+                    </div>
                 </div>
 
-                <!-- LISTA HIERÁRQUICA 3D -->
-                <nav class="table-of-contents">
-                    <ul class="toc-list">
-                        
-                        <!-- PARTE 1 - INTRODUÇÃO AOS JOGOS DIGITAIS -->
-                        <li class="toc-item toc-chapter">
-                            <div class="toc-item-header">
-                                <span class="toc-number">1</span>
-                                <a href="#" class="toc-link">
-                                    <span class="toc-icon">🎮</span>
-                                    <span class="toc-text">Introdução aos Jogos Digitais</span>
-                                </a>
-                            </div>
-                            <ul class="toc-sublist">
-                                <!-- links reais apontando para os arquivos de tópico dentro de curso/capituloX -->
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">1.1</span>
-                                        <a href="../curso/capitulo1/topico1.html" class="toc-link">
-                                            <span class="toc-icon">❓</span>
-                                            <span class="toc-text">O que é Teoria dos Jogos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">1.2</span>
-                                        <a href="../curso/capitulo1/topico2.html" class="toc-link">
-                                            <span class="toc-icon">📚</span>
-                                            <span class="toc-text">História e conceitos básicos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">1.3</span>
-                                        <a href="../curso/capitulo1/topico3.html" class="toc-link">
-                                            <span class="toc-icon">🎯</span>
-                                            <span class="toc-text">Tipos de jogos e aplicações</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">1.4</span>
-                                        <a href="#" class="toc-link" onclick="return false;">
-                                            <span class="toc-icon">⏳</span>
-                                            <span class="toc-text">Em breve...</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">1.5</span>
-                                        <a href="#" class="toc-link" onclick="return false;">
-                                            <span class="toc-icon">⏳</span>
-                                            <span class="toc-text">Em breve...</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">1.6</span>
-                                        <a href="#" class="toc-link" onclick="return false;">
-                                            <span class="toc-icon">⏳</span>
-                                            <span class="toc-text">Em breve...</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <!-- continue adicionando capítulos e tópicos conforme o mesmo padrão -->
-                            </ul>
-                        </li>
-
-                        <!-- PARTE 2 - FUNDAMENTOS DO GAME DESIGN -->
-                        <li class="toc-item toc-chapter">
-                            <div class="toc-item-header">
-                                <span class="toc-number">2</span>
-                                <a href="#" class="toc-link">
-                                    <span class="toc-icon">🎨</span>
-                                    <span class="toc-text">Fundamentos do Game Design</span>
-                                </a>
-                            </div>
-                            <ul class="toc-sublist">
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">2.1</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">💡</span>
-                                            <span class="toc-text">O que é Game Design</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">2.2</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⚙️</span>
-                                            <span class="toc-text">Mecânicas de jogo</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">2.3</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🎯</span>
-                                            <span class="toc-text">Objetivos, desafios e regras</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">2.4</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⭐</span>
-                                            <span class="toc-text">Sistemas de pontuação e progressão</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">2.5</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🎮</span>
-                                            <span class="toc-text">Experiência do jogador (Game Feel)</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">2.6</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📖</span>
-                                            <span class="toc-text">Narrativa em jogos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">2.7</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">👤</span>
-                                            <span class="toc-text">Personagens e inimigos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">2.8</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🏗️</span>
-                                            <span class="toc-text">Level Design (design de fases)</span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- PARTE 3 - LÓGICA DE PROGRAMAÇÃO -->
-                        <li class="toc-item toc-chapter">
-                            <div class="toc-item-header">
-                                <span class="toc-number">3</span>
-                                <a href="#" class="toc-link">
-                                    <span class="toc-icon">🧠</span>
-                                    <span class="toc-text">Lógica de Programação</span>
-                                </a>
-                            </div>
-                            <ul class="toc-sublist">
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.1</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">💭</span>
-                                            <span class="toc-text">O que é lógica de programação</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.2</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🧩</span>
-                                            <span class="toc-text">Pensamento lógico e resolução de problemas</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.3</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🔄</span>
-                                            <span class="toc-text">Algoritmos no cotidiano</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.4</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📊</span>
-                                            <span class="toc-text">Representação de algoritmos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.5</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📈</span>
-                                            <span class="toc-text">Fluxogramas</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.6</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📦</span>
-                                            <span class="toc-text">Variáveis e tipos de dados</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.7</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">➕</span>
-                                            <span class="toc-text">Operadores aritméticos e lógicos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.8</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🔀</span>
-                                            <span class="toc-text">Estruturas condicionais</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.9</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🔁</span>
-                                            <span class="toc-text">Estruturas de repetição</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.10</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⚡</span>
-                                            <span class="toc-text">Funções e modularização</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.11</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">💪</span>
-                                            <span class="toc-text">Exercícios de Lógica</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.12</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📝</span>
-                                            <span class="toc-text">Exercícios com variáveis</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.13</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🤔</span>
-                                            <span class="toc-text">Exercícios com decisões</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.14</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🔄</span>
-                                            <span class="toc-text">Exercícios com repetição</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">3.15</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🧠</span>
-                                            <span class="toc-text">Problemas lógicos resolvidos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- PARTE 4 - PROGRAMAÇÃO COM PORTUGOL STUDIO -->
-                        <li class="toc-item toc-chapter">
-                            <div class="toc-item-header">
-                                <span class="toc-number">4</span>
-                                <a href="#" class="toc-link">
-                                    <span class="toc-icon">💻</span>
-                                    <span class="toc-text">Programação com Portugol Studio</span>
-                                </a>
-                            </div>
-                            <ul class="toc-sublist">
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.1</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🚀</span>
-                                            <span class="toc-text">Introdução ao Portugol</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.2</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⚙️</span>
-                                            <span class="toc-text">Instalando e conhecendo o Portugol Studio</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.3</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🏗️</span>
-                                            <span class="toc-text">Estrutura básica de um algoritmo</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.4</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📥</span>
-                                            <span class="toc-text">Entrada e saída de dados</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.5</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📦</span>
-                                            <span class="toc-text">Declaração de variáveis</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.6</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">➕</span>
-                                            <span class="toc-text">Operadores aritméticos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.7</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⚖️</span>
-                                            <span class="toc-text">Operadores relacionais</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.8</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🔗</span>
-                                            <span class="toc-text">Operadores lógicos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.9</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🔀</span>
-                                            <span class="toc-text">Estruturas condicionais no Portugol</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.10</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🔁</span>
-                                            <span class="toc-text">Estruturas de repetição no Portugol</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.11</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📋</span>
-                                            <span class="toc-text">Vetores</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.12</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📊</span>
-                                            <span class="toc-text">Matrizes</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.13</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⚙️</span>
-                                            <span class="toc-text">Procedimentos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.14</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⚡</span>
-                                            <span class="toc-text">Funções</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.15</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🧩</span>
-                                            <span class="toc-text">Modularização de programas</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.16</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">💪</span>
-                                            <span class="toc-text">Exercícios Práticos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.17</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📝</span>
-                                            <span class="toc-text">Exercícios com variáveis</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.18</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🤔</span>
-                                            <span class="toc-text">Exercícios com condicionais</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.19</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🔄</span>
-                                            <span class="toc-text">Exercícios com repetição</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.20</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📋</span>
-                                            <span class="toc-text">Exercícios com vetores</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.21</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🎮</span>
-                                            <span class="toc-text">Mini Projetos em Portugol</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.22</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🧮</span>
-                                            <span class="toc-text">Calculadora simples</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.23</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📊</span>
-                                            <span class="toc-text">Sistema de notas</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.24</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🎲</span>
-                                            <span class="toc-text">Jogo de adivinhação de números</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">4.25</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🏆</span>
-                                            <span class="toc-text">Sistema de pontuação de jogo</span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- PARTE 5 - DESENVOLVIMENTO DE JOGOS -->
-                        <li class="toc-item toc-chapter">
-                            <div class="toc-item-header">
-                                <span class="toc-number">5</span>
-                                <a href="#" class="toc-link">
-                                    <span class="toc-icon">🎮</span>
-                                    <span class="toc-text">Desenvolvimento de Jogos</span>
-                                </a>
-                            </div>
-                            <ul class="toc-sublist">
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">5.1</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⚙️</span>
-                                            <span class="toc-text">O que é uma Game Engine</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">5.2</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🧱</span>
-                                            <span class="toc-text">Elementos fundamentais de um jogo</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">5.3</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">👤</span>
-                                            <span class="toc-text">Objetos e personagens</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">5.4</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🎯</span>
-                                            <span class="toc-text">Eventos e interações</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">5.5</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⭐</span>
-                                            <span class="toc-text">Sistema de pontuação</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">5.6</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⚡</span>
-                                            <span class="toc-text">Física e colisões</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">5.7</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🖥️</span>
-                                            <span class="toc-text">Interface do jogador (HUD e menus)</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">5.8</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🎵</span>
-                                            <span class="toc-text">Sons e trilha sonora</span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- PARTE 6 - CRIANDO UM JOGO NA PRÁTICA -->
-                        <li class="toc-item toc-chapter">
-                            <div class="toc-item-header">
-                                <span class="toc-number">6</span>
-                                <a href="#" class="toc-link">
-                                    <span class="toc-icon">🚀</span>
-                                    <span class="toc-text">Criando um Jogo na Prática</span>
-                                </a>
-                            </div>
-                            <ul class="toc-sublist">
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">6.1</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📋</span>
-                                            <span class="toc-text">Planejamento do jogo</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">6.2</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🎨</span>
-                                            <span class="toc-text">Criando o protótipo</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">6.3</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🏗️</span>
-                                            <span class="toc-text">Construindo as fases</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">6.4</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⚙️</span>
-                                            <span class="toc-text">Implementando mecânicas</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">6.5</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🧪</span>
-                                            <span class="toc-text">Testando o jogo</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">6.6</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">⚖️</span>
-                                            <span class="toc-text">Ajustando dificuldade e balanceamento</span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- PARTE 7 - PROJETO FINAL -->
-                        <li class="toc-item toc-chapter">
-                            <div class="toc-item-header">
-                                <span class="toc-number">7</span>
-                                <a href="#" class="toc-link">
-                                    <span class="toc-icon">🏆</span>
-                                    <span class="toc-text">Projeto Final</span>
-                                </a>
-                            </div>
-                            <ul class="toc-sublist">
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">7.1</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🎮</span>
-                                            <span class="toc-text">Desenvolvendo seu primeiro jogo completo</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">7.2</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">✨</span>
-                                            <span class="toc-text">Melhorando a experiência do jogador</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">7.3</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">📤</span>
-                                            <span class="toc-text">Publicando seu jogo</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="toc-item toc-topic">
-                                    <div class="toc-item-header">
-                                        <span class="toc-number">7.4</span>
-                                        <a href="#" class="toc-link">
-                                            <span class="toc-icon">🚀</span>
-                                            <span class="toc-text">Próximos passos no desenvolvimento de jogos</span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </nav>
-
-                <!-- RESUMO ESTATÍSTICO -->
-                <div class="toc-stats">
-                    <div class="stat-item">
-                        <span class="stat-icon">�</span>
-                        <div class="stat-content">
-                            <div class="stat-number">7</div>
-                            <div class="stat-label">Partes</div>
-                        </div>
+                <!-- MÓDULO 2: LÓGICA DE PROGRAMAÇÃO -->
+                <div class="module-card module-card--logica">
+                    <div class="module-card__icon">
+                        <span class="module-card__icon-emoji">🧠</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-icon">📝</span>
-                        <div class="stat-content">
-                            <div class="stat-number">70+</div>
-                            <div class="stat-label">Tópicos</div>
-                        </div>
+                    <div class="module-card__content">
+                        <h3 class="module-card__title">Lógica de Programação</h3>
+                        <p class="module-card__description">Desenvolva o pensamento computacional e aprenda a resolver problemas de forma estruturada.</p>
+                        <ul class="module-card__topics">
+                            <li>Pensamento algorítmico</li>
+                            <li>Estruturas de controle</li>
+                            <li>Variáveis e tipos de dados</li>
+                            <li>Funções e modularização</li>
+                        </ul>
+                        <a href="../curso/modulos/capitulos/capitulo.html" class="module-card__cta">Começar Módulo</a>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-icon">⏱️</span>
-                        <div class="stat-content">
-                            <div class="stat-number">~120h</div>
-                            <div class="stat-label">Duração Est.</div>
-                        </div>
+                </div>
+
+                <!-- MÓDULO 3: CRIAÇÃO DE ARTE PARA JOGOS -->
+                <div class="module-card module-card--arte">
+                    <div class="module-card__icon">
+                        <span class="module-card__icon-emoji">🎨</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-icon">🎓</span>
-                        <div class="stat-content">
-                            <div class="stat-number">Completo</div>
-                            <div class="stat-label">Nível</div>
-                        </div>
+                    <div class="module-card__content">
+                        <h3 class="module-card__title">Criação de Arte para Jogos</h3>
+                        <p class="module-card__description">Aprenda a criar visuais atraentes e expressivos para seus jogos digitais.</p>
+                        <ul class="module-card__topics">
+                            <li>Princípios de design visual</li>
+                            <li>Ferramentas de criação artística</li>
+                            <li>Pixel art e sprites</li>
+                            <li>Animações básicas</li>
+                        </ul>
+                        <a href="../curso/modulos/capitulos/capitulo.html" class="module-card__cta">Começar Módulo</a>
+                    </div>
+                </div>
+
+                <!-- MÓDULO 4: CRIAÇÃO DE MÚSICA E SOM -->
+                <div class="module-card module-card--musica">
+                    <div class="module-card__icon">
+                        <span class="module-card__icon-emoji">🎵</span>
+                    </div>
+                    <div class="module-card__content">
+                        <h3 class="module-card__title">Criação de Música e Som</h3>
+                        <p class="module-card__description">Descubra como o áudio pode elevar a experiência imersiva dos seus jogos.</p>
+                        <ul class="module-card__topics">
+                            <li>Teoria musical básica</li>
+                            <li>Ferramentas de produção sonora</li>
+                            <li>Efeitos sonoros</li>
+                            <li>Integração com jogos</li>
+                        </ul>
+                        <a href="../curso/modulos/capitulos/capitulo.html" class="module-card__cta">Começar Módulo</a>
+                    </div>
+                </div>
+
+                <!-- MÓDULO 5: GAME ENGINES -->
+                <div class="module-card module-card--engine">
+                    <div class="module-card__icon">
+                        <span class="module-card__icon-emoji">⚙️</span>
+                    </div>
+                    <div class="module-card__content">
+                        <h3 class="module-card__title">Game Engines</h3>
+                        <p class="module-card__description">Explore as ferramentas que tornam possível criar jogos complexos e interativos.</p>
+                        <ul class="module-card__topics">
+                            <li>O que são game engines</li>
+                            <li>Unity vs Unreal Engine</li>
+                            <li>Godot e outras opções</li>
+                            <li>Escolhendo a engine certa</li>
+                        </ul>
+                        <a href="../curso/modulos/capitulos/capitulo.html" class="module-card__cta">Começar Módulo</a>
+                    </div>
+                </div>
+
+                <!-- MÓDULO 6: DESENVOLVIMENTO COM CONSTRUCT 3 -->
+                <div class="module-card module-card--construct">
+                    <div class="module-card__icon">
+                        <span class="module-card__icon-emoji">🚀</span>
+                    </div>
+                    <div class="module-card__content">
+                        <h3 class="module-card__title">Desenvolvimento com Construct 3</h3>
+                        <p class="module-card__description">Crie seus primeiros jogos sem precisar programar, usando uma engine visual poderosa.</p>
+                        <ul class="module-card__topics">
+                            <li>Interface do Construct 3</li>
+                            <li>Criação de eventos visuais</li>
+                            <li>Prototipagem rápida</li>
+                            <li>Publicação de jogos</li>
+                        </ul>
+                        <a href="../curso/modulos/capitulos/capitulo.html" class="module-card__cta">Começar Módulo</a>
                     </div>
                 </div>
             </div>
         </section>
-   </main>
 
-   <!-- FOOTER -->
-   <footer class="footer">
-      <div class="footer-content">
-         <p>&copy; 2026 Plataforma Interativa de Jogos Digitais - Educação em Desenvolvimento de Jogos</p>
-         <p>Feito com ❤️ para educadores e aprendizes</p>
-      </div>
-   </footer>
+        <!-- DETAILED TOC FOR MODULE 1 -->
+        <section class="detailed-toc-section">
+            <div class="detailed-toc-header">
+                <h2 class="detailed-toc-title">Módulo 1: Teoria dos Jogos - Conteúdo Detalhado</h2>
+                <p class="detailed-toc-subtitle">Explore os tópicos específicos deste módulo</p>
+            </div>
 
-   <!-- SCRIPTS -->
-   <script src="../js/utils.js" class="script-tag"></script>
-   <script src="../js/app.js" class="script-tag"></script>
-   <script src="./sumário.js" class="script-tag"></script>
-   <script src="./toc.js" class="script-tag"></script>
-   <script>
-      function changeUser() {
-         const name = prompt("Qual é o seu nome?");
-         if (name && name.trim()) {
-            progressManager.setUserName(name.trim());
+            <div class="detailed-toc-content">
+                <div class="toc-chapter">
+                    <h3 class="toc-chapter-title">Capítulo 1: Introdução à Teoria dos Jogos</h3>
+                    <ul class="toc-topics">
+                        <li><a href="../curso/modulos/topicos/topico1.html" class="toc-topic-link">1. O que é Teoria dos Jogos</a></li>
+                        <li><a href="../curso/modulos/topicos/topico2.html" class="toc-topic-link">2. História e conceitos básicos</a></li>
+                        <li><a href="../curso/modulos/topicos/topico3.html" class="toc-topic-link">3. Tipos de jogos e aplicações</a></li>
+                    </ul>
+                </div>
+
+                <div class="toc-chapter">
+                    <h3 class="toc-chapter-title">Capítulo 2: Elementos dos Jogos</h3>
+                    <ul class="toc-topics">
+                        <li><a href="../curso/modulos/topicos/topico1.html" class="toc-topic-link">1. Jogadores</a></li>
+                        <li><a href="../curso/modulos/topicos/topico2.html" class="toc-topic-link">2. Estratégias</a></li>
+                        <li><a href="../curso/modulos/topicos/topico3.html" class="toc-topic-link">3. Payoff</a></li>
+                        <li><a href="../curso/modulos/topicos/topico4.html" class="toc-topic-link">4. Equilíbrio de Nash</a></li>
+                        <li><a href="../curso/modulos/topicos/topico5.html" class="toc-topic-link">5. Jogos Cooperativos</a></li>
+                        <li><a href="../curso/modulos/topicos/topico6.html" class="toc-topic-link">6. Jogos Não-Cooperativos</a></li>
+                        <li><a href="../curso/modulos/topicos/topico7.html" class="toc-topic-link">7. Aplicações Práticas</a></li>
+                        <li><a href="../curso/modulos/topicos/topico8.html" class="toc-topic-link">8. Estudos de Caso</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Plataforma Interativa de Jogos Digitais - Educação em Desenvolvimento de Jogos</p>
+            <p>Feito com ❤️ para educadores e aprendizes</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="./sumário.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-menu-open');
+        }
+
+        function updateUserDisplay() {
+            const userName = progressManager.getUserName();
+            document.getElementById('userName').textContent = userName;
+        }
+
+        function loadProfilePicture() {
+            const savedPic = localStorage.getItem('userProfilePic');
+            if (savedPic) {
+                document.getElementById('profilePic').src = savedPic;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
             updateUserDisplay();
-         }
-      }
-
-      function toggleMobileMenu() {
-         const navLinks = document.querySelector('.nav-links');
-         navLinks.classList.toggle('mobile-menu-open');
-      }
-
-      function updateUserDisplay() {
-         const userName = progressManager.getUserName();
-         document.getElementById('userName').textContent = userName;
-      }
-
-      document.addEventListener('DOMContentLoaded', function() {
-         updateUserDisplay();
-         loadProfilePicture();
-      });
-
-      function loadProfilePicture() {
-         const savedPic = localStorage.getItem('userProfilePic');
-         if (savedPic) {
-            document.getElementById('profilePic').src = savedPic;
-         }
-      }
-   </script>
-
+            loadProfilePicture();
+        });
+    </script>
 </body>
-
 </html>

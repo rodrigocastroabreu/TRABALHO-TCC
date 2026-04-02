@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilema do Prisioneiro - Teoria dos Jogos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../css/topicos.css">
+</head>
+<body>
+    <!-- HEADER/NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <h1 class="logo">🎮 Plataforma Interativa de Jogos Digitais</h1>
+                <p class="tagline">Aprenda a Desenvolver Jogos Digitais</p>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="../../../../index.html" class="nav-link">Início</a>
+                <a href="../../../../frontend/sumário/sumário.html" class="nav-link">Sumário</a>
+                <a href="../../../../frontend/pages/jogos.html" class="nav-link">Jogos</a>
+                <a href="../../../../frontend/pages/quiz.html" class="nav-link">Quizzes</a>
+                <a href="../../../../frontend/pages/progress.html" class="nav-link">Progresso</a>
+            </nav>
+
+            <a href="../../../../frontend/pages/perfil.html" class="user-profile-link">
+                <img src="../../../../frontend/images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+                <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
+            </a>
+
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-title">Capítulo 1</div>
+            <ul class="sidebar-nav">
+                <li><a href="#classico" class="nav-link active">O Dilema</a></li>
+                <li><a href="#analise" class="nav-link">Análise</a></li>
+                <li><a href="#variacoes" class="nav-link">Variações</a></li>
+                <li><a href="#aplicacoes" class="nav-link">Aplicações</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <header class="header">
+                <h1>Dilema do Prisioneiro</h1>
+                <p>Exemplo clássico de conflito em teoria dos jogos</p>
+            </header>
+
+            <section class="section" id="classico">
+                <h2>O Problema Clássico</h2>
+                <p>Dois suspeitos são presos por um crime. Cada um está em uma cela separada e não podem se comunicar.</p>
+
+                <div class="content-flex">
+                    <div class="content-text">
+                        <h3>A Situação</h3>
+                        <p>Cada prisioneiro tem duas opções:</p>
+                        <ol class="ordered-list">
+                            <li><strong>Confessa:</strong> "Denunciar o outro"</li>
+                            <li><strong>Cala-se:</strong> "Não dizer nada"</li>
+                        </ol>
+                        <p>
+                            <strong>Regra:</strong> Se um confessa e o outro não, quem confessou fica livre (0 anos) e o outro pega 3 anos. Se ambos confessam, cada um pega 2 anos. Se ambos se calam, cada um pega 1 ano.
+                        </p>
+                    </div>
+                    <div class="content-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f8f9fa' width='400' height='300'/%3E%3Ccircle cx='100' cy='100' r='40' fill='%23ec4899'/%3E%3Ctext x='100' y='110' text-anchor='middle' font-size='24' fill='white'%3E👥%3C/text%3E%3Ccircle cx='300' cy='100' r='40' fill='%23ec4899'/%3E%3Ctext x='300' y='110' text-anchor='middle' font-size='24' fill='white'%3E👥%3C/text%3E%3Crect x='80' y='180' width='40' height='80' fill='%23999' opacity='0.5' rx='4'/%3E%3Crect x='300' y='180' width='40' height='80' fill='%23999' opacity='0.5' rx='4'/%3E%3Ctext x='100' y='225' text-anchor='middle' font-size='11' fill='%231f2937' font-weight='bold'%3ECela 1%3C/text%3E%3Ctext x='320' y='225' text-anchor='middle' font-size='11' fill='%231f2937' font-weight='bold'%3ECela 2%3C/text%3E%3C/svg%3E" alt="Dilema do prisioneiro" />
+                        <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="analise">
+                <h2>Análise do Equilíbrio</h2>
+
+                <div class="content-flex reverse">
+                    <div class="content-text">
+                        <h3>Matriz de Payoff</h3>
+                        <table>
+                            <tr>
+                                <td>A\B</td>
+                                <td>Confessa</td>
+                                <td>Cala-se</td>
+                            </tr>
+                            <tr>
+                                <td>Confessa</td>
+                                <td>-2, -2</td>
+                                <td>0, -3</td>
+                            </tr>
+                            <tr>
+                                <td>Cala-se</td>
+                                <td>-3, 0</td>
+                                <td>-1, -1</td>
+                            </tr>
+                        </table>
+                        <p>Payoff são anos de prisão (números negativos = piores)</p>
+                    </div>
+                    <div class="content-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f0f4ff' width='400' height='300'/%3E%3Ccircle cx='200' cy='120' r='50' fill-opacity='0' stroke='%236366f1' stroke-width='3' stroke-dasharray='10,5'%3E%3C/circle%3E%3Ctext x='200' y='125' text-anchor='middle' font-size='18' fill='%236366f1' font-weight='bold'%3E❌%3C/text%3E%3Ctext x='200' y='210' text-anchor='middle' font-size='12' fill='%236366f1' font-weight='bold'%3ENão é Ótimo%3C/text%3E%3Ctext x='200' y='230' text-anchor='middle' font-size='11' fill='%236b7280'%3EMas é o Equilíbrio!%3C/text%3E%3C/svg%3E" alt="Não ótimo mas equilíbrio" />
+                        <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                    </div>
+                </div>
+
+                <div class="interactive-section">
+                    <h3>O Paradoxo</h3>
+                    <p>Se ambos <strong>se calam</strong> → cada um pega -1 (MELHOR para ambos)</p>
+                    <p>Mas se o outro se cala, <strong>confessar</strong> → você fica livre (0) vs -1!</p>
+                    <p>
+                        Por isso ambos confessam → Equilíbrio de Nash em (-2, -2), mesmo sendo pior para ambos!
+                    </p>
+                </div>
+            </section>
+
+            <section class="section" id="variacoes">
+                <h2>Variações Importantes</h2>
+                <ol class="ordered-list">
+                    <li>🔄 <strong>Dilema Iterado:</strong> Jogo repetido muitas vezes (estratégias como "Tit-for-Tat")</li>
+                    <li>👥 <strong>N-Prisioneiros:</strong> Mais de 2 jogadores</li>
+                    <li>🎮 <strong>Bem Público:</strong> Cada um contribui ou não a um fundo comum</li>
+                    <li>🤐 <strong>Assimétrico:</strong> Diferentes payoffs para cada prisioneiro</li>
+                    <li>💬 <strong>Com Comunicação:</strong> Jogadores podem se comunicar (mas não enforçar acordo)</li>
+                </ol>
+            </section>
+
+            <section class="section" id="aplicacoes">
+                <h2>Aplicações Reais do Dilema</h2>
+                <p>O Dilema do Prisioneiro explica por que pessoas racionais frequentemente cooperam menos que o ideal:</p>
+                
+                <ol class="ordered-list">
+                    <li>💼 <strong>Cartéis:</strong> Empresas que combinam preços altos (incentivo para trair)</li>
+                    <li>🌍 <strong>Clima:</strong> Países que emitem CO₂ (todos sofrem mas individualmente têm incentivo)</li>
+                    <li>🏋️ <strong>Doping:</strong> Atletas que usam substâncias (todos melhoram o resultado se todos usarem)</li>
+                    <li>📱 <strong>Redes Sociais:</strong> Espalhamento de informações falsas (viral rápido demais)</li>
+                    <li>🏛️ <strong>Negociação:</strong> Países que desarmam primeiro ficam vulneráveis</li>
+                    <li>🏪 <strong>Promoções:</strong> Lojas competem com preços cada vez mais baixos</li>
+                </ol>
+            </section>
+
+            <!-- SLIDES E JOGO INTERATIVO -->
+            <section class="section">
+                <h2>Saiba Mais com Slides</h2>
+                <div class="iframe-block">
+                    <iframe src="https://slides-dilema-prisioneiro.gamma.site/" title="Slides Interativos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-credit">🎬 Slides: "Dilema do Prisioneiro" | Créditos ao autor original</div>
+                <a href="https://slides-dilema-prisioneiro.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse os Slides</a>
+
+                <h3>Jogo Interativo</h3>
+                <div class="iframe-block">
+                    <iframe src="https://jogo-dilema.gamma.site/" title="Jogo Interativo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-credit">🎮 Jogo: "Dilema do Prisioneiro Interactive" | Créditos ao autor original</div>
+                <a href="https://jogo-dilema.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse o Jogo Interativo</a>
+            </section>
+
+            <!-- RATING -->
+            <div class="rating-section">
+                <h3>Avalie este Tópico</h3>
+                <p>Como foi sua experiência?</p>
+                <div class="star-rating" id="rating">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <div class="rating-feedback" id="feedback"></div>
+                <div class="next-topic-container" style="margin-top: 20px;">
+                    <button id="nextTopicButton" class="btn-primary" disabled style="padding: 12px 18px; border: none; border-radius: 8px; background-color: #6366f1; color: #fff; font-size: 1rem; cursor: not-allowed;">
+                        Próximo Tópico (avaliar primeiro)
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../../js/utils.js"></script>
+    <script src="../../../js/progress.js"></script>
+    <script src="../../js/topicos.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-menu-open');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedPic = localStorage.getItem('userProfilePic');
+            const profilePic = document.getElementById('profilePic');
+            if (savedPic && profilePic) {
+                profilePic.src = savedPic;
+            }
+
+            const userName = localStorage.getItem('userName') || 'Aprendiz';
+            const userNameElement = document.getElementById('userName');
+            if (userNameElement) {
+                userNameElement.textContent = userName;
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

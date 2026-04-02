@@ -1,0 +1,24 @@
+/* ======================================== */
+/* MAIN.CSS - Arquivo Principal de CSS     */
+/* Importa todos os módulos em ordem       */
+/* ======================================== */
+
+/* 1. Base - Fundamentos */
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+@import url('./base/typography.css');
+
+/* 2. Layout - Estrutura da página */
+@import url('./layout/container.css');
+@import url('./layout/grid.css');
+@import url('./layout/navbar.css');
+
+/* 3. Components - Reutilizáveis */
+@import url('./components/banner.css');
+@import url('./components/button.css');
+@import url('./components/components.css');
+
+/* 4. Pages - Estilos específicos de página */
+@import url('./pages/pages.css');
+@import url('./pages/games.css');
+@import url('./pages/sumario.css');

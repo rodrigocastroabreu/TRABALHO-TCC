@@ -1,0 +1,50 @@
+/* ====================================== */
+/* VARIABLES.CSS - Variáveis CSS Globais */
+/* ====================================== */
+
+:root {
+    /* Paleta educacional moderna - Cores do Sumário */
+    --primary: #e5ebff;        /* Azul ainda mais suave para leitura */
+    --primary-dark: #eff2ff;   /* Azul médio */
+    --primary-light: #F3F7FF;  /* Azul muito claro */
+    --secondary: #F3F7FF;      /* Verde ainda mais suave */
+    --success: #22C55E;        /* Verde sucesso */
+    --success-dark: #16A34A;   /* Verde escuro */
+    --warning: #F59E0B;        /* Amarelo warning */
+    --danger: #EF4444;         /* Vermelho danger */
+
+    /* Backgrounds */
+    --bg-primary: #FFFFFF;     /* Branco puro */
+    --bg-secondary: #F8FAFC;   /* Cinza muito claro */
+    --bg-tertiary: #F1F5F9;    /* Cinza claro */
+    --bg-accent: #E2E8F0;      /* Cinza médio */
+
+    /* Textos */
+    --text-primary: #0563fc;   /* Cinza escuro */
+    --text-secondary: #526947; /* Cinza médio */
+    --text-tertiary: #64748B;  /* Cinza claro */
+    --text-muted: #94A3B8;     /* Cinza muito claro */
+
+    /* Bordas e sombras */
+    --border-color: #E2E8F0;
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    /* Espaçamento */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+
+    /* Transições */
+    --transition: all 0.3s ease;
+}

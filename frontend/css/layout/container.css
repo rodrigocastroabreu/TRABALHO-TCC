@@ -1,0 +1,50 @@
+/* ====================================== */
+/* CONTAINER.CSS - Container e Layout Base */
+/* ====================================== */
+
+/* Container Principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+}
+
+/* FOOTER */
+.footer {
+    background: linear-gradient(135deg, var(--primary-light) 0%, #f8f9fa 50%, #e9ecef 100%);
+    color: #000000;
+    padding: var(--spacing-md) 0;
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.footer p {
+    margin-bottom: var(--spacing-sm);
+    color: #000000;
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.breadcrumb a {
+    color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+}

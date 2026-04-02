@@ -153,16 +153,34 @@
     margin-bottom: var(--spacing-md);
 }
 
+.card-content {
+    flex: 1;
+    margin-bottom: var(--spacing-lg);
+}
+
+.card-content h3 {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.25rem;
+}
+
+.card-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 .card-main {
     background-color: white;
     border-radius: 8px;
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
     box-shadow: var(--shadow);
     transition: var(--transition);
     text-align: center;
+    position: relative;
+    min-height: 280px;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    justify-content: space-between;
 }
 
 .card-main:hover {

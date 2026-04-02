@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos Cooperativos vs Não Cooperativos - Teoria dos Jogos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../css/topicos.css">
+</head>
+<body>
+    <!-- HEADER/NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <h1 class="logo">🎮 Plataforma Interativa de Jogos Digitais</h1>
+                <p class="tagline">Aprenda a Desenvolver Jogos Digitais</p>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="../../../../index.html" class="nav-link">Início</a>
+                <a href="../../../../frontend/sumário/sumário.html" class="nav-link">Sumário</a>
+                <a href="../../../../frontend/pages/jogos.html" class="nav-link">Jogos</a>
+                <a href="../../../../frontend/pages/quiz.html" class="nav-link">Quizzes</a>
+                <a href="../../../../frontend/pages/progress.html" class="nav-link">Progresso</a>
+            </nav>
+
+            <a href="../../../../frontend/pages/perfil.html" class="user-profile-link">
+                <img src="../../../../frontend/images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+                <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
+            </a>
+
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-title">Capítulo 1</div>
+            <ul class="sidebar-nav">
+                <li><a href="#diferenca" class="nav-link active">Diferenças</a></li>
+                <li><a href="#cooperativos" class="nav-link">Cooperativos</a></li>
+                <li><a href="#nao-cooperativos" class="nav-link">Não-Cooperativos</a></li>
+                <li><a href="#exemplos" class="nav-link">Exemplos</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <header class="header">
+                <h1>Jogos Cooperativos vs Não Cooperativos</h1>
+                <div class="paragraph"><p>Juntando forças ou agindo sozinho</p></div>
+            </header>
+
+            <section class="section" id="diferenca">
+                <h2>Diferenças Fundamentais</h2>
+                <p>A classificação divide-se em se jogadores podem fazer acordos vinculantes:</p>
+
+                <div class="content-flex">
+                    <div class="content-text">
+                        <h3>Definições</h3>
+                        <p><strong>Cooperativo:</strong> Jogadores podem fazer acordos que são <strong>vinculantes</strong> e <strong>verificáveis</strong></p>
+                        <p><strong>Não-Cooperativo:</strong> Cada jogador age <strong>independentemente</strong>, sem acordo formal</p>
+                        <p>
+                            ℹ️ "Não-cooperativo" não significa agressão, apenas que não há contrato vinculante.
+                        </p>
+                    </div>
+                    <div class="content-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f0f4ff' width='400' height='300'/%3E%3Cg%3E%3Ccircle cx='100' cy='100' r='35' fill='%236366f1'/%3E%3Ctext x='100' y='180' text-anchor='middle' font-size='11' fill='%236b7280' font-weight='bold'%3ENão-Coop%3C/text%3E%3Ccircle cx='300' cy='100' r='35' fill='%236366f1'/%3E%3Ctext x='300' y='180' text-anchor='middle' font-size='11' fill='%236b7280' font-weight='bold'%3ECooperativo%3C/text%3E%3Cline x1='135' y1='100' x2='265' y2='100' stroke='%236b7280' stroke-width='1' stroke-dasharray='5,5'/%3E%3Crect x='280' y='80' width='40' height='40' fill='%236366f1' rx='6'/%3E%3Ctext x='300' y='105' text-anchor='middle' font-size='10' fill='white' font-weight='bold'%3E📋%3C/text%3E%3Ctext x='300' y='135' text-anchor='middle' font-size='9' fill='%231f2937'%3EContrato%3C/text%3E%3C/g%3E%3C/svg%3E" alt="Cooperativo vs não cooperativo" />
+                        <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="cooperativos">
+                <h2>Jogos Cooperativos</h2>
+
+                <div class="content-flex reverse">
+                    <div class="content-text">
+                        <h3>Características</h3>
+                        <ol class="ordered-list">
+                            <li>✓ Jogadores fazem alianças</li>
+                            <li>✓ Acordos são <strong>obrigatórios</strong></li>
+                            <li>✓ Foco: como dividir o ganho conjunto</li>
+                            <li>✓ Há "coalições" (grupos)</li>
+                            <li>✓ Teoria de "núcleo" (core)</li>
+                        </ol>
+                        <p>
+                            💡 Busca-se resultado que nenhuma coalizão menor quer desviar (estabilidade)
+                        </p>
+                    </div>
+                    <div class="content-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f8f9fa' width='400' height='300'/%3E%3Crect x='50' y='80' width='300' height='150' fill='%236366f1' opacity='0.1' stroke='%236366f1' stroke-width='2' rx='12'/%3E%3Ccircle cx='100' cy='140' r='30' fill='%236366f1'/%3E%3Ccircle cx='200' cy='140' r='30' fill='%236366f1'/%3E%3Ccircle cx='300' cy='140' r='30' fill='%236366f1'/%3E%3Ctext x='200' y='220' text-anchor='middle' font-size='12' fill='%236366f1' font-weight='bold'%3ECoalição (Acordo)%3C/text%3E%3C/svg%3E" alt="Jogos cooperativos" />
+                        <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="nao-cooperativos">
+                <h2>Jogos Não-Cooperativos</h2>
+
+                <div class="content-flex">
+                    <div class="content-text">
+                        <h3>Características</h3>
+                        <ol class="ordered-list">
+                            <li>✓ Cada um decide independentemente</li>
+                            <li>✓ Sem acordos vinculantes</li>
+                            <li>✓ Foco: equilíbrio individual</li>
+                            <li>✓ Usa equilíbrio de Nash</li>
+                            <li>✓ Mais comum em economia</li>
+                        </ol>
+                        <p>
+                            ℹ️ Cada jogador maximiza seu ganho considerando os outros
+                        </p>
+                    </div>
+                    <div class="content-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f0f4ff' width='400' height='300'/%3E%3Ccircle cx='100' cy='140' r='30' fill='%236366f1'/%3E%3Ctext x='100' y='235' text-anchor='middle' font-size='11' fill='%236b7280' font-weight='bold'%3EJogador 1%3C/text%3E%3Ccircle cx='200' cy='140' r='30' fill='%236366f1'/%3E%3Ctext x='200' y='235' text-anchor='middle' font-size='11' fill='%236b7280' font-weight='bold'%3EJogador 2%3C/text%3E%3Ccircle cx='300' cy='140' r='30' fill='%236366f1'/%3E%3Ctext x='300' y='235' text-anchor='middle' font-size='11' fill='%236b7280' font-weight='bold'%3EJogador 3%3C/text%3E%3Cpath d='M130 140 L170 140' stroke='%23999' stroke-width='1' stroke-dasharray='3,3'/%3E%3Cpath d='M230 140 L270 140' stroke='%23999' stroke-width='1' stroke-dasharray='3,3'/%3E%3C/svg%3E" alt="Jogos não cooperativos" />
+                        <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="exemplos">
+                <h2>Exemplos Práticos</h2>
+                
+                <div class="interactive-section">
+                    <h3>Cooperativos vs Não-Cooperativos</h3>
+                    <p><strong>Cooperativos:</strong></p>
+                    <ol class="ordered-list">
+                        <li>📋 Fusão de empresas (contrato vinculante)</li>
+                        <li>🤝 Cartéis de exportação (OPEC)</li>
+                        <li>🏛️ Tratados internacionais (com penalidades)</li>
+                    </ol>
+                    <p><strong>Não-Cooperativos:</strong></p>
+                    <ol class="ordered-list">
+                        <li>🏢 Competição entre empresas de mercado</li>
+                        <li>💻 Leilões de patentes</li>
+                        <li>🎰 Negociações sem contrato formal</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- SLIDES E JOGO INTERATIVO -->
+            <section class="section">
+                <h2>Saiba Mais com Slides</h2>
+                <div class="iframe-block">
+                    <iframe src="https://slides-cooperacao.gamma.site/" title="Slides Interativos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-credit">🎬 Slides: "Cooperação vs Competição" | Créditos ao autor original</div>
+                <a href="https://slides-cooperacao.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse os Slides</a>
+
+                <h3>Jogo Interativo</h3>
+                <div class="iframe-block">
+                    <iframe src="https://jogo-cooperacao.gamma.site/" title="Jogo Interativo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-credit">🎮 Jogo: "Cooperação vs Competição" | Créditos ao autor original</div>
+                <a href="https://jogo-cooperacao.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse o Jogo Interativo</a>
+            </section>
+
+            <!-- RATING -->
+            <div class="rating-section">
+                <h3>Avalie este Tópico</h3>
+                <p>Como foi sua experiência?</p>
+                <div class="star-rating" id="rating">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <div class="rating-feedback" id="feedback"></div>
+                <div class="next-topic-container" style="margin-top: 20px;">
+                    <button id="nextTopicButton" class="btn-primary" disabled style="padding: 12px 18px; border: none; border-radius: 8px; background-color: #6366f1; color: #fff; font-size: 1rem; cursor: not-allowed;">
+                        Próximo Tópico (avaliar primeiro)
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../../js/utils.js"></script>
+    <script src="../../../js/progress.js"></script>
+    <script src="../../js/topicos.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-menu-open');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedPic = localStorage.getItem('userProfilePic');
+            const profilePic = document.getElementById('profilePic');
+            if (savedPic && profilePic) {
+                profilePic.src = savedPic;
+            }
+
+            const userName = localStorage.getItem('userName') || 'Aprendiz';
+            const userNameElement = document.getElementById('userName');
+            if (userNameElement) {
+                userNameElement.textContent = userName;
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

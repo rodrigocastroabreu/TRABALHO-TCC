@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo - Teoria dos Jogos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+            color: #1e293b;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+
+        .header-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .header-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .decorative-line {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+            border-radius: 2px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0 80px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: #2563eb;
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.15);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: #ffffff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Special card for Equilíbrio de Nash */
+        .card-special {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #fef08a 0%, #fce7f3 100%);
+            border-color: #fbbf24;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+        }
+
+        .card-special .card-number {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .card-special:hover {
+            box-shadow: 0 12px 24px rgba(245, 158, 11, 0.2);
+            border-color: #f59e0b;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+        .card:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.5rem;
+            }
+
+            .header-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .card-special {
+                grid-column: span 1;
+            }
+
+            .card {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            header {
+                padding: 40px 0 30px;
+            }
+
+            .header-title {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="header-title">Capítulo - Teoria dos Jogos</h1>
+            <p class="header-subtitle">Conceitos fundamentais para tomada de decisão estratégica</p>
+            <div class="decorative-line"></div>
+        </header>
+
+        <main>
+            <div class="content-grid">
+                <div class="card">
+                    <div class="card-number">1</div>
+                    <h3 class="card-title">O que é Teoria dos Jogos</h3>
+                    <p class="card-description">Estudo das decisões estratégicas entre agentes</p>
+                    <a href="../topicos/topico1.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">2</div>
+                    <h3 class="card-title">Jogadores</h3>
+                    <p class="card-description">Quem participa do jogo (indivíduos ou grupos)</p>
+                    <a href="../topicos/topico2.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">3</div>
+                    <h3 class="card-title">Estratégias</h3>
+                    <p class="card-description">Ações possíveis de cada jogador</p>
+                    <a href="../topicos/topico3.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">4</div>
+                    <h3 class="card-title">Payoff (Recompensa)</h3>
+                    <p class="card-description">Resultado ou retorno de cada decisão</p>
+                    <a href="../topicos/topico4.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
+                </div>
+
+                <div class="card card-special">
+                    <div class="card-number">5</div>
+                    <h3 class="card-title">Equilíbrio de Nash</h3>
+                    <p class="card-description">Situação onde nenhum jogador ganha mudando sozinho sua estratégia</p>
+                    <a href="../topicos/topico5.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">6</div>
+                    <h3 class="card-title">Jogos Cooperativos vs Não Cooperativos</h3>
+                    <p class="card-description">Diferença entre colaboração e competição</p>
+                    <a href="../topicos/topico6.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">7</div>
+                    <h3 class="card-title">Dilema do Prisioneiro</h3>
+                    <p class="card-description">Exemplo clássico de conflito entre interesse individual e coletivo</p>
+                    <a href="../topicos/topico7.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">8</div>
+                    <h3 class="card-title">Jogos de Soma Zero</h3>
+                    <p class="card-description">O ganho de um é a perda do outro</p>
+                    <a href="../topicos/topico8.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

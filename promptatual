@@ -1,0 +1,265 @@
+Beleza — vou te falar direto como um **engenheiro full stack organizaria isso de verdade**, porque o problema que você descreveu (CSS conflitando + layout quebrado) é clássico de projeto que cresceu sem padrão.
+
+Seu projeto já está bom (dá pra ver pelo README ), mas precisa de **arquitetura de front-end mais rígida**.
+
+---
+
+# 🚨 Problema real do seu projeto
+
+Provavelmente está acontecendo isso:
+
+* CSS global sobrescrevendo componentes
+* Classes genéricas tipo `.card`, `.title`, `.button` repetidas
+* Cada página criando seu próprio estilo
+* Falta de padrão (design system não aplicado de verdade)
+
+👉 Resultado: **tudo desorganizado e inconsistente**
+
+---
+
+# ✅ Como um FULL STACK organizaria (padrão profissional)
+
+## 1. 📁 Estrutura FINAL recomendada
+
+```bash
+frontend/
+│
+├── assets/
+│   ├── images/
+│   └── icons/
+│
+├── css/
+│   ├── base/          # FUNDAMENTAL (não mexe direto depois)
+│   │   ├── reset.css
+│   │   ├── variables.css
+│   │   └── typography.css
+│   │
+│   ├── layout/        # estrutura da página
+│   │   ├── container.css
+│   │   ├── grid.css
+│   │   └── sidebar.css
+│   │
+│   ├── components/    # REUTILIZÁVEL (onde resolve seu problema)
+│   │   ├── button.css
+│   │   ├── card.css
+│   │   ├── banner.css  ← 🔥 SEU CASO
+│   │   └── badge.css
+│   │
+│   ├── pages/         # estilo isolado por página
+│   │   ├── index.css
+│   │   ├── capitulos.css
+│   │   └── sumario.css ← 🔥
+│   │
+│   └── main.css       # importa tudo
+│
+├── js/
+├── pages/
+└── capitulos/
+```
+
+---
+
+# 🔥 2. REGRA DE OURO (resolve 90% dos conflitos)
+
+👉 **NUNCA usar classe genérica global**
+
+❌ errado:
+
+```css
+.card { }
+.title { }
+.button { }
+```
+
+✅ certo (escopo por componente):
+
+```css
+.module-banner { }
+.module-banner__title { }
+.module-banner__button { }
+```
+
+👉 Isso chama **BEM (Block Element Modifier)** — padrão profissional
+
+---
+
+# 🎯 3. COMPONENTE PRINCIPAL (seu caso: banners)
+
+## 📄 `components/banner.css`
+
+```css
+.module-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 24px;
+  border-radius: 16px;
+
+  color: white;
+  min-height: 180px;
+
+  transition: transform 0.3s ease;
+}
+
+.module-banner:hover {
+  transform: translateY(-5px);
+}
+
+/* conteúdo */
+.module-banner__content {
+  max-width: 60%;
+}
+
+.module-banner__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.module-banner__description {
+  margin: 8px 0;
+  opacity: 0.9;
+}
+
+.module-banner__button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+
+  background: rgba(255,255,255,0.2);
+  border-radius: 8px;
+
+  text-decoration: none;
+  color: white;
+}
+
+/* visual */
+.module-banner__visual {
+  font-size: 3rem;
+}
+```
+
+---
+
+# 🎨 4. VARIAÇÕES (sem conflito)
+
+```css
+.banner--jogos {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+.banner--logica {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.banner--arte {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+}
+
+.banner--musica {
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+}
+
+.banner--engine {
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+}
+
+.banner--construct {
+  background: linear-gradient(135deg, #14b8a6, #22c55e);
+}
+```
+
+---
+
+# 🧱 5. HTML LIMPO (sem bagunça)
+
+```html
+<section class="module-banner banner--jogos">
+  <div class="module-banner__content">
+    <h2 class="module-banner__title">Teoria dos Jogos</h2>
+    <p class="module-banner__description">
+      Entenda mecânicas, dinâmicas e estruturas dos jogos.
+    </p>
+
+    <a href="#" class="module-banner__button">
+      Começar módulo
+    </a>
+  </div>
+
+  <div class="module-banner__visual">
+    🎮
+  </div>
+</section>
+```
+
+---
+
+# ⚠️ 6. ERRO QUE VOCÊ DEVE EVITAR (provável no seu projeto)
+
+Misturar isso:
+
+```html
+<div class="card banner module-banner box">
+```
+
+👉 Isso gera conflito absurdo
+
+---
+
+# ✅ 7. COMO ARRUMAR SEU PROJETO AGORA
+
+Faça isso na ordem:
+
+### 1. Criar `banner.css`
+
+### 2. Criar `sumario.css`
+
+### 3. REMOVER estilos duplicados de:
+
+* components.css
+* pages.css
+
+### 4. Deixar `sumario.html` usar APENAS:
+
+```html
+<link rel="stylesheet" href="../css/main.css">
+```
+
+---
+
+# 💡 8. main.css (controle total)
+
+```css
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+
+@import url('./layout/container.css');
+
+@import url('./components/banner.css');
+@import url('./components/button.css');
+
+@import url('./pages/sumario.css');
+```
+
+---
+
+# 🧠 RESUMO (nível TCC)
+
+Você vai poder justificar isso como:
+
+* Arquitetura modular de front-end
+* Separação de responsabilidades (CSS)
+* Reutilização de componentes
+* Padronização com metodologia BEM
+* Escalabilidade da interface
+
+---
+
+# 🚀 Se quiser
+
+Posso:
+
+* pegar seu `sumario.html` e **reescrever completo (nível profissional mesmo)**
+* ou reorganizar **TODO seu CSS sem quebrar nada**
+
+Só manda o arquivo 👍

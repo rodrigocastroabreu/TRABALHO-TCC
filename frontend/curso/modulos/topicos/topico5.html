@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equilíbrio de Nash - Teoria dos Jogos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../css/topicos.css">
+</head>
+<body>
+    <!-- HEADER/NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <h1 class="logo">🎮 Plataforma Interativa de Jogos Digitais</h1>
+                <p class="tagline">Aprenda a Desenvolver Jogos Digitais</p>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="../../../../index.html" class="nav-link">Início</a>
+                <a href="../../../../frontend/sumário/sumário.html" class="nav-link">Sumário</a>
+                <a href="../../../../frontend/pages/jogos.html" class="nav-link">Jogos</a>
+                <a href="../../../../frontend/pages/quiz.html" class="nav-link">Quizzes</a>
+                <a href="../../../../frontend/pages/progress.html" class="nav-link">Progresso</a>
+            </nav>
+
+            <a href="../../../../frontend/pages/perfil.html" class="user-profile-link">
+                <img src="../../../../frontend/images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+                <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
+            </a>
+
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-title">Capítulo 1</div>
+            <ul class="sidebar-nav">
+                <li><a href="#definicao" class="nav-link active">Definição</a></li>
+                <li><a href="#significado" class="nav-link">Significado</a></li>
+                <li><a href="#como-encontrar" class="nav-link">Como Encontrar</a></li>
+                <li><a href="#exemplos" class="nav-link">Exemplos</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <header class="header">
+                <h1>Equilíbrio de Nash</h1>
+                <div class="paragraph"><p>Situação onde nenhum jogador quer mudar sua estratégia</p></div>
+            </header>
+
+            <section class="section" id="definicao">
+                <h2>O que é Equilíbrio de Nash?</h2>
+                <div class="paragraph"><p><strong>Equilíbrio de Nash</strong> é uma situação em um jogo onde nenhum jogador pode melhorar seu payoff mudando unilateralmente sua estratégia, assumindo que os outros não mudam suas estratégias.</p></div>
+                <div class="paragraph"><p>Em outras palavras: é um "ponto de repouso" onde cada jogador está fazendo o melhor que pode, dado o que outros estão fazendo.</p></div>
+
+                <div class="content-flex">
+                    <div class="content-text">
+                        <div class="heading-block"><h3>Propriedade Fundamental</h3></div>
+                        <div class="paragraph"><p>
+                            Se um jogador tiver uma estratégia melhor disponível, o equilíbrio não é estável. No Nash, <strong>ninguém tem incentivo para desviar</strong>.
+                        </p></div>
+                    </div>
+                    <div class="content-image">
+                        <div class="image-block"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f0f4ff' width='400' height='300'/%3E%3Ccircle cx='150' cy='120' r='45' fill='%236366f1' opacity='0.3'/%3E%3Crect x='150' y='120' width='100' height='100' fill='%236366f1'/%3E%3Ctext x='200' y='175' text-anchor='middle' font-size='13' fill='white' font-weight='bold'%3E🎯%3C/text%3E%3Ctext x='200' y='220' text-anchor='middle' font-size='11' fill='%236366f1' font-weight='bold'%3EEquilíbrio%3C/text%3E%3Ctext x='200' y='235' text-anchor='middle' font-size='10' fill='%236b7280'%3Ede Nash%3C/text%3E%3C/svg%3E" alt="Equilíbrio" /></div>
+                        <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="significado">
+                <h2>Por que é Importante?</h2>
+
+                <div class="content-flex reverse">
+                    <div class="content-text">
+                        <div class="heading-block"><h3>Aplicações Práticas</h3></div>
+                        <div class="list-block"><ol class="ordered-list">
+                            <li>✓ Previsão de comportamento racional</li>
+                            <li>✓ Design de mercados e leilões</li>
+                            <li>✓ Negociação e diplomacia</li>
+                            <li>✓ Estratégia empresarial</li>
+                            <li>✓ Esportes e competições</li>
+                            <li>✓ Biologia evolutiva</li>
+                        </ol></div>
+                    </div>
+                    <div class="content-image">
+                        <div class="image-block"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23eef2ff' width='400' height='300'/%3E%3Cg%3E%3Ccircle cx='100' cy='100' r='35' fill='%236366f1'/%3E%3Ctext x='100' y='145' text-anchor='middle' font-size='11' fill='%236b7280' font-weight='bold'%3EJogador 1%3C/text%3E%3Ccircle cx='300' cy='100' r='35' fill='%236366f1'/%3E%3Ctext x='300' y='145' text-anchor='middle' font-size='11' fill='%236b7280' font-weight='bold'%3EJogador 2%3C/text%3E%3Cline x1='135' y1='100' x2='265' y2='100' stroke='%236366f1' stroke-width='2'/%3E%3Crect x='140' y='200' width='120' height='50' rx='8' fill='%236366f1' opacity='0.1' stroke='%236366f1' stroke-width='2'%3E%3C/rect%3E%3Ctext x='200' y='232' text-anchor='middle' font-size='12' fill='%231f2937' font-weight='bold'%3EPonto de Equilíbrio%3C/text%3E%3C/g%3E%3C/svg%3E" alt="Equilíbrio mútuo" /></div>
+                        <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="como-encontrar">
+                <h2>Como Encontrar um Equilíbrio de Nash</h2>
+
+                <div class="interactive-section">
+                    <div class="heading-block"><h3>Passo a Passo</h3></div>
+                    <ol class="ordered-list">
+                        <li><strong>Para cada jogador:</strong> Identifique que estratégia é melhor para cada estratégia do outro</li>
+                        <li><strong>Marque essas respostas:</strong> Use uma marca especial na matriz (ex: um asterisco)</li>
+                        <li><strong>Procure por células com ambas as marcas:</strong> Aquela é o equilíbrio!</li>
+                        <li><strong>Verifique:</strong> Nenhum jogador quer mudar de estratégia</li>
+                    </ol>
+                    <div class="paragraph"><p>
+                        ℹ️ Um jogo pode ter 0, 1 ou múltiplos equilíbrios de Nash puros. Estratégias mistas garantem sempre 1 equilíbrio.
+                    </p></div>
+                </div>
+            </section>
+
+            <section class="section" id="exemplos">
+                <h2>Exemplos Clássicos</h2>
+                <div class="paragraph"><p>🔸 <strong>Dilema do Prisioneiro:</strong> Confessar é o equilíbrio de Nash (mas não é o melhor para ambos)</p></div>
+                <div class="paragraph"><p>🔸 <strong>Jogo da Localização:</strong> Dois vendedores no meio da praia (estratégia mista)</p></div>
+                <div class="paragraph"><p>🔸 <strong>Jogo de Coordenação:</strong> Assistir ao mesmo filme (múltiplos equilíbrios)</p></div>
+                <div class="paragraph"><p>🔸 <strong>Batalha de Gêneros:</strong> Casal indo ao cinema vs concerto (dois equilíbrios puros)</p></div>
+                <div class="paragraph"><p>🔸 <strong>Corrida Armamentista:</strong> Ambos armando-se é o equilíbrio de Nash</p></div>
+            </section>
+
+            <!-- SLIDES E JOGO INTERATIVO -->
+            <section class="section">
+                <h2>Saiba Mais com Slides</h2>
+                <div class="iframe-block">
+                    <iframe src="https://slides-nash-equilibrium.gamma.site/" title="Slides Interativos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-credit">🎬 Slides: "Equilíbrio de Nash Explicado" | Créditos ao autor original</div>
+                <a href="https://slides-nash-equilibrium.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse os Slides</a>
+
+                <h3>Jogo Interativo</h3>
+                <div class="iframe-block">
+                    <iframe src="https://jogo-nash.gamma.site/" title="Jogo Interativo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-credit">🎮 Jogo: "Encontrando Equilíbrio de Nash" | Créditos ao autor original</div>
+                <a href="https://jogo-nash.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse o Jogo Interativo</a>
+            </section>
+
+            <!-- RATING -->
+            <div class="rating-section">
+                <div class="heading-block"><h3>Avalie este Tópico</h3></div>
+                <div class="paragraph"><p>Como foi sua experiência?</p></div>
+                <div class="star-rating" id="rating">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <div class="rating-feedback" id="feedback"></div>
+                <div class="next-topic-container" style="margin-top: 20px;">
+                    <button id="nextTopicButton" class="btn-primary" disabled style="padding: 12px 18px; border: none; border-radius: 8px; background-color: #6366f1; color: #fff; font-size: 1rem; cursor: not-allowed;">
+                        Próximo Tópico (avaliar primeiro)
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../../js/utils.js"></script>
+    <script src="../../../js/progress.js"></script>
+    <script src="../../js/topicos.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-menu-open');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedPic = localStorage.getItem('userProfilePic');
+            const profilePic = document.getElementById('profilePic');
+            if (savedPic && profilePic) {
+                profilePic.src = savedPic;
+            }
+
+            const userName = localStorage.getItem('userName') || 'Aprendiz';
+            const userNameElement = document.getElementById('userName');
+            if (userNameElement) {
+                userNameElement.textContent = userName;
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

@@ -99,6 +99,60 @@ class ProgressManager {
         this.save();
     }
 
+    recordTopicRating(topicId, rating) {
+        if (!this.progress.topicRatings) {
+            this.progress.topicRatings = {};
+        }
+
+        this.progress.topicRatings[topicId] = {
+            rating: rating,
+            ratedAt: new Date().toISOString()
+        };
+
+        // Também marquem o tutorial como concluído ao avaliar (se ainda não estiver)
+        this.completeTutorial(topicId, 10);
+
+        this.save();
+
+        // Atualizar snapshot global (por exemplo para comparativos de plataformas / TCC)
+        const globalRecord = {
+            userName: this.getUserName(),
+            totalPoints: this.getTotalPoints(),
+            completedTutorials: this.getCompletedCount(),
+            averageRating: this.getAverageRating(),
+            level: this.getLevel(),
+            lastUpdate: new Date().toISOString()
+        };
+
+        this.addGlobalRecord(globalRecord);
+    }
+
+    getTopicRating(topicId) {
+        if (!this.progress.topicRatings) return null;
+        return this.progress.topicRatings[topicId]?.rating || null;
+    }
+
+    getTopicRatings() {
+        return this.progress.topicRatings || {};
+    }
+
+    getAverageRating() {
+        const ratings = this.getTopicRatings();
+        const topicIds = Object.keys(ratings);
+        if (topicIds.length === 0) return 0;
+
+        const total = topicIds.reduce((sum, topicId) => sum + (ratings[topicId].rating || 0), 0);
+        return parseFloat((total / topicIds.length).toFixed(2));
+    }
+
+    getStudyDays() {
+        const createdAt = new Date(this.progress.createdAt);
+        const now = new Date();
+        const diff = now - createdAt;
+        const days = Math.max(1, Math.floor(diff / (1000 * 60 * 60 * 24)) + 1);
+        return days;
+    }
+
     calculateLevel() {
         this.progress.level = Math.floor(this.progress.totalPoints / 150) + 1;
     }
@@ -121,6 +175,57 @@ class ProgressManager {
             totalPoints: this.progress.totalPoints,
             level: this.progress.level,
             userName: this.progress.userName
+        };
+    }
+
+    getGlobalRecords() {
+        let records = Storage.get('globalProgressRecords', []);
+        if (!Array.isArray(records)) {
+            records = [];
+        }
+
+        if (records.length === 0) {
+            records = [
+                { userName: 'Aluno 1', totalPoints: 520, completedTutorials: 8, averageRating: 4.8, level: 4, lastUpdate: new Date().toISOString() },
+                { userName: 'Aluno 2', totalPoints: 410, completedTutorials: 7, averageRating: 4.3, level: 3, lastUpdate: new Date().toISOString() },
+                { userName: 'Aluno 3', totalPoints: 335, completedTutorials: 6, averageRating: 4.1, level: 3, lastUpdate: new Date().toISOString() }
+            ];
+            Storage.save('globalProgressRecords', records);
+        }
+
+        return records;
+    }
+
+    addGlobalRecord(record) {
+        const records = this.getGlobalRecords();
+        const index = records.findIndex(r => r.userName === record.userName);
+        if (index === -1) {
+            records.push(record);
+        } else {
+            records[index] = record;
+        }
+        Storage.save('globalProgressRecords', records);
+    }
+
+    getGlobalAverages() {
+        const records = this.getGlobalRecords();
+        if (records.length === 0) {
+            return {
+                averagePoints: 0,
+                averageCompletedTutorials: 0,
+                averageRating: 0,
+                students: 0
+            };
+        }
+        const totalPoints = records.reduce((sum, r) => sum + (r.totalPoints || 0), 0);
+        const completedTutorials = records.reduce((sum, r) => sum + (r.completedTutorials || 0), 0);
+        const ratings = records.reduce((sum, r) => sum + (r.averageRating || 0), 0);
+        const count = records.length;
+        return {
+            averagePoints: (totalPoints / count).toFixed(1),
+            averageCompletedTutorials: (completedTutorials / count).toFixed(1),
+            averageRating: (ratings / count).toFixed(2),
+            students: count
         };
     }
 

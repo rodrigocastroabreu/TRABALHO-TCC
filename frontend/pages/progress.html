@@ -10,11 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
     <!-- HEADER/NAVBAR -->
@@ -156,6 +152,48 @@
             </div>
         </section>
 
+        <!-- SECTION: Rating Overview -->
+        <section class="section-rating-overview">
+            <h2>📈 Avaliação dos Tópicos</h2>
+            <p>Veja as notas dadas pelos tópicos e acompanhe o desempenho geral.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                <div style="flex:1 1 300px; min-width:300px; background:#fff; padding:16px; border-radius:8px; border:1px solid #e5e7eb; ">
+                    <h3>Distribuição das Avaliações</h3>
+                    <canvas id="ratingPieChart" width="300" height="300"></canvas>
+                </div>
+                <div style="flex:1 1 500px; min-width:300px; background:#fff; padding:16px; border-radius:8px; border:1px solid #e5e7eb; ">
+                    <h3>Histórico de pontos</h3>
+                    <canvas id="pointsLineChart" width="500" height="300"></canvas>
+                </div>
+            </div>
+            <div id="ratingSummary" style="font-size:0.95rem; color:#1f2937; margin-top:8px;"></div>
+        </section>
+
+        <!-- SECTION: Performance Tables -->
+        <section class="section-performance-tables">
+            <h2>📋 Dados para TCC</h2>
+            <p>Estes relatórios ajudam a demonstrar benefício da gamificação na plataforma.</p>
+            <div style="overflow-x:auto; background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:12px;">
+                <table id="ratingTable" style="width:100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th style="border-bottom:1px solid #d1d5db; padding:8px; text-align:left;">Tópico</th>
+                            <th style="border-bottom:1px solid #d1d5db; padding:8px; text-align:right;">Nota</th>
+                            <th style="border-bottom:1px solid #d1d5db; padding:8px; text-align:right;">% Conclusão</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION: KPI Summary -->
+        <section class="section-kpi-summary">
+            <h2>📊 Indicadores de Qualidade</h2>
+            <ul id="kpiList" style="list-style: none; padding: 0; margin: 0;">
+            </ul>
+        </section>
+
         <!-- SECTION: Achievements -->
         <section class="section-achievements">
             <h2>🏆 Conquistas</h2>
@@ -208,6 +246,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/utils.js"></script>
     <script src="../js/progress.js"></script>
     <script>
@@ -232,8 +271,46 @@
         document.addEventListener('DOMContentLoaded', function() {
             updateUserDisplay();
             loadProfilePicture();
+            ensureSimulationData();
             updateProgressPage();
         });
+
+        function ensureSimulationData() {
+            const ratings = progressManager.getTopicRatings();
+            if (Object.keys(ratings).length > 0) {
+                return;
+            }
+
+            const simulatedRatings = {
+                topico1: { rating: 5, ratedAt: new Date().toISOString() },
+                topico2: { rating: 5, ratedAt: new Date().toISOString() },
+                topico3: { rating: 5, ratedAt: new Date().toISOString() },
+                topico4: { rating: 5, ratedAt: new Date().toISOString() },
+                topico5: { rating: 5, ratedAt: new Date().toISOString() },
+                topico6: { rating: 5, ratedAt: new Date().toISOString() },
+                topico7: { rating: 5, ratedAt: new Date().toISOString() },
+                topico8: { rating: 5, ratedAt: new Date().toISOString() }
+            };
+
+            progressManager.progress.topicRatings = simulatedRatings;
+            progressManager.progress.totalPoints = 960;
+            progressManager.progress.statistics.tutorialsCompleted = 8;
+            progressManager.progress.statistics.quizzesCompleted = 12;
+            progressManager.progress.level = 7;
+            progressManager.progress.studyStreak = 15;
+            progressManager.progress.userName = 'Aluno Simulado';
+            progressManager.save();
+
+            const snapshot = {
+                userName: 'Aluno Simulado',
+                totalPoints: 960,
+                completedTutorials: 8,
+                averageRating: progressManager.getAverageRating(),
+                level: 7,
+                updatedAt: new Date().toISOString()
+            };
+            progressManager.addGlobalRecord(snapshot);
+        }
 
         function loadProfilePicture() {
             const savedPic = localStorage.getItem('userProfilePic');
@@ -246,14 +323,223 @@
             const userName = progressManager.getUserName();
             document.getElementById('userName').textContent = userName;
             document.getElementById('userLevel').textContent = `Nível ${progressManager.getLevel()}`;
-            
-            document.getElementById('totalPoints').textContent = progressManager.getTotalPoints();
-            document.getElementById('completedTutorials').textContent = progressManager.getCompletedCount();
-            document.getElementById('quizzesAttempted').textContent = '0'; // Será implementado
-            document.getElementById('studyDays').textContent = '1'; // Será implementado
+
+            const stats = progressManager.getStatistics();
+            document.getElementById('totalPoints').textContent = stats.totalPoints;
+            document.getElementById('completedTutorials').textContent = stats.tutorialsCompleted;
+            document.getElementById('quizzesAttempted').textContent = stats.quizzesCompleted;
+            document.getElementById('studyDays').textContent = progressManager.getStudyDays();
+
+            updateRatingChart();
+            updateAdditionalCharts();
+            populateRatingTable();
+            populateKpiSummary();
+            updateRecentActivity();
         }
 
-        function resetProgress() {
+        function updateRatingChart() {
+            const ratings = progressManager.getTopicRatings();
+            const topicIds = Object.keys(ratings).sort((a, b) => parseInt(a.replace(/^topico/, ''), 10) - parseInt(b.replace(/^topico/, ''), 10));
+            const values = topicIds.map(id => ratings[id].rating);
+            const avg = progressManager.getAverageRating();
+
+            const canvas = document.getElementById('ratingChart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+
+            const width = canvas.width;
+            const height = canvas.height;
+            const padding = 40;
+            const barWidth = Math.max(20, (width - padding * 2) / Math.max(values.length, 1) * 0.7);
+
+            ctx.clearRect(0, 0, width, height);
+
+            ctx.fillStyle = '#f8fafc';
+            ctx.fillRect(0, 0, width, height);
+
+            // Eixos
+            ctx.strokeStyle = '#cbd5e1';
+            ctx.beginPath();
+            ctx.moveTo(padding, padding);
+            ctx.lineTo(padding, height - padding);
+            ctx.lineTo(width - padding, height - padding);
+            ctx.stroke();
+
+            if (values.length > 0) {
+                values.forEach((value, index) => {
+                    const x = padding + (index * ((width - padding * 2) / values.length)) + ((width - padding * 2) / values.length - barWidth) / 2;
+                    const barHeight = (height - padding * 2) * (value / 5);
+                    const y = height - padding - barHeight;
+
+                    ctx.fillStyle = '#6366f1';
+                    ctx.fillRect(x, y, barWidth, barHeight);
+
+                    ctx.fillStyle = '#1f2937';
+                    ctx.font = '12px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(value.toFixed(1), x + barWidth / 2, y - 8);
+                    ctx.fillText(topicIds[index], x + barWidth / 2, height - padding + 18);
+                });
+
+                document.getElementById('ratingSummary').innerHTML = `<strong>Média de avaliação:</strong> ${avg} / 5 em ${values.length} tópicos avaliados.`;
+            } else {
+                document.getElementById('ratingSummary').textContent = 'Nenhuma avaliação de tópico registrada ainda.';
+            }
+        }
+
+        function updateRecentActivity() {
+            const timeline = document.getElementById('activityTimeline');
+            const ratings = progressManager.getTopicRatings();
+            const entries = Object.entries(ratings).sort((a, b) => parseInt(a[0].replace(/^topico/, ''), 10) - parseInt(b[0].replace(/^topico/, ''), 10));
+
+            if (!timeline) return;
+
+            timeline.innerHTML = '';
+
+            if (entries.length === 0) {
+                timeline.innerHTML = `<div class="activity-item"><div class="activity-marker"></div><div class="activity-content"><h4>Comece sua jornada</h4><p>Você ainda não tem atividades registradas. Comece avaliando um tutorial!</p></div></div>`;
+                return;
+            }
+
+            entries.forEach(([topicId, info]) => {
+                const item = document.createElement('div');
+                item.className = 'activity-item';
+                item.innerHTML = `
+                    <div class="activity-marker"></div>
+                    <div class="activity-content">
+                        <h4>${topicId.replace(/^topico/, 'Tópico ')}</h4>
+                        <p>Foi avaliado com ${info.rating}/5 em ${new Date(info.ratedAt).toLocaleDateString('pt-BR')}.</p>
+                    </div>
+                `;
+                timeline.appendChild(item);
+            });
+        }
+
+        function updateAdditionalCharts() {
+            const ratings = progressManager.getTopicRatings();
+            const topics = Object.keys(ratings).sort((a,b)=> parseInt(a.replace(/[^0-9]+/g,'')||0) - parseInt(b.replace(/[^0-9]+/g,'')));
+            const values = topics.map(t => ratings[t].rating);
+            const distribution = [0,0,0,0,0];
+            values.forEach(v=>{ if(v>=1&&v<=5) distribution[v-1]++; });
+
+            const avgRating = progressManager.getAverageRating();
+
+            // Pie chart (ratings distribution)
+            const pieCtx = document.getElementById('ratingPieChart')?.getContext('2d');
+            if (pieCtx) {
+                if (window.ratingPieChartRef) window.ratingPieChartRef.destroy();
+                window.ratingPieChartRef = new Chart(pieCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['1 estrela','2 estrelas','3 estrelas','4 estrelas','5 estrelas'],
+                        datasets: [{
+                            data: distribution,
+                            backgroundColor: ['#ef4444','#f59e0b','#eab308','#22c55e','#10b981'],
+                            borderColor: '#fff',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: { plugins:{legend:{position:'bottom'}}, maintainAspectRatio:false }
+                });
+            }
+
+            // Line chart (points over days, simulado)
+            const lineCtx = document.getElementById('pointsLineChart')?.getContext('2d');
+            if (lineCtx) {
+                if (window.pointsLineChartRef) window.pointsLineChartRef.destroy();
+
+                const days = progressManager.getStudyDays();
+                const totalPoints = progressManager.getTotalPoints();
+                const pointsPerDay = [];
+                for (let d = 1; d <= days; d++) {
+                    pointsPerDay.push(Math.round((totalPoints / days) * d));
+                }
+
+                window.pointsLineChartRef = new Chart(lineCtx, {
+                    type: 'line',
+                    data: {
+                        labels: Array.from({length: days}, (_,i)=>`D${i+1}`),
+                        datasets: [{
+                            label: 'Pontos Acumulados',
+                            data: pointsPerDay,
+                            fill: true,
+                            backgroundColor: 'rgba(99,102,241,0.2)',
+                            borderColor: '#6366f1',
+                            tension: 0.3
+                        }]
+                    },
+                    options: { plugins:{legend:{display:true}}, maintainAspectRatio:false }
+                });
+            }
+
+            // KPI summary e tabela
+            populateRatingTable();
+            populateKpiSummary();
+
+            // salvando snapshot global para futuro comparativo
+            const userSnapshot = {
+                userName: progressManager.getUserName(),
+                totalPoints: progressManager.getTotalPoints(),
+                completedTutorials: progressManager.getCompletedCount(),
+                averageRating: avgRating,
+                level: progressManager.getLevel(),
+                updatedAt: new Date().toISOString()
+            };
+            progressManager.addGlobalRecord(userSnapshot);
+        }
+
+        function populateRatingTable() {
+            const ratings = progressManager.getTopicRatings();
+            const tableBody = document.querySelector('#ratingTable tbody');
+            if (!tableBody) return;
+            tableBody.innerHTML = '';
+
+            const totalTopics = 8;
+            const completed = Object.keys(ratings).length;
+
+            for (let i = 1; i <= totalTopics; i++) {
+                const topicId = `topico${i}`;
+                const rating = ratings[topicId]?.rating || 0;
+                const isCompleted = rating > 0;
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td style="border-bottom:1px solid #e5e7eb; padding:8px;">Tópico ${i}</td>
+                    <td style="border-bottom:1px solid #e5e7eb; padding:8px; text-align:right;">${rating ? rating + '/5' : '-'} </td>
+                    <td style="border-bottom:1px solid #e5e7eb; padding:8px; text-align:right;">${isCompleted ? '100%' : '0%'}</td>
+                `;
+                tableBody.appendChild(row);
+            }
+
+            const globalRow = document.createElement('tr');
+            const progressPerc = totalTopics ? Math.round((completed / totalTopics) * 100) : 0;
+            globalRow.innerHTML = `
+                <td style="border-top:1px solid #94a3b8; padding:8px; font-weight:bold;">Total</td>
+                <td style="border-top:1px solid #94a3b8; padding:8px; text-align:right; font-weight:bold;">${progressManager.getAverageRating()}/5</td>
+                <td style="border-top:1px solid #94a3b8; padding:8px; text-align:right; font-weight:bold;">${progressPerc}%</td>
+            `;
+            tableBody.appendChild(globalRow);
+        }
+
+        function populateKpiSummary() {
+            const kpiList = document.getElementById('kpiList');
+            if (!kpiList) return;
+
+            const global = progressManager.getGlobalAverages();
+            const stats = progressManager.getStatistics();
+            const topicRatings = progressManager.getTopicRatings();
+
+            const tutorialCompletion = Math.round((stats.tutorialsCompleted / 8) * 100);
+
+            kpiList.innerHTML = `
+                <li style="padding:8px; border-bottom:1px solid #e5e7eb;">Pontuação do aluno: <strong>${stats.totalPoints}</strong> (<em>Nível ${stats.level}</em>).</li>
+                <li style="padding:8px; border-bottom:1px solid #e5e7eb;">Tutoriais concluídos (este aluno): <strong>${stats.tutorialsCompleted}</strong> (${tutorialCompletion}%).</li>
+                <li style="padding:8px; border-bottom:1px solid #e5e7eb;">Avaliação média dos tópicos: <strong>${progressManager.getAverageRating()}</strong>.</li>
+                <li style="padding:8px; border-bottom:1px solid #e5e7eb;">Dias de uso: <strong>${progressManager.getStudyDays()}</strong>.</li>
+                <li style="padding:8px; border-bottom:1px solid #e5e7eb;">Média global (todos os alunos simulados): Pontos <strong>${global.averagePoints}</strong>, Tutoriais <strong>${global.averageCompletedTutorials}</strong>, Avaliação <strong>${global.averageRating}</strong>, Usuários <strong>${global.students}</strong>.</li>
+                <li style="padding:8px;">Vantagem da gamificação: mais engajamento medido em velocidade de conclusão e satisfação (estrelas).</li>
+            `;
+        }
             if (confirm('Tem certeza? Isso apagará todo o seu progresso!')) {
                 progressManager.resetProgress();
                 updateProgressPage();

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é Teoria dos Jogos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../css/topicos.css">
+</head>
+<body>
+    <!-- HEADER/NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <h1 class="logo">🎮 Plataforma Interativa de Jogos Digitais</h1>
+                <p class="tagline">Aprenda a Desenvolver Jogos Digitais</p>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="../../../../index.html" class="nav-link">Início</a>
+                <a href="../../../../frontend/sumário/sumário.html" class="nav-link">Sumário</a>
+                <a href="../../../../frontend/pages/jogos.html" class="nav-link">Jogos</a>
+                <a href="../../../../frontend/pages/quiz.html" class="nav-link">Quizzes</a>
+                <a href="../../../../frontend/pages/progress.html" class="nav-link">Progresso</a>
+            </nav>
+
+            <a href="../../../../frontend/pages/perfil.html" class="user-profile-link">
+                <img src="../../../../frontend/images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+                <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
+            </a>
+
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-title">Capítulo 1</div>
+            <ul class="sidebar-nav">
+                <li><a href="#definicao" class="nav-link active">Definição</a></li>
+                <li><a href="#historia" class="nav-link">História</a></li>
+                <li><a href="#importancia" class="nav-link">Importância</a></li>
+                <li><a href="#aplicacoes" class="nav-link">Para Saber Mais</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <header class="header">
+                <h1>O que é Teoria dos Jogos</h1>
+                <p>Fundamentos da análise estratégica de decisões</p>
+            </header>
+
+            <section class="section" id="definicao">
+                <h2>Definição</h2>
+                <div class="text-content">
+                    <div class="paragraph">
+                        <p>A Teoria dos Jogos é uma ferramenta matemática e econômica que estuda as interações entre agentes racionais que competem ou cooperam para atingir objetivos.</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>Em essência, ela analisa situações onde:</p>
+                    </div>
+                </div>
+                <div class="list-content">
+                    <ol class="ordered-list">
+                        <li>Há múltiplos participantes tomando decisões</li>
+                        <li>O resultado de cada um dependes das escolhas de todos</li>
+                        <li>Existem regras claras e objetivos definidos</li>
+                        <li>Há possíveis recompensas ou punições</li>
+                    </ol>
+                </div>
+
+                <div class="text-div">
+                    <div class="heading-block">
+                        <h3>Características Principais</h3>
+                    </div>
+                    <div class="paragraph">
+                        <p><strong>Racionalidade:</strong> Todos os jogadores buscam maximizar seu ganho</p>
+                    </div>
+                    <div class="paragraph">
+                        <p><strong>Interdependência:</strong> As ações de um afetam os resultados de outro</p>
+                    </div>
+                    <div class="paragraph">
+                        <p><strong>Estratégia:</strong> Necessidade de pensar antecipadamente</p>
+                    </div>
+                    <div class="paragraph">
+                        <p><strong>Conflito e Cooperação:</strong> Pode haver ambos ao mesmo tempo</p>
+                    </div>
+                </div>
+                <div class="image-div">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23eef2ff' width='400' height='300'/%3E%3Cg%3E%3Ccircle cx='100' cy='100' r='35' fill='%236366f1'/%3E%3Ccircle cx='300' cy='100' r='35' fill='%236366f1'/%3E%3Ccircle cx='100' cy='200' r='35' fill='%236366f1'/%3E%3Ccircle cx='300' cy='200' r='35' fill='%236366f1'/%3E%3Cline x1='135' y1='100' x2='265' y2='100' stroke='%236366f1' stroke-width='2' opacity='0.6'/%3E%3Cline x1='100' y1='135' x2='100' y2='165' stroke='%236366f1' stroke-width='2' opacity='0.6'/%3E%3Cline x1='300' y1='135' x2='300' y2='165' stroke='%236366f1' stroke-width='2' opacity='0.6'/%3E%3Cline x1='135' y1='200' x2='265' y2='200' stroke='%236366f1' stroke-width='2' opacity='0.6'/%3E%3C/g%3E%3Ctext x='200' y='280' text-anchor='middle' font-size='12' fill='%231f2937'%3EJogadores Interdependentes%3C/text%3E%3C/svg%3E" alt="Estrutura de um jogo com múltiplos jogadores" />
+                    <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                </div>
+            </section>
+
+            <section class="section" id="historia">
+                <h2>Uma Breve História</h2>
+                <p>Embora a análise estratégica tenha raízes antigas, a Teoria dos Jogos moderna começou no século XX com o trabalho de <strong>John von Neumann</strong> e <strong>Oskar Morgenstern</strong>, que publicaram "Theory of Games and Economic Behavior" em 1944.</p>
+
+                <div class="text-div">
+                    <div class="heading-block">
+                        <h3>Evolução</h3>
+                    </div>
+                    <div class="paragraph">
+                        <p><strong>1944:</strong> Publicação do livro fundamental</p>
+                    </div>
+                    <div class="paragraph">
+                        <p><strong>1950s:</strong> John Nash desenvolve o conceito de Equilíbrio de Nash</p>
+                    </div>
+                    <div class="paragraph">
+                        <p><strong>1965-1975:</strong> Expansão para biologia com Maynard Smith</p>
+                    </div>
+                    <div class="paragraph">
+                        <p><strong>1994:</strong> Nobel de Economia para Nash, Harsanyi e Selten</p>
+                    </div>
+                    <div class="paragraph">
+                        <p><strong>Hoje:</strong> Aplicação em inteligência artificial, economia comportamental e ciência de dados</p>
+                    </div>
+                </div>
+                <div class="image-div">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f0f4ff' width='400' height='300'/%3E%3Cg%3E%3Crect x='50' y='50' width='80' height='200' fill='%236366f1' opacity='0.3'/%3E%3Crect x='160' y='80' width='80' height='170' fill='%236366f1' opacity='0.5'/%3E%3Crect x='270' y='40' width='80' height='210' fill='%236366f1'/%3E%3Ctext x='90' y='270' text-anchor='middle' font-size='11' fill='%231f2937'%3E1944%3C/text%3E%3Ctext x='200' y='270' text-anchor='middle' font-size='11' fill='%231f2937'%3E1950-70%3C/text%3E%3Ctext x='310' y='270' text-anchor='middle' font-size='11' fill='%231f2937'%3EAtual%3C/text%3E%3C/g%3E%3C/svg%3E" alt="Evolução temporal da Teoria dos Jogos" />
+                    <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                </div>
+            </section>
+
+            <section class="section" id="importancia">
+                <h2>Por que é Importante?</h2>
+                <div class="text-content">
+                    <div class="paragraph">
+                        <p>A Teoria dos Jogos revolucionou nossa compreensão de como decisões estratégicas são tomadas. Ela permite:</p>
+                    </div>
+                </div>
+                <div class="list-content">
+                    <ol class="ordered-list">
+                        <li>🎯 <strong>Prever comportamentos:</strong> Entender o que outros provavelmente farão</li>
+                        <li>📊 <strong>Otimizar estratégias:</strong> Escolher as melhores ações possíveis</li>
+                        <li>💡 <strong>Resolver paradoxos:</strong> Explicar por que pessoas agem de forma aparentemente irracional</li>
+                        <li>🔍 <strong>Analisar dilemas:</strong> Compreender conflitos entre interesse individual e coletivo</li>
+                    </ol>
+                </div>
+
+                <div class="interactive-section">
+                    <div class="heading-block">
+                        <h3>Exemplo Simples</h3>
+                    </div>
+                    <div class="paragraph">
+                        <p>Imagine duas lojas concorrentes decidindo seus preços. Ambas querem lucrar. Se ambas baixam preços, ambas perdem. Se ambas mantêm alto, ambas lucram. Mas cada uma tem incentivo a baixar para ganhar clientes da outra. A Teoria dos Jogos explica por que esse dilema acontece e como resolvê-lo!</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="aplicacoes">
+                <h2>Para Saber Mais</h2>
+                <div class="text-content">
+                    <div class="paragraph">
+                        <p>Explore os próximos tópicos para aprofundar seu conhecimento:</p>
+                    </div>
+                </div>
+                <div class="list-content">
+                    <ol class="ordered-list">
+                        <li>📌 Jogadores e suas características</li>
+                        <li>📌 O conceito de estratégia</li>
+                        <li>📌 Payoffs e recompensas</li>
+                        <li>📌 O Equilíbrio de Nash</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- SLIDES E JOGO INTERATIVO -->
+            <section class="section">
+                <h2>Saiba Mais com Slides</h2>
+                <div class="iframe-block">
+                    <iframe src="https://slides-teoria-jogos.gamma.site/" title="Slides Interativos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-credit">🎬 Slides: "Introdução à Teoria dos Jogos" | Créditos ao autor original</div>
+                <a href="https://slides-teoria-jogos.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse os Slides</a>
+
+                <h3>Jogo Interativo</h3>
+                <div class="iframe-block">
+                    <iframe src="https://jogo-teoria-jogos.gamma.site/" title="Jogo Interativo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-credit">🎮 Jogo: "Simulação de Estratégias" | Créditos ao autor original</div>
+                <a href="https://jogo-teoria-jogos.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse o Jogo Interativo</a>
+            </section>
+
+            <!-- RATING -->
+            <div class="rating-section">
+                <div class="heading-block">
+                    <h3>Avalie este Tópico</h3>
+                </div>
+                <div class="paragraph">
+                    <p>Como foi sua experiência?</p>
+                </div>
+                <div class="star-rating" id="rating">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <div class="rating-feedback" id="feedback"></div>
+                <div class="next-topic-container" style="margin-top: 20px;">
+                    <button id="nextTopicButton" class="btn-primary" disabled style="padding: 12px 18px; border: none; border-radius: 8px; background-color: #6366f1; color: #fff; font-size: 1rem; cursor: not-allowed;">
+                        Próximo Tópico (avaliar primeiro)
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../../js/utils.js"></script>
+    <script src="../../../js/progress.js"></script>
+    <script src="../../js/topicos.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-menu-open');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedPic = localStorage.getItem('userProfilePic');
+            const profilePic = document.getElementById('profilePic');
+            if (savedPic && profilePic) {
+                profilePic.src = savedPic;
+            }
+
+            const userName = localStorage.getItem('userName') || 'Aprendiz';
+            const userNameElement = document.getElementById('userName');
+            if (userNameElement) {
+                userNameElement.textContent = userName;
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
