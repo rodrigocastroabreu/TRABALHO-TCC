@@ -95,9 +95,11 @@ main {
     background: var(--bg-card);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    text-align: justify;
 }
 
 .header {
+    text-align: justify;
     margin-bottom: 40px;
     padding-bottom: 30px;
     border-bottom: 1px solid var(--border-light);
@@ -142,8 +144,7 @@ main {
     border-radius: 8px;
     padding: 12px;
     background: var(--bg-card);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);    text-align: justify;}
 
 .section h2 {
     font-size: 1.75rem;
@@ -206,11 +207,19 @@ section .text-content ol {
 section .content-text ol li,
 section .list-content ol li,
 section .text-content ol li,
-section .section ol li {
+section .section ol li,
+section .content-text ul li,
+section .list-content ul li,
+section .text-content ul li,
+section .section ul li,
+.list-content ol li,
+.list-content ul li,
+.unordered-list li,
+.ordered-list li {
     counter-increment: item;
     margin-bottom: 14px;
     padding: 14px 18px;
-    background: linear-gradient(145deg, #fff9db 0%, #fff4b0 50%, #ffed8c 100%);
+    background: linear-gradient(145deg, #fff9db 0%, #fff4b0 50%, #ffed8c 100%) !important;
     border: 2px solid transparent;
     border-image-source: linear-gradient(135deg, #fbbf24, #f59e0b);
     border-image-slice: 1;
@@ -336,13 +345,13 @@ section .text-content ul li {
 section .content-text ul li::before,
 section .list-content ul li::before,
 section .text-content ul li::before {
-    content: "•";
+    content: none;
     position: absolute;
-    left: -20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-    color: #fbbf24;
+    left: 0;
+    top: 0;
+    transform: none;
+    font-size: inherit;
+    color: transparent;
 }
 
 .highlight-text {

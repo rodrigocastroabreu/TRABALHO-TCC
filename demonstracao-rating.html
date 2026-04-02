@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demonstração - Sistema de Avaliação por Estrelas</title>
+    <link rel="stylesheet" href="frontend/css/main.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -139,6 +140,36 @@
     </style>
 </head>
 <body>
+    <!-- HEADER/NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <img class="logo-image" src="frontend/images/logotipo.png" alt="Logo Play Game Dev Academy">
+                <h1 class="logo">Play Game Dev Academy</h1>
+                <p class="tagline">Play the Game. Mission Complete. Congratulations.</p>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="frontend/sumário/sumário.html" class="nav-link">Sumário</a>
+                <a href="frontend/pages/jogos.html" class="nav-link">Jogos</a>
+                <a href="frontend/pages/quiz.html" class="nav-link">Quizzes</a>
+                <a href="frontend/pages/progress.html" class="nav-link">Progresso</a>
+            </nav>
+
+            <a href="frontend/pages/perfil.html" class="user-profile-link">
+                <img src="frontend/images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+                <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
+            </a>
+
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
     <div class="demo-container">
         <h1>⭐ Sistema de Avaliação</h1>
         <p class="subtitle">Demonstração interativa do sistema de estrelas</p>
