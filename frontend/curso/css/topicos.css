@@ -467,7 +467,7 @@ section .text-content ul li::before {
     border-radius: 8px;
 }
 
-.video-container {
+.frame-container {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%;
@@ -478,7 +478,7 @@ section .text-content ul li::before {
     margin-bottom: 15px;
 }
 
-.video-container iframe {
+.frame-container iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -488,21 +488,48 @@ section .text-content ul li::before {
     border-radius: 8px;
 }
 
-.video-credit {
-    font-size: 0.85rem;
+.frame-credit {
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.video-credit a {
+.frame-credit a {
     color: var(--accent);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.video-credit a:hover {
+.frame-credit a:hover {
     color: var(--accent-hover);
     text-decoration: underline;
+}
+
+.expand-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--accent);
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 8px;
+}
+
+.expand-link:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+    text-decoration: none;
 }
 
 /* ========== RATING SECTION ========== */

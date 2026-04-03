@@ -770,10 +770,10 @@ body {
 }
 
 /* ========================================
-   VÍDEO
+   FRAME
    ======================================== */
 
-.video-container {
+.frame-container {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%;
@@ -784,7 +784,7 @@ body {
     background-color: var(--bg-primary);
 }
 
-.video-container iframe {
+.frame-container iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -1165,7 +1165,7 @@ body {
         font-size: var(--font-size-lg);
     }
 
-    .video-container iframe,
+    .frame-container iframe,
     .iframe-container iframe {
         height: 250px;
     }
