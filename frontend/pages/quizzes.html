@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzes - Play Game Dev Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/quizzes.css">
+</head>
+<body>
+    <header class="quiz-page-header">
+        <div class="quiz-header-content">
+            <div>
+                <p class="quiz-badge">Seleção de capítulo</p>
+                <h1>Quizzes modernos</h1>
+                <p class="quiz-subtitle">Selecione um capítulo para carregar perguntas específicas.</p>
+            </div>
+            <div class="quiz-links">
+                <a class="btn-link" href="../../index.html">Voltar ao Início</a>
+                <a class="btn-primary" href="progresso.html">Ver Progresso</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="quiz-main">
+        <section id="chapterSelection" class="selection-screen">
+            <div class="selection-card">
+                <h2>Escolha um capítulo</h2>
+                <p>Use a seleção abaixo para começar o quiz no tema desejado.</p>
+
+                <div class="chapter-grid">
+                    <button class="chapter-card" data-chapter="capitulo1">Capítulo 1<br><span>Introdução</span></button>
+                    <button class="chapter-card" data-chapter="capitulo2">Capítulo 2<br><span>Conceitos básicos</span></button>
+                    <button class="chapter-card" data-chapter="capitulo3">Capítulo 3<br><span>Avançado</span></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="quizScreen" class="quiz-screen hidden">
+            <div class="quiz-card">
+                <div class="quiz-card-header">
+                    <div>
+                        <span class="quiz-label">Capítulo</span>
+                        <strong id="chapterTitle">Introdução</strong>
+                    </div>
+                    <div class="quiz-info">
+                        <span id="questionCounter">1 / 4</span>
+                        <span class="quiz-timer">⏱️ <strong id="timerDisplay">15</strong>s</span>
+                    </div>
+                </div>
+
+                <div class="quiz-question-box">
+                    <h2 id="questionText">Carregando pergunta...</h2>
+                    <div id="mediaContainer" class="quiz-media"></div>
+                </div>
+
+                <div id="optionsGrid" class="options-grid"></div>
+                <div id="feedbackMessage" class="quiz-feedback hidden"></div>
+
+                <div class="quiz-actions-row">
+                    <button id="backButton" class="btn-secondary">Voltar para seleção</button>
+                    <button id="nextButton" class="btn-next" disabled>Próxima</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/quizzes.js"></script>
+</body>
+</html>

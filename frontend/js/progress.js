@@ -99,6 +99,45 @@ class ProgressManager {
         this.save();
     }
 
+    recordQuizAnswer(quizId, questionId, selectedIndex, isCorrect) {
+        if (!this.progress.quizHistory) {
+            this.progress.quizHistory = [];
+        }
+
+        this.progress.quizHistory.push({
+            quizId: quizId,
+            questionId: questionId,
+            selectedIndex: selectedIndex,
+            isCorrect: isCorrect,
+            attemptedAt: new Date().toISOString()
+        });
+
+        const historyLength = this.progress.quizHistory.length;
+        this.progress.statistics.totalQuestionsAnswered = historyLength;
+        this.save();
+    }
+
+    getQuizStatistics() {
+        const attempts = this.progress.quizAttempts || [];
+        const totalAnswers = this.progress.statistics.totalQuestionsAnswered || 0;
+        const correctAnswers = (this.progress.quizHistory || []).filter(entry => entry.isCorrect).length;
+        const wrongAnswers = totalAnswers - correctAnswers;
+        const successRate = totalAnswers ? Math.round((correctAnswers / totalAnswers) * 100) : 0;
+
+        return {
+            attempts,
+            totalAnswers,
+            correctAnswers,
+            wrongAnswers,
+            successRate,
+            history: this.progress.quizHistory || []
+        };
+    }
+
+    getQuizHistory() {
+        return this.progress.quizHistory || [];
+    }
+
     recordTopicRating(topicId, rating) {
         if (!this.progress.topicRatings) {
             this.progress.topicRatings = {};

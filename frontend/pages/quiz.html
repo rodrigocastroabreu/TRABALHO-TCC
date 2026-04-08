@@ -47,7 +47,7 @@
     <main class="container">
         <!-- BREADCRUMB -->
         <div class="breadcrumb">
-            <a href="index.html">Início</a> / <span>Quizzes</span>
+            <a href="../../index.html">Início</a> / <span>Quizzes</span>
         </div>
 
         <!-- SECTION: Header -->
@@ -56,81 +56,97 @@
             <p>Teste seu conhecimento e valide o que aprendeu!</p>
         </section>
 
-        <!-- SECTION: Quiz Selection OR Quiz Playing -->
-        <section id="quizSelection" class="section-quiz-selection">
-            <h2>Escolha um Quiz</h2>
-            <div class="quizzes-list">
-                <div class="quiz-card" onclick="startQuiz('quiz-001')">
-                    <div class="quiz-icon">⭐</div>
-                    <h3>Conceitos Básicos do Desenvolvimento de Jogos</h3>
-                    <p class="quiz-level">Iniciante</p>
-                    <p class="quiz-questions">5 Perguntas</p>
-                    <button class="btn-primary">Começar Quiz</button>
+        <!-- SECTION: Quiz Selection -->
+        <section id="quizSelection" class="quiz-selection-stage">
+            <div class="quiz-card-panel">
+                <div class="quiz-card-header">
+                    <div>
+                        <h2>Quiz Interativo</h2>
+                        <p>Escolha um quiz e responda com estilo Kahoot.</p>
+                    </div>
+                    <span class="quiz-badge">Estilo Kahoot</span>
                 </div>
 
-                <div class="quiz-card" onclick="startQuiz('quiz-002')">
-                    <div class="quiz-icon">🎯</div>
-                    <h3>Variáveis e Expressões</h3>
-                    <p class="quiz-level">Intermediário</p>
-                    <p class="quiz-questions">5 Perguntas</p>
-                    <button class="btn-primary">Começar Quiz</button>
-                </div>
+                <div class="quizzes-list">
+                    <div class="quiz-card" onclick="startQuiz('quiz-001')">
+                        <div class="quiz-icon">⭐</div>
+                        <h3>Conceitos Básicos</h3>
+                        <p class="quiz-level">Iniciante • 4 perguntas</p>
+                    </div>
 
-                <div class="quiz-card" onclick="startQuiz('quiz-003')">
-                    <div class="quiz-icon">🚀</div>
-                    <h3>Sistemas Avançados</h3>
-                    <p class="quiz-level">Avançado</p>
-                    <p class="quiz-questions">5 Perguntas</p>
-                    <button class="btn-primary">Começar Quiz</button>
+                    <div class="quiz-card" onclick="startQuiz('quiz-002')">
+                        <div class="quiz-icon">🎯</div>
+                        <h3>Variáveis e Lógica</h3>
+                        <p class="quiz-level">Intermediário • 4 perguntas</p>
+                    </div>
+
+                    <div class="quiz-card" onclick="startQuiz('quiz-003')">
+                        <div class="quiz-icon">🚀</div>
+                        <h3>Sistemas Avançados</h3>
+                        <p class="quiz-level">Avançado • 4 perguntas</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- SECTION: Quiz Playing -->
-        <section id="quizPlaying" class="section-quiz-playing" style="display: none;">
-            <div class="quiz-header-playing">
-                <h2 id="quizTitle">Quiz Title</h2>
-                <div class="quiz-progress">
-                    <div class="progress-bar">
-                        <div id="progressFill" class="progress-fill"></div>
+        <section id="quizPlaying" class="quiz-playing-stage" style="display: none;">
+            <div class="quiz-game-card">
+                <div class="quiz-top-row">
+                    <div class="quiz-timer">⏱️ <span id="timerDisplay">15</span>s</div>
+                    <div class="quiz-progress-pill">Questão <strong id="questionNumber">1</strong>/<span id="questionTotal">4</span></div>
+                </div>
+
+                <div class="quiz-main-content">
+                    <div class="quiz-question-panel">
+                        <h2 id="questionText">Pergunta em destaque</h2>
+                        <div id="questionMedia" class="quiz-question-media"></div>
+                        <div id="feedbackMessage" class="feedback-message">Selecione a alternativa correta.</div>
                     </div>
-                    <p id="progressText">Questão 1 de 5</p>
-                </div>
-            </div>
 
-            <div class="quiz-question">
-                <h3 id="questionText">Pergunta aqui</h3>
-                <div id="optionsContainer" class="quiz-options">
-                    <!-- Opções carregadas dinamicamente -->
+                    <div id="optionsGrid" class="quiz-options-grid"></div>
                 </div>
-            </div>
 
-            <div class="quiz-actions">
-                <button id="prevQuestionBtn" class="btn-secondary" onclick="previousQuestion()">← Anterior</button>
-                <button id="nextQuestionBtn" class="btn-primary" onclick="nextQuestion()">Próxima →</button>
-                <button id="submitQuizBtn" class="btn-success" onclick="submitQuiz()" style="display: none;">Enviar Quiz</button>
+                <div class="quiz-actions-row">
+                    <button class="btn-secondary" onclick="cancelQuiz()">Voltar</button>
+                    <div class="quiz-status-pill">
+                        <span>Acertos: <strong id="quizCorrect">0</strong></span>
+                        <span>Erros: <strong id="quizWrong">0</strong></span>
+                    </div>
+                    <button id="nextQuestionBtn" class="btn-primary" onclick="nextQuestion()" disabled>Próxima</button>
+                </div>
             </div>
         </section>
 
         <!-- SECTION: Quiz Results -->
-        <section id="quizResults" class="section-quiz-results" style="display: none;">
+        <section id="quizResults" class="quiz-results-stage" style="display: none;">
             <div class="results-card">
-                <h2>Resultados do Quiz</h2>
-                
-                <div class="results-score">
-                    <div class="score-circle">
-                        <div id="scorePercentage" class="score-value">0%</div>
-                        <p>Sua Pontuação</p>
+                <div class="result-header">
+                    <h2>Fim do Quiz!</h2>
+                    <p id="resultSubtitle">Você completou o desafio.</p>
+                </div>
+
+                <div class="results-summary-grid">
+                    <div class="result-stat-card correct">
+                        <span>Acertos</span>
+                        <strong id="resultCorrect">0</strong>
+                    </div>
+                    <div class="result-stat-card incorrect">
+                        <span>Erros</span>
+                        <strong id="resultWrong">0</strong>
+                    </div>
+                    <div class="result-stat-card total">
+                        <span>Total</span>
+                        <strong id="resultTotal">0</strong>
+                    </div>
+                    <div class="result-stat-card percent">
+                        <span>Percentual</span>
+                        <strong id="resultPercentage">0%</strong>
                     </div>
                 </div>
 
-                <div class="results-summary">
-                    <p><strong>Acertou:</strong> <span id="correctAnswers">0</span> de <span id="totalQuestions">0</span> perguntas</p>
-                    <p id="resultMessage"></p>
-                </div>
-
                 <div class="results-actions">
-                    <button class="btn-primary" onclick="goBackToSelection()">Voltar para Seleção</button>
+                    <button class="btn-primary" onclick="goBackToSelection()">Novo Quiz</button>
                     <button class="btn-secondary" onclick="location.href='progress.html'">Ver Progresso</button>
                 </div>
             </div>

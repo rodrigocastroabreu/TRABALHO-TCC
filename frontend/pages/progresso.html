@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progresso - Play Game Dev Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/progresso.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="progress-header">
+        <div class="progress-header-content">
+            <div>
+                <p class="progress-badge">Seu desempenho</p>
+                <h1>Visão geral do progresso</h1>
+                <p class="progress-subtitle">Acompanhe seus acertos e erros no quiz por capítulo.</p>
+            </div>
+            <nav class="progress-nav">
+                <a class="btn-link" href="../../index.html">Retornar ao início</a>
+                <a class="btn-primary" href="quizzes.html">Fazer outro quiz</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="progress-main">
+        <section class="progress-cards">
+            <div class="summary-card">
+                <h2>Estatísticas totais</h2>
+                <div class="summary-grid">
+                    <div>
+                        <span>Acertos</span>
+                        <strong id="totalCorrect">0</strong>
+                    </div>
+                    <div>
+                        <span>Erros</span>
+                        <strong id="totalIncorrect">0</strong>
+                    </div>
+                    <div>
+                        <span>Total de perguntas</span>
+                        <strong id="totalAnswered">0</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h2>Distribuição por capítulo</h2>
+                <canvas id="chapterChart" aria-label="Gráfico de desempenho por capítulo" role="img"></canvas>
+            </div>
+        </section>
+
+        <section class="chart-panels">
+            <div class="panel">
+                <h2>Acertos x Erros</h2>
+                <canvas id="scoreChart" aria-label="Gráfico de acertos e erros" role="img"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/progresso.js"></script>
+</body>
+</html>

@@ -45,198 +45,160 @@
 
     <!-- MAIN CONTENT -->
     <main class="container">
-        <!-- BREADCRUMB -->
         <div class="breadcrumb">
-            <a href="index.html">Início</a> / <span>Progresso</span>
+            <a href="../../index.html">Início</a> / <span>Progresso</span>
         </div>
 
-        <!-- SECTION: Header -->
         <section class="section-header">
-            <h1>📊 Seu Progresso</h1>
-            <p>Acompanhe seu desenvolvimento e conquistas!</p>
+            <h1>📊 Progresso dos Quizzes</h1>
+            <p>Veja o desempenho do seu quiz, acertos e erros em tempo real.</p>
         </section>
 
-        <!-- SECTION: User Profile -->
-        <section class="section-user-profile">
-            <div class="user-card">
-                <div class="user-avatar">👤</div>
-                <div class="user-info-details">
-                    <h2 id="userName">Aprendiz</h2>
-                    <p id="userLevel">Nível 1</p>
-                </div>
+        <section class="progress-summary-grid">
+            <div class="summary-card">
+                <span class="summary-label">Percentual de Acertos</span>
+                <strong id="summaryAccuracy">0%</strong>
+            </div>
+            <div class="summary-card">
+                <span class="summary-label">Total de Respostas</span>
+                <strong id="summaryTotal">0</strong>
+            </div>
+            <div class="summary-card">
+                <span class="summary-label">Acertos</span>
+                <strong id="summaryCorrect">0</strong>
+            </div>
+            <div class="summary-card">
+                <span class="summary-label">Erros</span>
+                <strong id="summaryWrong">0</strong>
+            </div>
+        </section>
+
+        <section class="progress-charts">
+            <div class="chart-card">
+                <h2>Acertos vs Erros</h2>
+                <canvas id="quizPieChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h2>Evolução do Desempenho</h2>
+                <canvas id="quizBarChart"></canvas>
+            </div>
+        </section>
+
+        <section class="progress-history">
+            <div class="history-header">
+                <h2>Histórico de Respostas</h2>
                 <button class="btn-secondary" onclick="resetProgress()">Resetar Progresso</button>
             </div>
-        </section>
-
-        <!-- SECTION: Overall Stats -->
-        <section class="section-overall-stats">
-            <h2>Estatísticas Gerais</h2>
-            
-            <div class="stats-grid-4">
-                <div class="stat-card-large">
-                    <div class="stat-value" id="totalPoints">0</div>
-                    <div class="stat-label">Pontos Totais</div>
-                    <div class="stat-progress">
-                        <div class="progress-bar"></div>
-                    </div>
-                </div>
-
-                <div class="stat-card-large">
-                    <div class="stat-value" id="completedTutorials">0</div>
-                    <div class="stat-label">Tutoriais Completos</div>
-                    <div class="stat-progress">
-                        <div class="progress-bar"></div>
-                    </div>
-                </div>
-
-                <div class="stat-card-large">
-                    <div class="stat-value" id="quizzesAttempted">0</div>
-                    <div class="stat-label">Quizzes Respondidos</div>
-                    <div class="stat-progress">
-                        <div class="progress-bar"></div>
-                    </div>
-                </div>
-
-                <div class="stat-card-large">
-                    <div class="stat-value" id="studyDays">1</div>
-                    <div class="stat-label">Dias de Estudo</div>
-                    <div class="stat-progress">
-                        <div class="progress-bar"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: Learning Progress -->
-        <section class="section-learning-progress">
-            <h2>Progresso por Nível</h2>
-            
-            <div class="progress-cards">
-                <div class="progress-card">
-                    <h3>Tutoriais Iniciante</h3>
-                    <div class="progress-bar-large">
-                        <div id="progressBeginner" class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    <p id="progressBeginnerText">0 de 0</p>
-                </div>
-
-                <div class="progress-card">
-                    <h3>Tutoriais Intermediário</h3>
-                    <div class="progress-bar-large">
-                        <div id="progressIntermediate" class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    <p id="progressIntermediateText">0 de 0</p>
-                </div>
-
-                <div class="progress-card">
-                    <h3>Tutoriais Avançado</h3>
-                    <div class="progress-bar-large">
-                        <div id="progressAdvanced" class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    <p id="progressAdvancedText">0 de 0</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: Recent Activity -->
-        <section class="section-activity-timeline">
-            <h2>Atividade Recente</h2>
-            
-            <div class="activity-timeline" id="activityTimeline">
-                <div class="activity-item">
-                    <div class="activity-marker"></div>
-                    <div class="activity-content">
-                        <h4>Comece sua jornada</h4>
-                        <p>Você ainda não tem atividades registradas. Comece estudando um tutorial!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: Rating Overview -->
-        <section class="section-rating-overview">
-            <h2>📈 Avaliação dos Tópicos</h2>
-            <p>Veja as notas dadas pelos tópicos e acompanhe o desempenho geral.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-                <div style="flex:1 1 300px; min-width:300px; background:#fff; padding:16px; border-radius:8px; border:1px solid #e5e7eb; ">
-                    <h3>Distribuição das Avaliações</h3>
-                    <canvas id="ratingPieChart" width="300" height="300"></canvas>
-                </div>
-                <div style="flex:1 1 500px; min-width:300px; background:#fff; padding:16px; border-radius:8px; border:1px solid #e5e7eb; ">
-                    <h3>Histórico de pontos</h3>
-                    <canvas id="pointsLineChart" width="500" height="300"></canvas>
-                </div>
-            </div>
-            <div id="ratingSummary" style="font-size:0.95rem; color:#1f2937; margin-top:8px;"></div>
-        </section>
-
-        <!-- SECTION: Performance Tables -->
-        <section class="section-performance-tables">
-            <h2>📋 Dados para TCC</h2>
-            <p>Estes relatórios ajudam a demonstrar benefício da gamificação na plataforma.</p>
-            <div style="overflow-x:auto; background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:12px;">
-                <table id="ratingTable" style="width:100%; border-collapse: collapse;">
-                    <thead>
-                        <tr>
-                            <th style="border-bottom:1px solid #d1d5db; padding:8px; text-align:left;">Tópico</th>
-                            <th style="border-bottom:1px solid #d1d5db; padding:8px; text-align:right;">Nota</th>
-                            <th style="border-bottom:1px solid #d1d5db; padding:8px; text-align:right;">% Conclusão</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- SECTION: KPI Summary -->
-        <section class="section-kpi-summary">
-            <h2>📊 Indicadores de Qualidade</h2>
-            <ul id="kpiList" style="list-style: none; padding: 0; margin: 0;">
-            </ul>
-        </section>
-
-        <!-- SECTION: Achievements -->
-        <section class="section-achievements">
-            <h2>🏆 Conquistas</h2>
-            
-            <div class="achievements-grid">
-                <div class="achievement-badge locked">
-                    <div class="achievement-icon">🎓</div>
-                    <h4>Graduado</h4>
-                    <p>Complete 10 tutoriais</p>
-                </div>
-
-                <div class="achievement-badge locked">
-                    <div class="achievement-icon">⭐</div>
-                    <h4>Estrela</h4>
-                    <p>Ganhe 100 pontos</p>
-                </div>
-
-                <div class="achievement-badge locked">
-                    <div class="achievement-icon">🏆</div>
-                    <h4>Campeão</h4>
-                    <p>Acerte 5 quizzes</p>
-                </div>
-
-                <div class="achievement-badge locked">
-                    <div class="achievement-icon">🚀</div>
-                    <h4>Foguete</h4>
-                    <p>Alcance nível 5</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: Export/Share -->
-        <section class="section-export">
-            <h2>Opções</h2>
-            
-            <div class="export-options">
-                <button class="btn-secondary" onclick="exportProgress()">📥 Exportar Progresso</button>
-                <button class="btn-secondary" onclick="shareProgress()">📤 Compartilhar</button>
-                <button class="btn-secondary" onclick="downloadCertificate()">🎖️ Baixar Certificado</button>
-            </div>
+            <div id="historyList" class="history-list"></div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function renderProgressPage() {
+            const stats = progressManager.getQuizStatistics();
+            document.getElementById('summaryAccuracy').textContent = `${stats.successRate}%`;
+            document.getElementById('summaryTotal').textContent = stats.totalAnswers;
+            document.getElementById('summaryCorrect').textContent = stats.correctAnswers;
+            document.getElementById('summaryWrong').textContent = stats.wrongAnswers;
+
+            renderCharts(stats);
+            renderHistory(stats.history);
+        }
+
+        function renderCharts(stats) {
+            const pieCanvas = document.getElementById('quizPieChart');
+            const barCanvas = document.getElementById('quizBarChart');
+
+            if (window.quizPieChart) {
+                window.quizPieChart.destroy();
+            }
+            if (window.quizBarChart) {
+                window.quizBarChart.destroy();
+            }
+
+            window.quizPieChart = new Chart(pieCanvas, {
+                type: 'pie',
+                data: {
+                    labels: ['Acertos', 'Erros'],
+                    datasets: [{
+                        data: [stats.correctAnswers, stats.wrongAnswers],
+                        backgroundColor: ['#10B981', '#EF4444'],
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+
+            const answerCounts = stats.history.reduce((acc, entry) => {
+                const label = new Date(entry.attemptedAt).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+                acc.labels.push(label);
+                acc.values.push(entry.isCorrect ? 1 : 0);
+                return acc;
+            }, { labels: [], values: [] });
+
+            window.quizBarChart = new Chart(barCanvas, {
+                type: 'bar',
+                data: {
+                    labels: answerCounts.labels,
+                    datasets: [{
+                        label: 'Desempenho por resposta',
+                        data: answerCounts.values,
+                        backgroundColor: answerCounts.values.map(value => value === 1 ? '#10B981' : '#EF4444')
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1,
+                            ticks: { stepSize: 1, callback: value => value === 1 ? 'Acerto' : 'Erro' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderHistory(history) {
+            const historyList = document.getElementById('historyList');
+            if (!history.length) {
+                historyList.innerHTML = '<p class="empty-history">Nenhuma resposta registrada ainda. Faça um quiz para começar.</p>';
+                return;
+            }
+
+            historyList.innerHTML = history.slice(-10).reverse().map(entry => {
+                const date = new Date(entry.attemptedAt);
+                const time = date.toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+                return `
+                    <div class="history-item ${entry.isCorrect ? 'history-correct' : 'history-wrong'}">
+                        <div>
+                            <strong>${entry.quizId}</strong> - Pergunta ${entry.questionId}
+                            <p>${entry.isCorrect ? 'Acerto' : 'Erro'}</p>
+                        </div>
+                        <span>${time}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function refreshProgressPage() {
+            renderProgressPage();
+        }
+
+        window.resetProgress = function() {
+            progressManager.resetProgress();
+            refreshProgressPage();
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProgressPage();
+        });
+    </script>
 
     <!-- FOOTER -->
     <footer class="footer">
