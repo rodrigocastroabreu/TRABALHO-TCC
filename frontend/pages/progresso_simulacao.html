@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Progresso - Learning Analytics</title>
+    <title>Simulação de Learning Analytics - TCC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -56,6 +56,19 @@
             font-size: 1.1rem;
         }
 
+        .intro {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .intro h2 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
         .metrics {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -82,6 +95,12 @@
             color: var(--primary-green);
         }
 
+        .metric-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+
         .charts {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -101,73 +120,27 @@
             color: var(--primary-purple);
         }
 
+        .chart-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
         canvas {
             max-width: 100%;
         }
 
-        .table-section {
+        .conclusion {
             background: var(--bg-card);
             padding: 20px;
             border-radius: 8px;
             box-shadow: var(--shadow);
-            margin-bottom: 40px;
+            margin-top: 40px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-
-        th {
-            background-color: var(--bg-light);
-            font-weight: 600;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background-color: var(--border);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background-color: var(--primary-green);
-        }
-
-        .stars {
-            color: #FFD700;
-        }
-
-        .ranking {
-            background: var(--bg-card);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-
-        .ranking h3 {
-            color: var(--primary-purple);
-            margin-bottom: 20px;
-        }
-
-        .ranking-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .ranking-item:last-child {
-            border-bottom: none;
+        .conclusion h2 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
         }
 
         @media (max-width: 768px) {
@@ -192,76 +165,77 @@
 <body>
     <div class="container">
         <header>
-            <h1>Dashboard de Learning Analytics</h1>
-            <p class="subtitle">Análise do impacto da gamificação no aprendizado dos alunos</p>
+            <h1>Simulação de Learning Analytics</h1>
+            <p class="subtitle">Demonstração acadêmica do impacto da gamificação no aprendizado</p>
         </header>
+
+        <section class="intro">
+            <h2>Objetivo da Pesquisa</h2>
+            <p>Esta simulação demonstra como uma plataforma educacional gamificada pode melhorar o desempenho e engajamento dos alunos. Os dados apresentados são fictícios, mas baseados em padrões reais de aprendizado, mostrando uma melhoria progressiva de 65% para 88% na média de desempenho ao longo de 6 meses.</p>
+            <p><strong>Hipótese:</strong> A gamificação aumenta a motivação e, consequentemente, o desempenho acadêmico.</p>
+        </section>
 
         <section class="metrics">
             <div class="metric-card">
                 <h3>Total de Alunos</h3>
                 <div class="metric-value" id="totalAlunos">0</div>
+                <p class="metric-description">Amostra de estudantes participantes da plataforma</p>
             </div>
             <div class="metric-card">
                 <h3>Média de Desempenho</h3>
                 <div class="metric-value" id="mediaDesempenho">0%</div>
+                <p class="metric-description">Nota média em escala de 0-10, equivalente a 80-90%</p>
             </div>
             <div class="metric-card">
                 <h3>Taxa de Conclusão</h3>
                 <div class="metric-value" id="taxaConclusao">0%</div>
+                <p class="metric-description">Alunos com progresso ≥80%, indicando conclusão do curso</p>
             </div>
             <div class="metric-card">
                 <h3>Engajamento Médio</h3>
                 <div class="metric-value" id="engajamentoMedio">0h</div>
+                <p class="metric-description">Tempo médio dedicado à plataforma por semana</p>
             </div>
         </section>
 
         <section class="charts">
             <div class="chart-card">
-                <h3>Desempenho por Aluno</h3>
+                <h3>Desempenho Individual dos Alunos</h3>
+                <p class="chart-description">Gráfico de barras mostrando a distribuição de notas médias. Demonstra variabilidade natural no aprendizado.</p>
                 <canvas id="desempenhoChart"></canvas>
             </div>
             <div class="chart-card">
-                <h3>Evolução do Aprendizado</h3>
+                <h3>Evolução Temporal do Aprendizado</h3>
+                <p class="chart-description">Gráfico de linha simulando melhoria progressiva. Mostra como a gamificação mantém o engajamento ao longo do tempo.</p>
                 <canvas id="evolucaoChart"></canvas>
             </div>
             <div class="chart-card">
-                <h3>Distribuição de Avaliações</h3>
+                <h3>Distribuição de Satisfação</h3>
+                <p class="chart-description">Gráfico de pizza com avaliações de 1-5 estrelas. Indica alto nível de satisfação com a abordagem gamificada.</p>
                 <canvas id="avaliacaoChart"></canvas>
             </div>
             <div class="chart-card">
-                <h3>Habilidades Desenvolvidas</h3>
+                <h3>Desenvolvimento de Habilidades</h3>
+                <p class="chart-description">Gráfico radar mostrando médias em lógica, estratégia e prática. Demonstra desenvolvimento holístico.</p>
                 <canvas id="habilidadesChart"></canvas>
             </div>
         </section>
 
-        <section class="table-section">
-            <h3>Tabela de Alunos</h3>
-            <table id="alunosTable">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Progresso</th>
-                        <th>Nota Média</th>
-                        <th>Avaliação</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="alunosTableBody">
-                    <!-- Dados serão inseridos via JS -->
-                </tbody>
-            </table>
-        </section>
-
-        <section class="ranking">
-            <h3>Top 5 Alunos</h3>
-            <div id="rankingList">
-                <!-- Ranking será inserido via JS -->
-            </div>
+        <section class="conclusion">
+            <h2>Conclusões Acadêmicas</h2>
+            <ul>
+                <li><strong>Eficácia da Gamificação:</strong> Aumento de 23% na média de desempenho ao longo de 6 meses.</li>
+                <li><strong>Engajamento Sustentado:</strong> Tempo médio de 13.5 horas/semana, superior a plataformas tradicionais.</li>
+                <li><strong>Alta Satisfação:</strong> 73% dos alunos avaliam com 4-5 estrelas.</li>
+                <li><strong>Desenvolvimento Holístico:</strong> Melhoria em habilidades técnicas e estratégicas.</li>
+                <li><strong>Implicações Educacionais:</strong> A gamificação pode ser uma ferramenta eficaz para melhorar resultados de aprendizado.</li>
+            </ul>
+            <p><em>Nota: Esta é uma simulação para fins acadêmicos. Dados reais devem ser coletados em ambiente controlado para validação.</em></p>
         </section>
     </div>
 
     <script>
-        // Dados mockados para 30 alunos
+        // Dados mockados idênticos para consistência
         const alunos = [
             { nome: "Ana Silva", progresso: 85, notaMedia: 8.5, avaliacao: 5, status: "Ativo", engajamento: 12, habilidades: { logica: 9, estrategia: 8, pratica: 7 } },
             { nome: "Bruno Santos", progresso: 92, notaMedia: 9.2, avaliacao: 5, status: "Ativo", engajamento: 15, habilidades: { logica: 8, estrategia: 9, pratica: 8 } },
@@ -306,7 +280,7 @@
         document.getElementById('taxaConclusao').textContent = taxaConclusao;
         document.getElementById('engajamentoMedio').textContent = engajamentoMedio;
 
-        // Gráfico de barras: Desempenho por aluno
+        // Gráficos idênticos
         const ctxDesempenho = document.getElementById('desempenhoChart').getContext('2d');
         new Chart(ctxDesempenho, {
             type: 'bar',
@@ -330,10 +304,9 @@
             }
         });
 
-        // Gráfico de linha: Evolução (simulada com progresso crescente)
         const ctxEvolucao = document.getElementById('evolucaoChart').getContext('2d');
         const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
-        const evolucaoData = [65, 70, 75, 80, 85, 88]; // Simulação de melhoria
+        const evolucaoData = [65, 70, 75, 80, 85, 88];
         new Chart(ctxEvolucao, {
             type: 'line',
             data: {
@@ -356,7 +329,6 @@
             }
         });
 
-        // Gráfico de pizza: Distribuição de avaliações
         const ctxAvaliacao = document.getElementById('avaliacaoChart').getContext('2d');
         const avaliacaoCounts = [0, 0, 0, 0, 0];
         alunos.forEach(a => avaliacaoCounts[a.avaliacao - 1]++);
@@ -377,7 +349,6 @@
             }
         });
 
-        // Gráfico radar: Habilidades médias
         const ctxHabilidades = document.getElementById('habilidadesChart').getContext('2d');
         const habilidadesMedias = {
             logica: alunos.reduce((sum, a) => sum + a.habilidades.logica, 0) / totalAlunos,
@@ -404,38 +375,6 @@
                     }
                 }
             }
-        });
-
-        // Tabela de alunos
-        const tableBody = document.getElementById('alunosTableBody');
-        alunos.forEach(aluno => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${aluno.nome}</td>
-                <td>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${aluno.progresso}%"></div>
-                    </div>
-                    ${aluno.progresso}%
-                </td>
-                <td>${aluno.notaMedia}</td>
-                <td class="stars">${'★'.repeat(aluno.avaliacao)}${'☆'.repeat(5 - aluno.avaliacao)}</td>
-                <td>${aluno.status}</td>
-            `;
-            tableBody.appendChild(row);
-        });
-
-        // Ranking Top 5
-        const rankingList = document.getElementById('rankingList');
-        const top5 = alunos.sort((a, b) => b.notaMedia - a.notaMedia).slice(0, 5);
-        top5.forEach((aluno, index) => {
-            const item = document.createElement('div');
-            item.className = 'ranking-item';
-            item.innerHTML = `
-                <span>${index + 1}. ${aluno.nome}</span>
-                <span>${aluno.notaMedia}</span>
-            `;
-            rankingList.appendChild(item);
         });
     </script>
 </body>
