@@ -1,6 +1,6 @@
-﻿// progresso.js - Sistema completo de progresso do usuário com RPG e analytics
+// progresso.js - Sistema completo de progresso do usu�rio com RPG e analytics
 
-// Sistema de dados do usuário (preparado para futura integração com Supabase)
+// Sistema de dados do usu�rio (preparado para futura integra��o com Supabase)
 class UserProgressManager {
     constructor() {
         this.userData = this.loadUserData();
@@ -8,7 +8,7 @@ class UserProgressManager {
     }
 
     loadUserData() {
-        // Carregar dados do localStorage (futuramente será do banco de dados)
+        // Carregar dados do localStorage (futuramente ser� do banco de dados)
         const savedData = localStorage.getItem('userProgressData');
         return savedData ? JSON.parse(savedData) : null;
     }
@@ -50,62 +50,83 @@ class UserProgressManager {
                         { name: 'Jogos de Soma Zero', rating: 0 }
                     ]
                 },
-                achievements: [
-                    { id: 'first_quiz', name: 'Primeiro Quiz', description: 'Complete seu primeiro quiz', icon: '🎯', unlocked: false },
-                    { id: 'accuracy_master', name: 'Mestre da Precisão', description: 'Alcance 90% de acerto', icon: '🎯', unlocked: false },
-                    { id: 'speed_demon', name: 'Herói da Velocidade', description: 'Complete um exercício em menos de 5 min', icon: '⚡', unlocked: false },
-                    { id: 'perfectionist', name: 'Perfeccionista', description: 'Complete 5 exercícios com 100%', icon: '💎', unlocked: false },
-                    { id: 'explorer', name: 'Explorador', description: 'Visite todos os tópicos', icon: '🗺️', unlocked: false },
-                    { id: 'rpg_master', name: 'Mestre RPG', description: 'Alcance nível 10', icon: '🏆', unlocked: false },
-                    { id: 'first_exercise', name: 'Primeiro Exercício', description: 'Complete seu primeiro exercício prático', icon: '✅', unlocked: false },
-                    { id: 'quiz_warrior', name: 'Guerreiro de Quizzes', description: 'Complete 10 quizzes', icon: '⚔️', unlocked: false },
-                    { id: 'century', name: 'Centenário', description: 'Acumule 100 pontos', icon: '💯', unlocked: false },
-                    { id: 'level_5', name: 'Ascensão', description: 'Alcance nível 5', icon: '🚀', unlocked: false },
-                    { id: 'consistency', name: 'Consistência', description: 'Mude de nível 3 vezes', icon: '📈', unlocked: false },
-                    { id: 'theory_master', name: 'Teórico', description: 'Domine Teoria dos Jogos', icon: '🧠', unlocked: false },
-                    { id: 'speed_runner', name: 'Speed Runner', description: 'Complete 3 exercícios em menos de 10 min cada', icon: '💨', unlocked: false },
-                    { id: 'satisfaction_guru', name: 'Guru da Satisfação', description: 'Avalie todos os 8 tópicos', icon: '⭐', unlocked: false },
-                    { id: 'combo_master', name: 'Mestre do Combo', description: 'Acerte 5 quizzes consecutivos', icon: '🔥', unlocked: false },
-                    { id: 'resilient', name: 'Resiliente', description: 'Mude de nível após errar vários exercícios', icon: '💪', unlocked: false },
-                    { id: 'all_star', name: 'Cada Um uma Estrela', description: 'Avalie algum tópico com 5 estrelas', icon: '✨', unlocked: false },
-                    { id: 'first_blood', name: 'First Blood', description: 'Seja o primeiro a completar um capítulo', icon: '🥇', unlocked: false },
-                    { id: 'legend_status', name: 'Status de Lenda', description: 'Alcance nível 15', icon: '👑', unlocked: false },
-                    { id: 'eternal_learner', name: 'Aprendiz Eterno', description: 'Complete 50 exercícios', icon: '📚', unlocked: false },
-                    { id: 'achievement_collector', name: 'Colecionador de Conquistas', description: 'Desbloqueie 15 conquistas', icon: '🎖️', unlocked: false },
-                    { id: 'hall_of_fame', name: 'Galeria da Fama', description: 'Desbloqueie 20 conquistas', icon: '🌟', unlocked: false }
-                ],
+                achievements: [],
                 charts: {
-                    progressOverTime: [
-                        { date: '2024-01-01', score: 0 },
-                        { date: '2024-01-15', score: 0 },
-                        { date: '2024-02-01', score: 0 },
-                        { date: '2024-02-15', score: 0 },
-                        { date: '2024-03-01', score: 0 },
-                        { date: '2024-03-15', score: 0 }
-                    ],
-                    chapterData: {
-                        'Teoria dos Jogos': { correct: 0, total: 0, percentage: 0 },
-                        'Jogadores': { correct: 0, total: 0, percentage: 0 },
-                        'Estratégias': { correct: 0, total: 0, percentage: 0 },
-                        'Payoff': { correct: 0, total: 0, percentage: 0 },
-                        'Equilíbrio de Nash': { correct: 0, total: 0, percentage: 0 },
-                        'Jogos Cooperativos': { correct: 0, total: 0, percentage: 0 },
-                        'Dilema do Prisioneiro': { correct: 0, total: 0, percentage: 0 },
-                        'Jogos de Soma Zero': { correct: 0, total: 0, percentage: 0 }
-                    }
+                    progressOverTime: [],
+                    chapterData: []
                 }
             };
-            this.saveUserData();
+        } else {
+            // Ensure satisfaction exists for backward compatibility
+            if (!this.userData.satisfaction || !this.userData.satisfaction.topics) {
+                this.userData.satisfaction = {
+                    topics: [
+                        { name: 'O que é Teoria dos Jogos', rating: 0 },
+                        { name: 'Jogadores', rating: 0 },
+                        { name: 'Estratégias', rating: 0 },
+                        { name: 'Payoff (Recompensa)', rating: 0 },
+                        { name: 'Equilíbrio de Nash', rating: 0 },
+                        { name: 'Jogos Cooperativos vs Não Cooperativos', rating: 0 },
+                        { name: 'Dilema do Prisioneiro', rating: 0 },
+                        { name: 'Jogos de Soma Zero', rating: 0 }
+                    ],
+                    achievements: [
+                        { id: 'first_quiz', name: 'Primeiro Quiz', description: 'Complete seu primeiro quiz', icon: '??', unlocked: false },
+                        { id: 'accuracy_master', name: 'Mestre da Precis�o', description: 'Alcance 90% de acerto', icon: '??', unlocked: false },
+                        { id: 'speed_demon', name: 'Her�i da Velocidade', description: 'Complete um exerc�cio em menos de 5 min', icon: '?', unlocked: false },
+                        { id: 'perfectionist', name: 'Perfeccionista', description: 'Complete 5 exerc�cios com 100%', icon: '??', unlocked: false },
+                        { id: 'explorer', name: 'Explorador', description: 'Visite todos os t�picos', icon: '???', unlocked: false },
+                        { id: 'rpg_master', name: 'Mestre RPG', description: 'Alcance n�vel 10', icon: '??', unlocked: false },
+                        { id: 'first_exercise', name: 'Primeiro Exerc�cio', description: 'Complete seu primeiro exerc�cio pr�tico', icon: '?', unlocked: false },
+                        { id: 'quiz_warrior', name: 'Guerreiro de Quizzes', description: 'Complete 10 quizzes', icon: '??', unlocked: false },
+                        { id: 'century', name: 'Centen�rio', description: 'Acumule 100 pontos', icon: '??', unlocked: false },
+                        { id: 'level_5', name: 'Ascens�o', description: 'Alcance n�vel 5', icon: '??', unlocked: false },
+                        { id: 'consistency', name: 'Consist�ncia', description: 'Mude de n�vel 3 vezes', icon: '??', unlocked: false },
+                        { id: 'theory_master', name: 'Te�rico', description: 'Domine Teoria dos Jogos', icon: '??', unlocked: false },
+                        { id: 'speed_runner', name: 'Speed Runner', description: 'Complete 3 exerc�cios em menos de 10 min cada', icon: '??', unlocked: false },
+                        { id: 'satisfaction_guru', name: 'Guru da Satisfa��o', description: 'Avalie todos os 8 t�picos', icon: '?', unlocked: false },
+                        { id: 'combo_master', name: 'Mestre do Combo', description: 'Acerte 5 quizzes consecutivos', icon: '??', unlocked: false },
+                        { id: 'resilient', name: 'Resiliente', description: 'Mude de n�vel ap�s errar v�rios exerc�cios', icon: '??', unlocked: false },
+                        { id: 'all_star', name: 'Cada Um uma Estrela', description: 'Avalie algum t�pico com 5 estrelas', icon: '?', unlocked: false },
+                        { id: 'first_blood', name: 'First Blood', description: 'Seja o primeiro a completar um cap�tulo', icon: '??', unlocked: false },
+                        { id: 'legend_status', name: 'Status de Lenda', description: 'Alcance n�vel 15', icon: '??', unlocked: false },
+                        { id: 'eternal_learner', name: 'Aprendiz Eterno', description: 'Complete 50 exerc�cios', icon: '??', unlocked: false },
+                        { id: 'achievement_collector', name: 'Colecionador de Conquistas', description: 'Desbloqueie 15 conquistas', icon: '???', unlocked: false },
+                        { id: 'hall_of_fame', name: 'Galeria da Fama', description: 'Desbloqueie 20 conquistas', icon: '??', unlocked: false }
+                    ],
+                    charts: {
+                        progressOverTime: [
+                            { date: '2024-01-01', score: 0 },
+                            { date: '2024-01-15', score: 0 },
+                            { date: '2024-02-01', score: 0 },
+                            { date: '2024-02-15', score: 0 },
+                            { date: '2024-03-01', score: 0 },
+                            { date: '2024-03-15', score: 0 }
+                        ],
+                        chapterData: {
+                            'Teoria dos Jogos': { correct: 0, total: 0, percentage: 0 },
+                            'Jogadores': { correct: 0, total: 0, percentage: 0 },
+                            'Estrat�gias': { correct: 0, total: 0, percentage: 0 },
+                            'Payoff': { correct: 0, total: 0, percentage: 0 },
+                            'Equil�brio de Nash': { correct: 0, total: 0, percentage: 0 },
+                            'Jogos Cooperativos': { correct: 0, total: 0, percentage: 0 },
+                            'Dilema do Prisioneiro': { correct: 0, total: 0, percentage: 0 },
+                            'Jogos de Soma Zero': { correct: 0, total: 0, percentage: 0 }
+                        }
+                    }
+                };
+            }
         }
+        this.saveUserData();
     }
 
-    // Métodos para atualizar dados
+    // M�todos para atualizar dados
     updateQuizResults(correct, wrong, chapter) {
         this.userData.performance.quizCorrect += correct;
         this.userData.performance.quizWrong += wrong;
         this.userData.performance.quizCompleted += 1;
 
-        // Atualizar capítulo
+        // Atualizar cap�tulo
         if (!this.userData.charts.chapterData[chapter]) {
             this.userData.charts.chapterData[chapter] = { correct: 0, total: 0, percentage: 0 };
         }
@@ -132,13 +153,13 @@ class UserProgressManager {
         );
         this.userData.performance.exerciseBestScore = Math.max(this.userData.performance.exerciseBestScore, score);
 
-        // Calcular tempo médio
+        // Calcular tempo m�dio
         this.userData.performance.exerciseAvgTime = Math.round(
             (this.userData.performance.exerciseAvgTime * (this.userData.performance.exercisesCompleted - 1) + time) /
             this.userData.performance.exercisesCompleted
         );
 
-        this.addXP(score * 10); // XP baseado na pontuação
+        this.addXP(score * 10); // XP baseado na pontua��o
         this.checkAchievements();
         this.saveUserData();
     }
@@ -161,7 +182,7 @@ class UserProgressManager {
         const total = this.userData.performance.quizCorrect + this.userData.performance.quizWrong;
         this.userData.performance.quizAccuracy = total > 0 ? Math.round((this.userData.performance.quizCorrect / total) * 100) : 0;
 
-        // Atualizar percentuais dos capítulos
+        // Atualizar percentuais dos cap�tulos
         Object.keys(this.userData.charts.chapterData).forEach(chapter => {
             const data = this.userData.charts.chapterData[chapter];
             data.percentage = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
@@ -174,12 +195,12 @@ class UserProgressManager {
             this.userData.achievements[0].unlocked = true;
         }
 
-        // Mestre da Precisão (index 1)
+        // Mestre da Precis�o (index 1)
         if (this.userData.performance.quizAccuracy >= 90 && !this.userData.achievements[1].unlocked) {
             this.userData.achievements[1].unlocked = true;
         }
 
-        // Herói da Velocidade (index 2)
+        // Her�i da Velocidade (index 2)
         if (this.userData.performance.exerciseAvgTime <= 5 && this.userData.performance.exercisesCompleted > 0 && !this.userData.achievements[2].unlocked) {
             this.userData.achievements[2].unlocked = true;
         }
@@ -200,7 +221,7 @@ class UserProgressManager {
             this.userData.achievements[5].unlocked = true;
         }
 
-        // Primeiro Exercício (index 6)
+        // Primeiro Exerc�cio (index 6)
         if (this.userData.performance.exercisesCompleted >= 1 && !this.userData.achievements[6].unlocked) {
             this.userData.achievements[6].unlocked = true;
         }
@@ -210,22 +231,22 @@ class UserProgressManager {
             this.userData.achievements[7].unlocked = true;
         }
 
-        // Centenário (index 8)
+        // Centen�rio (index 8)
         if (this.userData.profile.totalPoints >= 100 && !this.userData.achievements[8].unlocked) {
             this.userData.achievements[8].unlocked = true;
         }
 
-        // Ascensão (index 9)
+        // Ascens�o (index 9)
         if (this.userData.profile.level >= 5 && !this.userData.achievements[9].unlocked) {
             this.userData.achievements[9].unlocked = true;
         }
 
-        // Consistência (index 10)
+        // Consist�ncia (index 10)
         if (this.userData.profile.level >= 3 && !this.userData.achievements[10].unlocked) {
             this.userData.achievements[10].unlocked = true;
         }
 
-        // Teórico (index 11)
+        // Te�rico (index 11)
         if (this.userData.performance.quizAccuracy >= 85 && this.userData.performance.quizCompleted >= 5 && !this.userData.achievements[11].unlocked) {
             this.userData.achievements[11].unlocked = true;
         }
@@ -235,7 +256,7 @@ class UserProgressManager {
             this.userData.achievements[12].unlocked = true;
         }
 
-        // Guru da Satisfação (index 13)
+        // Guru da Satisfa��o (index 13)
         if (filledTopics === 8 && !this.userData.achievements[13].unlocked) {
             this.userData.achievements[13].unlocked = true;
         }
@@ -285,9 +306,9 @@ class UserProgressManager {
         this.saveUserData();
     }
 
-    // Método para resetar todo o progresso
+    // M�todo para resetar todo o progresso
     resetProgress() {
-        // Reset para dados padrão
+        // Reset para dados padr�o
         this.userData = {
             profile: {
                 name: 'Aprendiz',
@@ -309,39 +330,39 @@ class UserProgressManager {
             },
             satisfaction: {
                 topics: [
-                    { name: 'O que é Teoria dos Jogos', rating: 0 },
+                    { name: 'O que � Teoria dos Jogos', rating: 0 },
                     { name: 'Jogadores', rating: 0 },
-                    { name: 'Estratégias', rating: 0 },
+                    { name: 'Estrat�gias', rating: 0 },
                     { name: 'Payoff (Recompensa)', rating: 0 },
-                    { name: 'Equilíbrio de Nash', rating: 0 },
-                    { name: 'Jogos Cooperativos vs Não Cooperativos', rating: 0 },
+                    { name: 'Equil�brio de Nash', rating: 0 },
+                    { name: 'Jogos Cooperativos vs N�o Cooperativos', rating: 0 },
                     { name: 'Dilema do Prisioneiro', rating: 0 },
                     { name: 'Jogos de Soma Zero', rating: 0 }
                 ]
             },
             achievements: [
-                { id: 'first_quiz', name: 'Primeiro Quiz', description: 'Complete seu primeiro quiz', icon: '🎯', unlocked: false },
-                { id: 'accuracy_master', name: 'Mestre da Precisão', description: 'Alcance 90% de acerto', icon: '🎯', unlocked: false },
-                { id: 'speed_demon', name: 'Herói da Velocidade', description: 'Complete um exercício em menos de 5 min', icon: '⚡', unlocked: false },
-                { id: 'perfectionist', name: 'Perfeccionista', description: 'Complete 5 exercícios com 100%', icon: '💎', unlocked: false },
-                { id: 'explorer', name: 'Explorador', description: 'Visite todos os tópicos', icon: '🗺️', unlocked: false },
-                { id: 'rpg_master', name: 'Mestre RPG', description: 'Alcance nível 10', icon: '🏆', unlocked: false },
-                { id: 'first_exercise', name: 'Primeiro Exercício', description: 'Complete seu primeiro exercício prático', icon: '✅', unlocked: false },
-                { id: 'quiz_warrior', name: 'Guerreiro de Quizzes', description: 'Complete 10 quizzes', icon: '⚔️', unlocked: false },
-                { id: 'century', name: 'Centenário', description: 'Acumule 100 pontos', icon: '💯', unlocked: false },
-                { id: 'level_5', name: 'Ascensão', description: 'Alcance nível 5', icon: '🚀', unlocked: false },
-                { id: 'consistency', name: 'Consistência', description: 'Mude de nível 3 vezes', icon: '📈', unlocked: false },
-                { id: 'theory_master', name: 'Teórico', description: 'Domine Teoria dos Jogos', icon: '🧠', unlocked: false },
-                { id: 'speed_runner', name: 'Speed Runner', description: 'Complete 3 exercícios em menos de 10 min cada', icon: '💨', unlocked: false },
-                { id: 'satisfaction_guru', name: 'Guru da Satisfação', description: 'Avalie todos os 8 tópicos', icon: '⭐', unlocked: false },
-                { id: 'combo_master', name: 'Mestre do Combo', description: 'Acerte 5 quizzes consecutivos', icon: '🔥', unlocked: false },
-                { id: 'resilient', name: 'Resiliente', description: 'Mude de nível após errar vários exercícios', icon: '💪', unlocked: false },
-                { id: 'all_star', name: 'Cada Um uma Estrela', description: 'Avalie algum tópico com 5 estrelas', icon: '✨', unlocked: false },
-                { id: 'first_blood', name: 'First Blood', description: 'Seja o primeiro a completar um capítulo', icon: '🥇', unlocked: false },
-                { id: 'legend_status', name: 'Status de Lenda', description: 'Alcance nível 15', icon: '👑', unlocked: false },
-                { id: 'eternal_learner', name: 'Aprendiz Eterno', description: 'Complete 50 exercícios', icon: '📚', unlocked: false },
-                { id: 'achievement_collector', name: 'Colecionador de Conquistas', description: 'Desbloqueie 15 conquistas', icon: '🎖️', unlocked: false },
-                { id: 'hall_of_fame', name: 'Galeria da Fama', description: 'Desbloqueie 20 conquistas', icon: '🌟', unlocked: false }
+                { id: 'first_quiz', name: 'Primeiro Quiz', description: 'Complete seu primeiro quiz', icon: '??', unlocked: false },
+                { id: 'accuracy_master', name: 'Mestre da Precis�o', description: 'Alcance 90% de acerto', icon: '??', unlocked: false },
+                { id: 'speed_demon', name: 'Her�i da Velocidade', description: 'Complete um exerc�cio em menos de 5 min', icon: '?', unlocked: false },
+                { id: 'perfectionist', name: 'Perfeccionista', description: 'Complete 5 exerc�cios com 100%', icon: '??', unlocked: false },
+                { id: 'explorer', name: 'Explorador', description: 'Visite todos os t�picos', icon: '???', unlocked: false },
+                { id: 'rpg_master', name: 'Mestre RPG', description: 'Alcance n�vel 10', icon: '??', unlocked: false },
+                { id: 'first_exercise', name: 'Primeiro Exerc�cio', description: 'Complete seu primeiro exerc�cio pr�tico', icon: '?', unlocked: false },
+                { id: 'quiz_warrior', name: 'Guerreiro de Quizzes', description: 'Complete 10 quizzes', icon: '??', unlocked: false },
+                { id: 'century', name: 'Centen�rio', description: 'Acumule 100 pontos', icon: '??', unlocked: false },
+                { id: 'level_5', name: 'Ascens�o', description: 'Alcance n�vel 5', icon: '??', unlocked: false },
+                { id: 'consistency', name: 'Consist�ncia', description: 'Mude de n�vel 3 vezes', icon: '??', unlocked: false },
+                { id: 'theory_master', name: 'Te�rico', description: 'Domine Teoria dos Jogos', icon: '??', unlocked: false },
+                { id: 'speed_runner', name: 'Speed Runner', description: 'Complete 3 exerc�cios em menos de 10 min cada', icon: '??', unlocked: false },
+                { id: 'satisfaction_guru', name: 'Guru da Satisfa��o', description: 'Avalie todos os 8 t�picos', icon: '?', unlocked: false },
+                { id: 'combo_master', name: 'Mestre do Combo', description: 'Acerte 5 quizzes consecutivos', icon: '??', unlocked: false },
+                { id: 'resilient', name: 'Resiliente', description: 'Mude de n�vel ap�s errar v�rios exerc�cios', icon: '??', unlocked: false },
+                { id: 'all_star', name: 'Cada Um uma Estrela', description: 'Avalie algum t�pico com 5 estrelas', icon: '?', unlocked: false },
+                { id: 'first_blood', name: 'First Blood', description: 'Seja o primeiro a completar um cap�tulo', icon: '??', unlocked: false },
+                { id: 'legend_status', name: 'Status de Lenda', description: 'Alcance n�vel 15', icon: '??', unlocked: false },
+                { id: 'eternal_learner', name: 'Aprendiz Eterno', description: 'Complete 50 exerc�cios', icon: '??', unlocked: false },
+                { id: 'achievement_collector', name: 'Colecionador de Conquistas', description: 'Desbloqueie 15 conquistas', icon: '???', unlocked: false },
+                { id: 'hall_of_fame', name: 'Galeria da Fama', description: 'Desbloqueie 20 conquistas', icon: '??', unlocked: false }
             ],
             charts: {
                 progressOverTime: [
@@ -355,9 +376,9 @@ class UserProgressManager {
                 chapterData: {
                     'Teoria dos Jogos': { correct: 0, total: 0, percentage: 0 },
                     'Jogadores': { correct: 0, total: 0, percentage: 0 },
-                    'Estratégias': { correct: 0, total: 0, percentage: 0 },
+                    'Estrat�gias': { correct: 0, total: 0, percentage: 0 },
                     'Payoff': { correct: 0, total: 0, percentage: 0 },
-                    'Equilíbrio de Nash': { correct: 0, total: 0, percentage: 0 },
+                    'Equil�brio de Nash': { correct: 0, total: 0, percentage: 0 },
                     'Jogos Cooperativos': { correct: 0, total: 0, percentage: 0 },
                     'Dilema do Prisioneiro': { correct: 0, total: 0, percentage: 0 },
                     'Jogos de Soma Zero': { correct: 0, total: 0, percentage: 0 }
@@ -372,12 +393,14 @@ class UserProgressManager {
     }
 }
 
-// Instância global do gerenciador
-const progressManager = new UserProgressManager();
+// Inst�ncia global do gerenciador
+const userProgressManager = new UserProgressManager();
+window.userProgressManager = userProgressManager;
 
-// Função principal de inicialização
+// Fun��o principal de inicializa��o
 function initializeProgressPage() {
-    updateRPGProfile();
+    // Sync ratings from progressManager to userProgressManager
+    syncRatingsFromProgressManager();
     updateSatisfactionDisplay();
     updatePerformanceMetrics();
     updateAchievements();
@@ -386,40 +409,51 @@ function initializeProgressPage() {
 
 // Atualizar perfil RPG
 function updateRPGProfile() {
-    const profile = progressManager.userData.profile;
+    const profile = userProgressManager.userData.profile;
 
     document.getElementById('playerName').textContent = profile.name;
     document.getElementById('playerLevel').textContent = profile.level;
     document.getElementById('xpFill').style.width = `${(profile.xp / profile.xpToNext) * 100}%`;
     document.getElementById('xpText').textContent = `${profile.xp} / ${profile.xpToNext} XP`;
     document.getElementById('totalPoints').textContent = profile.totalPoints;
-    document.getElementById('missionsCompleted').textContent = progressManager.userData.performance.quizCompleted + progressManager.userData.performance.exercisesCompleted;
+    document.getElementById('missionsCompleted').textContent = userProgressManager.userData.performance.quizCompleted + userProgressManager.userData.performance.exercisesCompleted;
     document.getElementById('winStreak').textContent = calculateWinStreak();
 }
 
-// Calcular sequência de vitórias (simplificado)
+// Calcular sequ�ncia de vit�rias (simplificado)
 function calculateWinStreak() {
-    // Lógica para calcular sequência baseada em desempenho recente
-    return Math.min(progressManager.userData.performance.quizCompleted, 5);
+    // L�gica para calcular sequ�ncia baseada em desempenho recente
+    return Math.min(userProgressManager.userData.performance.quizCompleted, 5);
 }
 
-// Atualizar display de satisfação
+// Sync ratings from progressManager to userProgressManager
+function syncRatingsFromProgressManager() {
+    if (progressManager.progress.topicRatings) {
+        userProgressManager.userData.satisfaction.topics.forEach((topic, index) => {
+            const topicId = `topico${index + 1}`;
+            const savedRating = progressManager.progress.topicRatings[topicId]?.rating || 0;
+            topic.rating = savedRating;
+        });
+        userProgressManager.saveUserData();
+    }
+}
+
+// Atualizar display de satisfa��o
 function updateSatisfactionDisplay() {
     const grid = document.getElementById('satisfactionGrid');
     grid.innerHTML = '';
 
-    progressManager.userData.satisfaction.topics.forEach((topic, index) => {
+    userProgressManager.userData.satisfaction.topics.forEach((topic, index) => {
         const item = document.createElement('div');
         item.className = 'satisfaction-item';
 
-        const stars = createStarRating(topic.rating);
+        const stars = createStarRating(topic.rating, index);
 
         item.innerHTML = `
             <h3>${topic.name}</h3>
             <div class="star-rating">
                 ${stars}
             </div>
-            <button onclick="rateTopic(${index})" class="btn-primary">Avaliar</button>
         `;
 
         grid.appendChild(item);
@@ -427,28 +461,27 @@ function updateSatisfactionDisplay() {
 }
 
 // Criar estrelas para rating
-function createStarRating(rating) {
+function createStarRating(rating, topicIndex) {
     let stars = '';
     for (let i = 1; i <= 5; i++) {
-        stars += `<span class="star ${i <= rating ? 'filled' : ''}">★</span>`;
+        const filled = i <= rating ? 'filled' : '';
+        stars += `<span class="star ${filled}" onclick="rateTopic(${topicIndex}, ${i})">★</span>`;
     }
     return stars;
 }
 
-// Função para avaliar tópico
-function rateTopic(index) {
-    const rating = prompt('Avalie este tópico de 1 a 5 estrelas:');
-    const numRating = parseInt(rating);
-
-    if (numRating >= 1 && numRating <= 5) {
-        progressManager.updateSatisfaction(index, numRating);
-        updateSatisfactionDisplay();
-    }
+// Fun��o para avaliar t�pico
+function rateTopic(index, rating) {
+    progressManager.recordTopicRating(`topico${index + 1}`, rating);
+    // Sync with userProgressManager
+    userProgressManager.userData.satisfaction.topics[index].rating = rating;
+    userProgressManager.saveUserData();
+    updateSatisfactionDisplay();
 }
 
-// Atualizar métricas de performance
+// Atualizar m�tricas de performance
 function updatePerformanceMetrics() {
-    const perf = progressManager.userData.performance;
+    const perf = userProgressManager.userData.performance;
 
     document.getElementById('quizCorrect').textContent = perf.quizCorrect;
     document.getElementById('quizWrong').textContent = perf.quizWrong;
@@ -466,7 +499,7 @@ function updateAchievements() {
     const grid = document.getElementById('achievementsGrid');
     grid.innerHTML = '';
 
-    progressManager.userData.achievements.forEach(achievement => {
+    userProgressManager.userData.achievements.forEach(achievement => {
         const item = document.createElement('div');
         item.className = `achievement-item ${achievement.unlocked ? 'unlocked' : ''}`;
 
@@ -480,24 +513,24 @@ function updateAchievements() {
     });
 }
 
-// Inicializar gráficos
+// Inicializar gr�ficos
 function initializeCharts() {
     createProgressChart();
     createChapterChart();
     createSatisfactionChart();
 }
 
-// Criar gráfico de evolução do progresso
+// Criar gr�fico de evolu��o do progresso
 function createProgressChart() {
     const ctx = document.getElementById('progressChart').getContext('2d');
-    const data = progressManager.userData.charts.progressOverTime;
+    const data = userProgressManager.userData.charts.progressOverTime;
 
     new Chart(ctx, {
         type: 'line',
         data: {
             labels: data.map(d => new Date(d.date).toLocaleDateString()),
             datasets: [{
-                label: 'Pontuação ao Longo do Tempo',
+                label: 'Pontua��o ao Longo do Tempo',
                 data: data.map(d => d.score),
                 borderColor: '#667eea',
                 backgroundColor: 'rgba(102, 126, 234, 0.1)',
@@ -518,10 +551,10 @@ function createProgressChart() {
     });
 }
 
-// Criar gráfico de desempenho por capítulo
+// Criar gr�fico de desempenho por cap�tulo
 function createChapterChart() {
     const ctx = document.getElementById('chapterChart').getContext('2d');
-    const data = progressManager.userData.charts.chapterData;
+    const data = userProgressManager.userData.charts.chapterData;
     const chapters = Object.keys(data);
     const percentages = chapters.map(ch => data[ch].percentage);
 
@@ -550,10 +583,10 @@ function createChapterChart() {
     });
 }
 
-// Criar gráfico de satisfação
+// Criar gr�fico de satisfa��o
 function createSatisfactionChart() {
     const ctx = document.getElementById('satisfactionChart').getContext('2d');
-    const topics = progressManager.userData.satisfaction.topics;
+    const topics = userProgressManager.userData.satisfaction.topics;
     const ratings = topics.map(t => t.rating);
 
     new Chart(ctx, {
@@ -578,7 +611,7 @@ function createSatisfactionChart() {
     });
 }
 
-// Funções de download para gráficos
+// Fun��es de download para gr�ficos
 function downloadChart(chartId) {
     const canvas = document.getElementById(chartId);
     const link = document.createElement('a');
@@ -587,16 +620,16 @@ function downloadChart(chartId) {
     link.click();
 }
 
-// Tornar funções globais para uso nos botões
+// Tornar fun��es globais para uso nos bot�es
 window.downloadChart = downloadChart;
 window.rateTopic = rateTopic;
 
 // Inicializar quando DOM estiver pronto
 document.addEventListener('DOMContentLoaded', initializeProgressPage);
 
-// Função para criar gráfico de evolução do desempenho
+// Fun��o para criar gr�fico de evolu��o do desempenho
 function createProgressChart(data) {
-    // Destruir gráfico existente se houver
+    // Destruir gr�fico existente se houver
     if (window.progressChartInstance) {
         window.progressChartInstance.destroy();
     }
@@ -613,7 +646,7 @@ function createProgressChart(data) {
         data: {
             labels: dates,
             datasets: [{
-                label: 'Pontuação Média',
+                label: 'Pontua��o M�dia',
                 data: scores,
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -640,7 +673,7 @@ function createProgressChart(data) {
                     cornerRadius: 8,
                     callbacks: {
                         label: function(context) {
-                            return `Pontuação: ${context.parsed.y}`;
+                            return `Pontua��o: ${context.parsed.y}`;
                         }
                     }
                 }
@@ -674,7 +707,7 @@ function createProgressChart(data) {
     });
 }
 
-// Função para criar grid de detalhes por capítulo
+// Fun��o para criar grid de detalhes por cap�tulo
 function createChapterDetails(data) {
     const container = document.getElementById('chaptersGrid');
     container.innerHTML = '';
@@ -702,11 +735,11 @@ function createChapterDetails(data) {
     });
 }
 
-// Funções de download
+// Fun��es de download
 function downloadChart(chartId) {
     const canvas = document.getElementById(chartId);
     if (!canvas) {
-        console.error('Canvas não encontrado:', chartId);
+        console.error('Canvas n�o encontrado:', chartId);
         return;
     }
 
@@ -726,31 +759,31 @@ function downloadChart(chartId) {
     });
 }
 
-// Função de inicialização
+// Fun��o de inicializa��o
 function initProgressPage() {
-    console.log('Inicializando página de progresso...');
+    console.log('Inicializando p�gina de progresso...');
 
     // Carregar dados
     const data = loadProgressData();
 
-    // Atualizar estatísticas
+    // Atualizar estat�sticas
     updateStats(data);
 
-    // Criar gráficos
+    // Criar gr�ficos
     createChapterChart(data);
     createProgressChart(data);
 
-    // Criar detalhes dos capítulos
+    // Criar detalhes dos cap�tulos
     createChapterDetails(data);
 
-    console.log('Página de progresso inicializada com sucesso!');
+    console.log('P�gina de progresso inicializada com sucesso!');
 }
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
     initProgressPage();
 
-    // Adicionar event listeners aos botões de download
+    // Adicionar event listeners aos bot�es de download
     const downloadButtons = document.querySelectorAll('.download-btn');
     downloadButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -762,7 +795,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Exportar funções para uso global (se necessário)
+// Exportar fun��es para uso global (se necess�rio)
 window.ProgressPage = {
     init: initProgressPage,
     downloadChart: downloadChart

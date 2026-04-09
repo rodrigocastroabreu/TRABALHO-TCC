@@ -5,21 +5,13 @@
 
 // Configuração dos jogos
 const games = {
-    'logica': {
-        url: 'https://jogo-de-logica-liart.vercel.app/',
-        title: 'Jogo de Lógica'
+    'mercado': {
+        url: 'https://jogo-mercado-competitivo-teoria-dos.vercel.app/',
+        title: 'Jogo Interativo - Mercado Competitivo'
     },
-    'algoritmo': {
-        url: 'https://example.com/jogo-algoritmo',
-        title: 'Jogo de Algoritmo'
-    },
-    'estrutura': {
-        url: 'https://example.com/jogo-estrutura',
-        title: 'Estrutura de Dados'
-    },
-    'condicionais': {
-        url: 'https://example.com/jogo-condicionais',
-        title: 'Condicionais e Loops'
+    'jogadores': {
+        url: 'https://jogo-web-quem-e-o-jogador.vercel.app/',
+        title: 'Jogo Interativo sobre Jogadores'
     }
 };
 

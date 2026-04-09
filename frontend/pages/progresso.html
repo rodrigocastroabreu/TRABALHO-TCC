@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/progresso.css">
+    <link rel="stylesheet" href="perfil.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -44,36 +45,55 @@
     </header>
 
     <main class="container">
-        <!-- RPG Profile Section -->
-        <section class="rpg-profile-section">
-            <div class="rpg-profile-card">
-                <div class="rpg-avatar">
-                    <img src="../images/default-profile.svg" alt="Avatar do Jogador" id="rpgAvatar">
-                    <div class="level-badge" id="playerLevel">1</div>
+        <!-- MAIN CONTENT -->
+        <div class="profile-container profile-wrapper">
+            <!-- Yu-Gi-Oh Style Profile Card -->
+            <div class="profile-card yugioh-card">
+                <div class="card-header card-title-section">
+                    <h2 class="card-title">Carta do Jogador</h2>
+                    <div class="card-type card-category">Estudante</div>
                 </div>
-                <div class="rpg-info">
-                    <h2 id="playerName">Aprendiz</h2>
-                    <div class="xp-bar">
-                        <div class="xp-fill" id="xpFill" style="width: 0%"></div>
-                        <span class="xp-text" id="xpText">0 / 100 XP</span>
+                
+                <div class="card-image profile-image-section">
+                    <img src="../images/default-profile.svg" alt="Foto de Perfil" id="largeProfilePic" class="profile-image">
+                    <input type="file" id="profileInput" accept="image/*" style="display: none;" class="file-input">
+                    <button class="btn-change-photo change-photo-btn" onclick="changeProfilePhoto()">Trocar Foto</button>
+                </div>
+                
+                <div class="card-content player-info-section">
+                    <div class="player-name player-display-name" id="playerName">Aprendiz</div>
+                    <div class="player-level player-level-display">Nível <span id="playerLevel" class="level-number">1</span></div>
+                    
+                    <div class="stats-section player-stats">
+                        <div class="stat stat-item">
+                            <div class="stat-label stat-label-text">Cursos Concluídos</div>
+                            <div class="stat-value stat-value-number" id="completedCourses">0</div>
+                        </div>
+                        <div class="stat stat-item">
+                            <div class="stat-label stat-label-text">Pontos Totais</div>
+                            <div class="stat-value stat-value-number" id="totalPoints">0</div>
+                        </div>
+                        <div class="stat stat-item">
+                            <div class="stat-label stat-label-text">Progresso Geral</div>
+                            <div class="stat-value stat-value-number" id="overallProgress">0%</div>
+                        </div>
                     </div>
-                    <div class="rpg-stats">
-                        <div class="stat">
-                            <span class="stat-label">Pontos Totais:</span>
-                            <span class="stat-value" id="totalPoints">0</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-label">Missões Completadas:</span>
-                            <span class="stat-value" id="missionsCompleted">0</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-label">Sequência de Vitórias:</span>
-                            <span class="stat-value" id="winStreak">0</span>
-                        </div>
+                    
+                    <div class="progress-bar progress-container">
+                        <div class="progress-fill progress-fill-bar" id="progressFill"></div>
                     </div>
+                    
+                    <div class="card-description player-description">
+                        <p class="description-text">Um dedicado estudante de desenvolvimento de jogos digitais, sempre buscando novos conhecimentos e desafios!</p>
+                    </div>
+                </div>
+                
+                <div class="card-footer card-actions-section">
+                    <button class="btn-primary change-name-btn" onclick="changeUserName()">Mudar Nome</button>
+                    <div class="card-rarity rarity-stars">★★★</div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Satisfaction Ratings Section -->
         <section class="satisfaction-section">
@@ -81,6 +101,86 @@
             <div class="capitulo-1">
                 <div class="satisfaction-grid" id="satisfactionGrid">
                     <!-- Topics satisfaction will be populated by JS -->
+                    <div class="satisfaction-item">
+                        <h3>O que é Teoria dos Jogos</h3>
+                        <div class="star-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="satisfaction-item">
+                        <h3>Jogadores</h3>
+                        <div class="star-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="satisfaction-item">
+                        <h3>Estratégias</h3>
+                        <div class="star-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="satisfaction-item">
+                        <h3>Payoff (Recompensa)</h3>
+                        <div class="star-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="satisfaction-item">
+                        <h3>Equilíbrio de Nash</h3>
+                        <div class="star-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="satisfaction-item">
+                        <h3>Jogos Cooperativos vs Não Cooperativos</h3>
+                        <div class="star-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="satisfaction-item">
+                        <h3>Dilema do Prisioneiro</h3>
+                        <div class="star-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="satisfaction-item">
+                        <h3>Jogos de Soma Zero</h3>
+                        <div class="star-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -137,13 +237,13 @@
 
         <!-- Progress Charts Section -->
         <section class="charts-section">
-            <h2>📈 Visualização do Progresso</h2>
+            <h2>📊 Visualização do Progresso</h2>
             
             <div class="chart-container">
                 <div class="chart-card">
                     <h3>Evolução do Desempenho</h3>
                     <p>Veja como seu desempenho melhorou ao longo do tempo</p>
-                    <button class="download-btn" data-chart="progressChart">📷 Baixar</button>
+                    <button class="download-btn" data-chart="progressChart">📥 Baixar</button>
                     <canvas id="progressChart"></canvas>
                 </div>
             </div>
@@ -153,7 +253,7 @@
                     <div class="chart-card">
                         <h3>Desempenho por Capítulo</h3>
                         <p>Acompanhe seu progresso em cada capítulo</p>
-                        <button class="download-btn" data-chart="chapterChart">📷 Baixar</button>
+                        <button class="download-btn" data-chart="chapterChart">📊 Baixar</button>
                         <canvas id="chapterChart"></canvas>
                     </div>
                 </div>
@@ -162,7 +262,7 @@
                     <div class="chart-card">
                         <h3>Distribuição de Satisfação</h3>
                         <p>Avaliações por tópico (1-5 estrelas)</p>
-                        <button class="download-btn" data-chart="satisfactionChart">📷 Baixar</button>
+                        <button class="download-btn" data-chart="satisfactionChart">⭐ Baixar</button>
                         <canvas id="satisfactionChart"></canvas>
                     </div>
                 </div>
@@ -171,10 +271,10 @@
 
         <!-- Maintenance Actions Section -->
         <section class="maintenance-section">
-            <h2>🔧 Ações de Manutenção</h2>
+            <h2>🛠️ Ações de Manutenção</h2>
             <div class="maintenance-actions">
                 <div class="action-card">
-                    <h3>⚠️ Resetar Progresso</h3>
+                    <h3>🔄 Resetar Progresso</h3>
                     <p>Atenção: Esta ação irá apagar todos os seus dados de progresso, conquistas e estatísticas. Esta ação não pode ser desfeita.</p>
                     <button class="reset-btn" onclick="resetUserProgress()">
                         <span class="reset-icon">🔄</span>
@@ -193,17 +293,21 @@
     </footer>
 
     <script src="../js/progresso.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="perfil.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             loadProfilePicture();
             initializeProgressPage();
+            loadProfileData();
         });
 
         function loadProfilePicture() {
             const savedPic = localStorage.getItem('userProfilePic');
             if (savedPic) {
-                document.getElementById('rpgAvatar').src = savedPic;
                 document.getElementById('profilePic').src = savedPic;
+                document.getElementById('largeProfilePic').src = savedPic;
             }
         }
 
@@ -213,7 +317,7 @@
         }
 
         window.resetUserProgress = function() {
-            if (!confirm('⚠️ AVISO 1: Esta ação apagará TODO o seu progresso, conquistas e estatísticas.')) {
+            if (!confirm('⚠️ AVISO 1: Esta ação irá apagar TODO o seu progresso, conquistas e estatísticas.')) {
                 return;
             }
 
@@ -227,8 +331,8 @@
                 return;
             }
 
-            if (typeof progressManager !== 'undefined' && progressManager.resetProgress) {
-                progressManager.resetProgress();
+            if (typeof userProgressManager !== 'undefined' && userProgressManager.resetProgress) {
+                userProgressManager.resetProgress();
             }
 
             if (typeof UserProgressManager !== 'undefined') {
