@@ -1,57 +1,583 @@
-﻿:root {
-    --bg: #eef2ff;
-    --card: #ffffff;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --border: #e2e8f0;
-    --blue: #4338ca;
-    --green: #16a34a;
-    --red: #dc2626;
-    --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+﻿/* progresso.css - CSS dedicado para a página de progresso */
+
+:root {
+    --primary-purple: #6B46C1;
+    --primary-blue: #3182CE;
+    --primary-green: #38A169;
+    --primary-red: #E53E3E;
+    --bg-light: #F7FAFC;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D3748;
+    --text-secondary: #718096;
+    --border: #E2E8F0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
-    color: var(--text-primary);
     font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    line-height: 1.6;
 }
 
-.progress-header {
-    padding: 34px 24px 0;
-}
-
-.progress-header-content {
-    max-width: 1180px;
+/* Container */
+.container {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* RPG Profile Section */
+.rpg-profile-section {
+    margin-bottom: 2rem;
+}
+
+.rpg-profile-card {
+    background: var(--gradient);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.rpg-profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+    opacity: 0.1;
+}
+
+.rpg-avatar {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.rpg-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.level-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff6b6b;
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rpg-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.xp-bar {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    height: 20px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.xp-fill {
+    background: linear-gradient(90deg, #ffd93d, #ff6b6b);
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+.xp-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.rpg-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.stat {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.progress-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 16px;
-    border-radius: 999px;
-    background: rgba(67, 56, 202, 0.12);
-    color: var(--blue);
+.stat-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.stat-value {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Satisfaction Section */
+.satisfaction-section {
+    margin-bottom: 2rem;
+}
+
+.satisfaction-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+}
+
+/* Capítulo 1 Container */
+.capitulo-1 {
+    background: linear-gradient(135deg, rgba(107, 70, 193, 0.1) 0%, rgba(49, 130, 206, 0.1) 100%);
+    border: 2px solid rgba(107, 70, 193, 0.3);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(107, 70, 193, 0.15);
+}
+
+.capitulo-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6B46C1, #3182CE);
+    border-radius: 20px 20px 0 0;
+}
+
+.capitulo-1::after {
+    content: 'Capítulo 1 - Teoria dos Jogos';
+    position: absolute;
+    top: 15px;
+    right: 20px;
     font-size: 0.85rem;
     font-weight: 700;
+    color: #6B46C1;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 1px;
+    opacity: 0.8;
 }
 
-.progress-header h1 {
-    margin: 12px 0 8px;
-    font-size: clamp(2rem, 2.8vw, 3rem);
+.satisfaction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.satisfaction-item {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.satisfaction-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6B46C1, #3182CE);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.satisfaction-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(107, 70, 193, 0.2);
+    border-color: #6B46C1;
+}
+
+.satisfaction-item:hover::before {
+    opacity: 1;
+}
+
+.satisfaction-item h3 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.star {
+    font-size: 1.2rem;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.star.filled {
+    color: #ffd93d;
+}
+
+.btn-primary {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+/* Performance Section */
+.performance-section {
+    margin-bottom: 2rem;
+}
+
+.performance-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+}
+
+.performance-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.performance-card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.performance-card:hover {
+    transform: translateY(-5px);
+}
+
+.performance-card h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-size: 1.3rem;
+}
+
+.performance-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.metric {
+    text-align: center;
+    padding: 1rem;
+    background: var(--bg-light);
+    border-radius: 10px;
+}
+
+.metric span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.metric strong {
+    font-size: 1.3rem;
+    color: var(--primary-green);
+    font-weight: 700;
+}
+
+/* Charts Section */
+.charts-section {
+    margin-bottom: 2rem;
+}
+
+.charts-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+}
+
+.chart-container {
+    margin-bottom: 2rem;
+}
+
+.charts-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.chart-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.chart-card h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.chart-card p {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 300px;
+}
+
+.download-btn {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+    margin-top: 1rem;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Achievements Section */
+.achievements-section {
+    margin-bottom: 2rem;
+}
+
+.achievements-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.achievement-item {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+    opacity: 0.6;
+}
+
+.achievement-item.unlocked {
+    opacity: 1;
+    background: linear-gradient(135deg, #ffd93d, #ff6b6b);
+    color: white;
+}
+
+.achievement-item.unlocked:hover {
+    transform: translateY(-5px);
+}
+
+.achievement-item .icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-item h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.achievement-item p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Maintenance Actions Section */
+.maintenance-section {
+    margin-bottom: 2rem;
+}
+
+.maintenance-section h2 {
+    color: var(--primary-red);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.maintenance-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.action-card {
+    background: white;
+    border: 2px solid #fed7d7;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.action-card h3 {
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.action-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.reset-btn {
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+.reset-btn:hover {
+    background: linear-gradient(135deg, #c53030 0%, #9b2c2c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(229, 62, 62, 0.4);
+}
+
+.reset-btn:active {
+    transform: translateY(0);
+}
+
+.reset-icon {
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hamburger {
+        display: flex;
+        order: 2;
+    }
+
+    .rpg-profile-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .rpg-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .performance-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .charts-row {
+        grid-template-columns: 1fr;
+    }
+
+    .satisfaction-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .capitulo-1 {
+        padding: 2rem 1.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .capitulo-1::after {
+        font-size: 0.75rem;
+        right: 15px;
+        top: 12px;
+    }
+
+    .container {
+        padding: 1rem;
+    }
 }
 
 .progress-subtitle {

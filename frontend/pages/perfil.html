@@ -28,9 +28,14 @@
                 <a href="../../index.html" class="nav-link">Início</a>
                 <a href="../sumário/sumário.html" class="nav-link">Sumário</a>
                 <a href="jogos.html" class="nav-link">Jogos</a>
-                <a href="quiz.html" class="nav-link">Quizzes</a>
-                <a href="progress.html" class="nav-link">Progresso</a>
+                <a href="quizzes.html" class="nav-link">Quizzes</a>
+                <a href="progresso.html" class="nav-link">Progresso</a>
             </nav>
+
+            <a href="perfil.html" class="user-profile-link">
+                <img src="../images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+                <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
+            </a>
 
             <button class="hamburger" onclick="toggleMobileMenu()">
                 <span class="hamburger-line"></span>
@@ -92,6 +97,16 @@
         </div>
     </main>
 
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="achievements-section">
+        <div class="container">
+            <h2>🏆 Conquistas Desbloqueadas</h2>
+            <div class="achievements-grid" id="achievementsGrid">
+                <!-- Achievements will be populated by JS -->
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
@@ -102,7 +117,7 @@
 
     <!-- Scripts -->
     <script src="../js/utils.js"></script>
-    <script src="../js/progress.js"></script>
+    <script src="../js/progresso.js"></script>
     <script src="perfil.js"></script>
     <script>
         function toggleMobileMenu() {

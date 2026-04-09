@@ -27,6 +27,35 @@
     margin-bottom: var(--spacing-2xl);
 }
 
+/* Statistics Overview Section */
+.section-stats-overview {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.stats-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.stats-section h2 {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.stats-section:first-child {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    margin-bottom: var(--spacing-xl);
+}
+
+.stats-section:nth-child(2) {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    border: 2px solid #ffc107;
+}
+
 .section-quick-access {
     margin-bottom: var(--spacing-2xl);
 }

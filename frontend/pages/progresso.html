@@ -7,343 +7,250 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/progresso.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <style>
-        :root {
-            --bg: #eef2ff;
-            --card: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --border: #e2e8f0;
-            --blue: #4338ca;
-            --green: #16a34a;
-            --red: #dc2626;
-            --purple: #6b46c1;
-            --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .navbar {
-            background: var(--card);
-            box-shadow: var(--shadow);
-            padding: 1rem 0;
-        }
-
-        .navbar .container {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--purple);
-        }
-
-        .navbar .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .navbar .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .navbar .nav-links a:hover {
-            color: var(--blue);
-        }
-
-        .progress-header {
-            padding: 34px 24px 0;
-        }
-
-        .progress-header-content {
-            max-width: 1180px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .progress-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 10px 16px;
-            border-radius: 999px;
-            background: rgba(67, 56, 202, 0.12);
-            color: var(--blue);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-
-        .progress-header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 0.5rem 0;
-            color: var(--text-primary);
-        }
-
-        .progress-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        .progress-nav {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-link {
-            display: inline-flex;
-            align-items: center;
-            padding: 12px 24px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: transparent;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .btn-link:hover {
-            background: var(--bg);
-            color: var(--text-primary);
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            background: var(--blue);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .btn-primary:hover {
-            background: #3730a3;
-        }
-
-        .progress-main {
-            padding: 34px 24px;
-        }
-
-        .progress-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .summary-card {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: var(--shadow);
-        }
-
-        .summary-card h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 16px;
-        }
-
-        .summary-grid > div {
-            text-align: center;
-        }
-
-        .summary-grid span {
-            display: block;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-        }
-
-        .summary-grid strong {
-            display: block;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--green);
-        }
-
-        .chart-card {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .chart-card h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-
-        .download-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--blue);
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-
-        .download-btn:hover {
-            background: #3730a3;
-        }
-
-        .chart-panels {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 24px;
-        }
-
-        .panel {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .panel h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-
-        @media (max-width: 768px) {
-            .progress-header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .progress-nav {
-                justify-content: center;
-            }
-
-            .navbar .nav-links {
-                display: none;
-            }
-        }
-    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">Play Game Dev Academy</div>
-            <div class="nav-links">
-                <a href="../../index.html">Início</a>
-                <a href="jogos.html">Jogos</a>
-                <a href="quizzes.html">Quizzes</a>
-                <a href="progresso.html">Progresso</a>
-                <a href="perfil.html">Perfil</a>
+    <!-- HEADER/NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <img class="logo-image" src="../images/logotipo.png" alt="Logo Play Game Dev Academy">
+                <h1 class="logo">Play Game Dev Academy</h1>
+                <p class="tagline">Play the Game. Mission Complete. Congratulations.</p>
             </div>
-        </div>
-    </nav>
-
-    <header class="progress-header">
-        <div class="progress-header-content">
-            <div>
-                <p class="progress-badge">Seu desempenho</p>
-                <h1>Visão geral do progresso</h1>
-                <p class="progress-subtitle">Acompanhe seus acertos e erros no quiz por capítulo.</p>
-            </div>
-            <nav class="progress-nav">
-                <a class="btn-link" href="../../index.html">Retornar ao início</a>
-                <a class="btn-primary" href="quizzes.html">Fazer outro quiz</a>
+            
+            <nav class="nav-links">
+                <a href="../../index.html" class="nav-link">Início</a>
+                <a href="../sumário/sumário.html" class="nav-link">Sumário</a>
+                <a href="jogos.html" class="nav-link">Jogos</a>
+                <a href="quizzes.html" class="nav-link">Quizzes</a>
+                <a href="progresso.html" class="nav-link active">Progresso</a>
             </nav>
+
+            <a href="perfil.html" class="user-profile-link">
+                <img src="../images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+                <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
+            </a>
+
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
     </header>
 
-    <main class="progress-main">
-        <section class="progress-cards">
-            <div class="summary-card">
-                <h2>Estatísticas totais</h2>
-                <div class="summary-grid">
-                    <div>
-                        <span>Acertos</span>
-                        <strong id="totalCorrect">0</strong>
+    <main class="container">
+        <!-- RPG Profile Section -->
+        <section class="rpg-profile-section">
+            <div class="rpg-profile-card">
+                <div class="rpg-avatar">
+                    <img src="../images/default-profile.svg" alt="Avatar do Jogador" id="rpgAvatar">
+                    <div class="level-badge" id="playerLevel">1</div>
+                </div>
+                <div class="rpg-info">
+                    <h2 id="playerName">Aprendiz</h2>
+                    <div class="xp-bar">
+                        <div class="xp-fill" id="xpFill" style="width: 0%"></div>
+                        <span class="xp-text" id="xpText">0 / 100 XP</span>
                     </div>
-                    <div>
-                        <span>Erros</span>
-                        <strong id="totalIncorrect">0</strong>
-                    </div>
-                    <div>
-                        <span>Total de perguntas</span>
-                        <strong id="totalAnswered">0</strong>
+                    <div class="rpg-stats">
+                        <div class="stat">
+                            <span class="stat-label">Pontos Totais:</span>
+                            <span class="stat-value" id="totalPoints">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Missões Completadas:</span>
+                            <span class="stat-value" id="missionsCompleted">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Sequência de Vitórias:</span>
+                            <span class="stat-value" id="winStreak">0</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="chart-card">
-                <h2>Distribuição por capítulo</h2>
-                <button class="download-btn" onclick="downloadChart('chapterChart')">📷 Baixar Imagem</button>
-                <canvas id="chapterChart" aria-label="Gráfico de desempenho por capítulo" role="img"></canvas>
+        </section>
+
+        <!-- Satisfaction Ratings Section -->
+        <section class="satisfaction-section">
+            <h2>⭐ Satisfação por Tópico</h2>
+            <div class="capitulo-1">
+                <div class="satisfaction-grid" id="satisfactionGrid">
+                    <!-- Topics satisfaction will be populated by JS -->
+                </div>
             </div>
         </section>
 
-        <section class="chart-panels">
-            <div class="panel">
-                <h2>Acertos x Erros</h2>
-                <button class="download-btn" onclick="downloadChart('scoreChart')">📷 Baixar Imagem</button>
-                <canvas id="scoreChart" aria-label="Gráfico de acertos e erros" role="img"></canvas>
+        <!-- Performance Analysis Section -->
+        <section class="performance-section">
+            <h2>📊 Análise de Desempenho</h2>
+            <div class="performance-cards">
+                <div class="performance-card">
+                    <h3>Quiz Performance</h3>
+                    <div class="performance-metrics">
+                        <div class="metric">
+                            <span>Acertos Totais</span>
+                            <strong id="quizCorrect">0</strong>
+                        </div>
+                        <div class="metric">
+                            <span>Erros Totais</span>
+                            <strong id="quizWrong">0</strong>
+                        </div>
+                        <div class="metric">
+                            <span>Taxa de Acerto</span>
+                            <strong id="quizAccuracy">0%</strong>
+                        </div>
+                        <div class="metric">
+                            <span>Quizzes Completados</span>
+                            <strong id="quizCompleted">0</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="performance-card">
+                    <h3>Exercícios Práticos</h3>
+                    <div class="performance-metrics">
+                        <div class="metric">
+                            <span>Exercícios Concluídos</span>
+                            <strong id="exercisesCompleted">0</strong>
+                        </div>
+                        <div class="metric">
+                            <span>Tempo Médio</span>
+                            <strong id="exerciseAvgTime">0 min</strong>
+                        </div>
+                        <div class="metric">
+                            <span>Pontuação Média</span>
+                            <strong id="exerciseAvgScore">0</strong>
+                        </div>
+                        <div class="metric">
+                            <span>Melhor Pontuação</span>
+                            <strong id="exerciseBestScore">0</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Charts Section -->
+        <section class="charts-section">
+            <h2>📈 Visualização do Progresso</h2>
+            
+            <div class="chart-container">
+                <div class="chart-card">
+                    <h3>Evolução do Desempenho</h3>
+                    <p>Veja como seu desempenho melhorou ao longo do tempo</p>
+                    <button class="download-btn" data-chart="progressChart">📷 Baixar</button>
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-container">
+                    <div class="chart-card">
+                        <h3>Desempenho por Capítulo</h3>
+                        <p>Acompanhe seu progresso em cada capítulo</p>
+                        <button class="download-btn" data-chart="chapterChart">📷 Baixar</button>
+                        <canvas id="chapterChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-card">
+                        <h3>Distribuição de Satisfação</h3>
+                        <p>Avaliações por tópico (1-5 estrelas)</p>
+                        <button class="download-btn" data-chart="satisfactionChart">📷 Baixar</button>
+                        <canvas id="satisfactionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maintenance Actions Section -->
+        <section class="maintenance-section">
+            <h2>🔧 Ações de Manutenção</h2>
+            <div class="maintenance-actions">
+                <div class="action-card">
+                    <h3>⚠️ Resetar Progresso</h3>
+                    <p>Atenção: Esta ação irá apagar todos os seus dados de progresso, conquistas e estatísticas. Esta ação não pode ser desfeita.</p>
+                    <button class="reset-btn" onclick="resetUserProgress()">
+                        <span class="reset-icon">🔄</span>
+                        Resetar Todo o Progresso
+                    </button>
+                </div>
             </div>
         </section>
     </main>
 
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Play Game Dev Academy - Educação em Desenvolvimento de Jogos</p>
+            <p>Feito com ❤️ para educadores e aprendizes</p>
+        </div>
+    </footer>
+
     <script src="../js/progresso.js"></script>
     <script>
-        function downloadChart(chartId) {
-            const canvas = document.getElementById(chartId);
-            html2canvas(canvas).then(canvas => {
-                const link = document.createElement('a');
-                link.download = chartId + '.png';
-                link.href = canvas.toDataURL();
-                link.click();
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProfilePicture();
+            initializeProgressPage();
+        });
+
+        function loadProfilePicture() {
+            const savedPic = localStorage.getItem('userProfilePic');
+            if (savedPic) {
+                document.getElementById('rpgAvatar').src = savedPic;
+                document.getElementById('profilePic').src = savedPic;
+            }
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-menu-open');
+        }
+
+        window.resetUserProgress = function() {
+            if (!confirm('⚠️ AVISO 1: Esta ação apagará TODO o seu progresso, conquistas e estatísticas.')) {
+                return;
+            }
+
+            if (!confirm('⚠️ AVISO 2: Os dados apagados não podem ser recuperados depois.')) {
+                return;
+            }
+
+            const userInput = prompt('⚠️ AVISO 3: Digite RESET em maiúsculas para confirmar a exclusão permanente:');
+            if (userInput !== 'RESET') {
+                alert('Reset cancelado. Digite RESET corretamente para confirmar.');
+                return;
+            }
+
+            if (typeof progressManager !== 'undefined' && progressManager.resetProgress) {
+                progressManager.resetProgress();
+            }
+
+            if (typeof UserProgressManager !== 'undefined') {
+                const altManager = new UserProgressManager();
+                if (typeof altManager.resetProgress === 'function') {
+                    altManager.resetProgress();
+                }
+            }
+
+            const progressKeys = [
+                'userProgressData',
+                'construct3_academy_progress',
+                'quizPerformance',
+                'progress',
+                'chapterRatings',
+                'userProfilePic'
+            ];
+
+            progressKeys.forEach(key => localStorage.removeItem(key));
+
+            alert('✅ Progresso resetado com sucesso! A página será recarregada.');
+            window.location.reload();
         }
     </script>
 </body>

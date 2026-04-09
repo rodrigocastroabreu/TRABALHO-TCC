@@ -22,3 +22,68 @@
 @import url('./pages/pages.css');
 @import url('./pages/games.css');
 @import url('./pages/sumario.css');
+
+/* Diamond Highlight Section */
+.section-diamond-highlight {
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+}
+
+.diamond-box {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+    border: 3px solid #FFD700;
+    border-radius: 20px;
+    box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.5),
+        0 0 60px rgba(255, 215, 0, 0.3),
+        inset 0 0 30px rgba(255, 215, 0, 0.1);
+    text-align: center;
+    position: relative;
+    animation: diamondPulse 2s ease-in-out infinite alternate;
+}
+
+.diamond-box::before {
+    content: '💎';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    color: #FFD700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    z-index: 1;
+}
+
+.diamond-box p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2D3748;
+    margin: 0;
+    background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes diamondPulse {
+    0% { 
+        transform: scale(1); 
+        box-shadow: 
+            0 0 30px rgba(255, 215, 0, 0.5),
+            0 0 60px rgba(255, 215, 0, 0.3),
+            inset 0 0 30px rgba(255, 215, 0, 0.1);
+    }
+    100% { 
+        transform: scale(1.02); 
+        box-shadow: 
+            0 0 40px rgba(255, 215, 0, 0.7),
+            0 0 80px rgba(255, 215, 0, 0.5),
+            inset 0 0 40px rgba(255, 215, 0, 0.2);
+    }
+}

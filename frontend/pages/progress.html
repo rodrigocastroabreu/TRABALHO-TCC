@@ -26,8 +26,8 @@
                 <a href="../../index.html" class="nav-link">Início</a>
                 <a href="../sumário/sumário.html" class="nav-link">Sumário</a>
                 <a href="jogos.html" class="nav-link">Jogos</a>
-                <a href="quiz.html" class="nav-link">Quizzes</a>
-                <a href="progress.html" class="nav-link active">Progresso</a>
+                <a href="quizzes.html" class="nav-link">Quizzes</a>
+                <a href="progresso.html" class="nav-link active">Progresso</a>
             </nav>
 
             <a href="perfil.html" class="user-profile-link">
@@ -190,9 +190,41 @@
             renderProgressPage();
         }
 
+        function clearAllStoredProgress() {
+            const progressKeys = [
+                'construct3_academy_progress',
+                'quizPerformance',
+                'userProgressData',
+                'progress',
+                'chapterRatings',
+                'userProfilePic'
+            ];
+
+            progressKeys.forEach(key => localStorage.removeItem(key));
+        }
+
         window.resetProgress = function() {
-            progressManager.resetProgress();
-            refreshProgressPage();
+            if (!confirm('⚠️ AVISO 1: Esta ação apagará TODO o seu progresso, conquistas e estatísticas.')) {
+                return;
+            }
+
+            if (!confirm('⚠️ AVISO 2: Os dados apagados não podem ser recuperados depois.')) {
+                return;
+            }
+
+            const confirmation = prompt('⚠️ AVISO 3: Digite RESET para apagar todo o progresso permanentemente:');
+            if (confirmation !== 'RESET') {
+                alert('Reset cancelado. Digite RESET corretamente para confirmar.');
+                return;
+            }
+
+            if (typeof progressManager !== 'undefined' && typeof progressManager.resetProgress === 'function') {
+                progressManager.resetProgress();
+            }
+
+            clearAllStoredProgress();
+            alert('✅ Progresso resetado com sucesso! A página será recarregada.');
+            window.location.reload();
         };
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -502,12 +534,6 @@
                 <li style="padding:8px; border-bottom:1px solid #e5e7eb;">Média global (todos os alunos simulados): Pontos <strong>${global.averagePoints}</strong>, Tutoriais <strong>${global.averageCompletedTutorials}</strong>, Avaliação <strong>${global.averageRating}</strong>, Usuários <strong>${global.students}</strong>.</li>
                 <li style="padding:8px;">Vantagem da gamificação: mais engajamento medido em velocidade de conclusão e satisfação (estrelas).</li>
             `;
-        }
-            if (confirm('Tem certeza? Isso apagará todo o seu progresso!')) {
-                progressManager.resetProgress();
-                updateProgressPage();
-                alert('✓ Progresso resetado!');
-            }
         }
 
         function exportProgress() {

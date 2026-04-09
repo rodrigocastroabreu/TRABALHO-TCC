@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Game Dev Academy - Dashboard</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- CSS Modularizado -->
     <link rel="stylesheet" href="frontend/css/main.css">
 </head>
+
 <body>
     <!-- HEADER/NAVBAR -->
     <header class="navbar">
@@ -22,7 +24,7 @@
                 <h1 class="logo">Play Game Dev Academy</h1>
                 <p class="tagline">Play the Game. Mission Complete. Congratulations.</p>
             </div>
-            
+
             <nav class="nav-links">
                 <a href="index.html" class="nav-link active">Início</a>
                 <a href="frontend/sumário/sumário.html" class="nav-link">Sumário</a>
@@ -50,43 +52,88 @@
         <section class="section-welcome">
             <div class="welcome-content">
                 <h2>Bem-vindo à <span class="text-highlight">Play Game Dev Academy</span>! 🚀</h2>
-                <p>Uma <span class="text-highlight">plataforma completa</span> para aprender desenvolvimento de jogos digitais de forma interativa e prática.</p>
-                <p>Explore conteúdos <span class="text-highlight">teóricos</span>, pratique com exercícios desafiadores e teste seus conhecimentos com quizzes!</p>
+                <p>Uma <span class="text-highlight">plataforma completa</span> para aprender desenvolvimento de jogos
+                    digitais de forma interativa e prática.</p>
+                <p>Explore conteúdos <span class="text-highlight">teóricos</span>, pratique com exercícios desafiadores
+                    e teste seus conhecimentos com quizzes!</p>
+                <p>Descubra <span class="text-highlight">6 módulos completos</span>, incluindo Teoria dos Jogos (8 tópicos), <span class="text-highlight">4 jogos educativos</span>, <span class="text-highlight">quizzes interativos</span> e <span class="text-highlight">22 achievements</span> em um sistema gamificado!</p>
             </div>
         </section>
 
-        <!-- SECTION: Quick Stats -->
-        <section class="section-stats">
-            <div class="stats-container">
-                <div class="stat-card">
-                    <div class="stat-icon">📚</div>
-                    <div class="stat-content">
-                        <h3 id="totalTutorials">0</h3>
-                        <p>Tutoriais Disponíveis</p>
+        <!-- SECTION: Statistics Overview -->
+        <section class="section-stats-overview">
+            <!-- SECTION: Personal Progress -->
+            <div class="stats-section">
+                <h2>Seu <span class="text-highlight">Progresso</span></h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-content">
+                            <h3 id="totalTutorials">6</h3>
+                            <p>Módulos Disponíveis</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h3 id="completedTutorials">8</h3>
+                            <p>Módulos Concluídos</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-content">
+                            <h3 id="totalPoints">80</h3>
+                            <p>Pontos Acumulados</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-content">
+                            <h3 id="userLevel">1</h3>
+                            <p>Seu Nível</p>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon">✅</div>
-                    <div class="stat-content">
-                        <h3 id="completedTutorials">0</h3>
-                        <p>Tutoriais Concluídos</p>
+            <!-- SECTION: Project Statistics -->
+            <div class="stats-section">
+                <h2>Estatísticas do <span class="text-highlight">Projeto</span></h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon">📖</div>
+                        <div class="stat-content">
+                            <h3>8</h3>
+                            <p>Tópicos em Teoria dos Jogos</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon">⭐</div>
-                    <div class="stat-content">
-                        <h3 id="totalPoints">0</h3>
-                        <p>Pontos Acumulados</p>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-content">
+                            <h3>22</h3>
+                            <p>Conquistas Disponíveis</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon">🏆</div>
-                    <div class="stat-content">
-                        <h3 id="userLevel">1</h3>
-                        <p>Seu Nível</p>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎮</div>
+                        <div class="stat-content">
+                            <h3>4</h3>
+                            <p>Jogos Educativos</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">❓</div>
+                        <div class="stat-content">
+                            <h3>3+</h3>
+                            <p>Quizzes Interativos</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,13 +142,13 @@
         <!-- SECTION: Quick Access -->
         <section class="section-quick-access">
             <h2>Acesso <span class="text-highlight">Rápido</span></h2>
-            
+
             <div class="cards-grid">
                 <div class="card-main">
                     <div class="card-icon">📚</div>
                     <div class="card-content">
                         <h3>Sumário</h3>
-                        <p>Navegue pelos capítulos do curso e acompanhe seu progresso em cada tópico.</p>
+                        <p>Explore 6 módulos completos: Teoria dos Jogos, Lógica de Programação, Arte para Jogos, Música e Som, Game Engines e Construct 3.</p>
                     </div>
                     <a href="frontend/sumário/sumário.html" class="btn-primary">Ver Sumário</a>
                 </div>
@@ -109,8 +156,8 @@
                 <div class="card-main">
                     <div class="card-icon">🎮</div>
                     <div class="card-content">
-                        <h3>Jogos</h3>
-                        <p>Pratique na prática! Jogue jogos desafiadores e ganhe pontos.</p>
+                        <h3>Jogos Educativos</h3>
+                        <p>4 jogos interativos: Lógica, Algoritmos, Estrutura de Dados e Condicionais. Pratique na prática!</p>
                     </div>
                     <a href="frontend/pages/jogos.html" class="btn-primary">🎮 Jogar Jogos</a>
                 </div>
@@ -118,8 +165,8 @@
                 <div class="card-main">
                     <div class="card-icon">❓</div>
                     <div class="card-content">
-                        <h3>Quizzes</h3>
-                        <p>Teste seu conhecimento com quizzes interativos e receba feedback imediato.</p>
+                        <h3>Quizzes Interativos</h3>
+                        <p>Teste seus conhecimentos com quizzes dinâmicos sobre todos os tópicos do curso.</p>
                     </div>
                     <a href="frontend/pages/quizzes.html" class="btn-primary">Fazer Quiz</a>
                 </div>
@@ -127,10 +174,28 @@
                 <div class="card-main">
                     <div class="card-icon">📊</div>
                     <div class="card-content">
-                        <h3>Progresso</h3>
-                        <p>Acompanhe seu desenvolvimento, visualize estatísticas e conquistas.</p>
+                        <h3>Progresso Detalhado</h3>
+                        <p>Acompanhe seu desenvolvimento com gráficos, estatísticas e 22 conquistas desbloqueáveis.</p>
                     </div>
                     <a href="frontend/pages/progresso.html" class="btn-primary">Ver Progresso</a>
+                </div>
+
+                <div class="card-main">
+                    <div class="card-icon">👤</div>
+                    <div class="card-content">
+                        <h3>Perfil RPG</h3>
+                        <p>Seu perfil gamificado com conquistas, nível e estatísticas personalizadas.</p>
+                    </div>
+                    <a href="frontend/pages/perfil.html" class="btn-primary">Ver Perfil</a>
+                </div>
+
+                <div class="card-main">
+                    <div class="card-icon">📈</div>
+                    <div class="card-content">
+                        <h3>Simulação TCC</h3>
+                        <p>Demonstração dos benefícios da gamificação na educação com dados simulados.</p>
+                    </div>
+                    <a href="frontend/pages/progresso_simulacao.html" class="btn-primary">Ver Simulação</a>
                 </div>
             </div>
         </section>
@@ -138,13 +203,29 @@
         <!-- SECTION: Recent Activity -->
         <section class="section-recent-activity">
             <h2>Atividade Recente</h2>
-            
+
             <div class="activity-list">
                 <div class="activity-item">
                     <div class="activity-icon">✨</div>
                     <div class="activity-content">
-                        <h4>Comece seus estudos</h4>
-                        <p>Abra um tutorial e comece a aprender hoje mesmo!</p>
+                        <h4>Módulo Teoria dos Jogos - NOVO!</h4>
+                        <p>Explore os 8 tópicos fundamentais da teoria dos jogos aplicada ao desenvolvimento de jogos digitais.</p>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-icon">🏆</div>
+                    <div class="activity-content">
+                        <h4>Sistema de Conquistas Completo</h4>
+                        <p>22 achievements únicos esperando para serem desbloqueados em sua jornada gamificada.</p>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-icon">🎮</div>
+                    <div class="activity-content">
+                        <h4>4 Jogos Educativos Disponíveis</h4>
+                        <p>Jogos de Lógica, Algoritmos, Estrutura de Dados e Condicionais para praticar na prática.</p>
                     </div>
                 </div>
             </div>
@@ -153,36 +234,42 @@
         <!-- SECTION: Getting Started -->
         <section class="section-getting-started">
             <h2>Como <span class="text-highlight">Começar</span>?</h2>
-            
+
             <div class="steps-container">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Defina seu <span class="text-highlight">Nome</span></h3>
-                    <p>Personalize sua experiência clicando em "Mudar Nome" no canto superior.</p>
+                    <h3>Configure seu <span class="text-highlight">Perfil</span></h3>
+                    <p>Personalize sua experiência clicando em "Mudar Nome" no canto superior direito.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Explore o <span class="text-highlight">Sumário</span></h3>
-                    <p>Navegue pelos capítulos do curso e veja a estrutura completa do conteúdo.</p>
+                    <p>Conheça os 6 módulos disponíveis: Teoria dos Jogos (NOVO), Lógica, Arte, Música, Engines e Construct 3.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Jogue <span class="text-highlight">Jogos Educativos</span></h3>
-                    <p>Coloque em prática o que aprendeu jogando nossos jogos educativos!</p>
+                    <h3>Comece com <span class="text-highlight">Teoria dos Jogos</span></h3>
+                    <p>Estude os 8 tópicos fundamentais: conceitos básicos, jogadores, estratégias, payoff, equilíbrio de Nash e muito mais.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Teste com <span class="text-highlight">Quizzes</span></h3>
-                    <p>Valide seu conhecimento respondendo quizzes interativos.</p>
+                    <h3>Jogue e <span class="text-highlight">Pratique</span></h3>
+                    <p>Coloque em prática o que aprendeu nos 4 jogos educativos disponíveis.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">5</div>
-                    <h3>Acompanhe <span class="text-highlight">Progresso</span></h3>
-                    <p>Visualize seu progresso, estatísticas e continue aprendendo!</p>
+                    <h3>Teste com <span class="text-highlight">Quizzes</span></h3>
+                    <p>Valide seu conhecimento respondendo quizzes interativos sobre todos os tópicos.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Desbloqueie <span class="text-highlight">Conquistas</span></h3>
+                    <p>Ganhe pontos, suba de nível e conquiste 22 achievements únicos no sistema RPG.</p>
                 </div>
             </div>
         </section>
@@ -191,16 +278,17 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
-                <p>&copy; 2026 <span class="text-highlight">Play Game Dev Academy</span> - Educação em Desenvolvimento de Jogos</p>
-                <p>Feito com ❤️ para educadores e aprendizes</p>
-            </div>
+            <p>&copy; 2026 <span class="text-highlight">Play Game Dev Academy</span> - Educação em Desenvolvimento de
+                Jogos</p>
+            <p>Feito com ❤️ para educadores e aprendizes</p>
+        </div>
     </footer>
 
     <script src="frontend/js/utils.js"></script>
     <script src="frontend/js/progress.js"></script>
     <script src="frontend/js/app.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             updateDashboard();
             loadProfilePicture();
         });
@@ -220,13 +308,14 @@
         function updateDashboard() {
             const userName = progressManager.getUserName();
             document.getElementById('userName').textContent = userName;
-            
-            document.getElementById('totalTutorials').textContent = '6';
+
+            // Dados dinâmicos do progresso do usuário
+            document.getElementById('totalTutorials').textContent = '6'; // Total fixo de módulos disponíveis
             document.getElementById('completedTutorials').textContent = progressManager.getCompletedCount();
             document.getElementById('totalPoints').textContent = progressManager.getTotalPoints();
             document.getElementById('userLevel').textContent = progressManager.getLevel();
         }
     </script>
 </body>
-</html>
 
+</html>

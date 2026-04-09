@@ -260,70 +260,163 @@
 
     <div class="container">
         <header>
-            <h1 class="header-title">Capítulo - Teoria dos Jogos</h1>
-            <p class="header-subtitle">Conceitos fundamentais para tomada de decisão estratégica</p>
+            <h1 class="header-title" id="moduleTitle">Capítulo - Teoria dos Jogos</h1>
+            <p class="header-subtitle" id="moduleSubtitle">Conceitos fundamentais para tomada de decisão estratégica</p>
             <div class="decorative-line"></div>
         </header>
 
         <main>
-            <div class="content-grid">
-                <div class="card">
-                    <div class="card-number">1</div>
-                    <h3 class="card-title">O que é Teoria dos Jogos</h3>
-                    <p class="card-description">Estudo das decisões estratégicas entre agentes</p>
-                    <a href="../topicos/topico1.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-number">2</div>
-                    <h3 class="card-title">Jogadores</h3>
-                    <p class="card-description">Quem participa do jogo (indivíduos ou grupos)</p>
-                    <a href="../topicos/topico2.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-number">3</div>
-                    <h3 class="card-title">Estratégias</h3>
-                    <p class="card-description">Ações possíveis de cada jogador</p>
-                    <a href="../topicos/topico3.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-number">4</div>
-                    <h3 class="card-title">Payoff (Recompensa)</h3>
-                    <p class="card-description">Resultado ou retorno de cada decisão</p>
-                    <a href="../topicos/topico4.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
-                </div>
-
-                <div class="card card-special">
-                    <div class="card-number">5</div>
-                    <h3 class="card-title">Equilíbrio de Nash</h3>
-                    <p class="card-description">Situação onde nenhum jogador ganha mudando sozinho sua estratégia</p>
-                    <a href="../topicos/topico5.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-number">6</div>
-                    <h3 class="card-title">Jogos Cooperativos vs Não Cooperativos</h3>
-                    <p class="card-description">Diferença entre colaboração e competição</p>
-                    <a href="../topicos/topico6.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-number">7</div>
-                    <h3 class="card-title">Dilema do Prisioneiro</h3>
-                    <p class="card-description">Exemplo clássico de conflito entre interesse individual e coletivo</p>
-                    <a href="../topicos/topico7.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-number">8</div>
-                    <h3 class="card-title">Jogos de Soma Zero</h3>
-                    <p class="card-description">O ganho de um é a perda do outro</p>
-                    <a href="../topicos/topico8.html" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>
-                </div>
+            <div class="content-grid" id="contentGrid">
+                <!-- Content will be populated by JavaScript -->
             </div>
         </main>
     </div>
+
+    <script src="../../../js/utils.js"></script>
+    <script src="../../../js/progress.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProfilePicture();
+            initializeModulePage();
+        });
+
+        function loadProfilePicture() {
+            const savedPic = localStorage.getItem('userProfilePic');
+            if (savedPic) {
+                document.getElementById('profilePic').src = savedPic;
+            }
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-menu-open');
+        }
+
+        function initializeModulePage() {
+            // Get module parameter from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const module = urlParams.get('module') || 'teoria';
+
+            // Update page title and content based on module
+            updateModuleContent(module);
+        }
+
+        function updateModuleContent(module) {
+            const moduleData = getModuleData(module);
+            const titleElement = document.getElementById('moduleTitle');
+            const subtitleElement = document.getElementById('moduleSubtitle');
+            const contentGrid = document.getElementById('contentGrid');
+
+            // Update header
+            titleElement.textContent = moduleData.title;
+            subtitleElement.textContent = moduleData.subtitle;
+
+            // Clear existing content
+            contentGrid.innerHTML = '';
+
+            // Add chapters/topics
+            moduleData.chapters.forEach((chapter, index) => {
+                const cardClass = chapter.special ? 'card card-special' : 'card';
+                const isDevelopment = chapter.development || moduleData.status === 'development';
+                const cardHTML = `
+                    <div class="${cardClass}">
+                        <div class="card-number">${index + 1}</div>
+                        <h3 class="card-title">${chapter.title}</h3>
+                        <p class="card-description">${chapter.description}</p>
+                        ${chapter.link && !chapter.development ? `<a href="${chapter.link}" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">Acessar</a>` : ''}
+                        ${isDevelopment ? '<div style="margin-top: 15px; padding: 8px 16px; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #92400e; border-radius: 6px; font-weight: 600; text-align: center; font-size: 0.9rem;">🚧 Em Desenvolvimento</div>' : ''}
+                    </div>
+                `;
+                contentGrid.innerHTML += cardHTML;
+            });
+        }
+
+        function getModuleData(module) {
+            const modules = {
+                teoria: {
+                    title: 'Capítulo - Teoria dos Jogos',
+                    subtitle: 'Conceitos fundamentais para tomada de decisão estratégica',
+                    status: 'ready',
+                    chapters: [
+                        { title: 'O que é Teoria dos Jogos', description: 'Estudo das decisões estratégicas entre agentes', link: '../topicos/topico1.html' },
+                        { title: 'Jogadores', description: 'Quem participa do jogo (indivíduos ou grupos)', link: '../topicos/topico2.html' },
+                        { title: 'Estratégias', description: 'Ações possíveis de cada jogador', development: true },
+                        { title: 'Payoff (Recompensa)', description: 'Resultado ou retorno de cada decisão', development: true },
+                        { title: 'Equilíbrio de Nash', description: 'Situação onde nenhum jogador ganha mudando sozinho sua estratégia', development: true, special: true },
+                        { title: 'Jogos Cooperativos vs Não Cooperativos', description: 'Diferença entre colaboração e competição', development: true },
+                        { title: 'Dilema do Prisioneiro', description: 'Exemplo clássico de conflito entre interesse individual e coletivo', development: true },
+                        { title: 'Jogos de Soma Zero', description: 'O ganho de um é a perda do outro', development: true }
+                    ]
+                },
+                logica: {
+                    title: 'Capítulo - Lógica de Programação',
+                    subtitle: 'Desenvolva o pensamento computacional e resolva problemas estruturalmente',
+                    status: 'development',
+                    chapters: [
+                        { title: 'Pensamento Algorítmico', description: 'Aprenda a pensar como um computador resolve problemas' },
+                        { title: 'Estruturas de Controle', description: 'Condicionais, loops e controle de fluxo' },
+                        { title: 'Variáveis e Tipos de Dados', description: 'Armazenamento e manipulação de informações' },
+                        { title: 'Funções e Modularização', description: 'Organizando código em blocos reutilizáveis' },
+                        { title: 'Estruturas de Dados Básicas', description: 'Arrays, listas e objetos fundamentais' },
+                        { title: 'Debugging e Testes', description: 'Encontrando e corrigindo erros no código' }
+                    ]
+                },
+                arte: {
+                    title: 'Capítulo - Criação de Arte para Jogos',
+                    subtitle: 'Aprenda a criar visuais atraentes e expressivos para jogos digitais',
+                    status: 'development',
+                    chapters: [
+                        { title: 'Princípios de Design Visual', description: 'Cores, composição e hierarquia visual' },
+                        { title: 'Ferramentas de Criação Artística', description: 'Softwares e técnicas para criação digital' },
+                        { title: 'Pixel Art e Sprites', description: 'Criando gráficos retrô e sprites animados' },
+                        { title: 'Animações Básicas', description: 'Movimento e transições em elementos visuais' },
+                        { title: 'UI/UX Design', description: 'Interfaces intuitivas e experiência do usuário' },
+                        { title: 'Otimização de Assets', description: 'Reduzindo tamanho sem perder qualidade' }
+                    ]
+                },
+                musica: {
+                    title: 'Capítulo - Criação de Música e Som',
+                    subtitle: 'Descubra como o áudio eleva a experiência imersiva dos jogos',
+                    status: 'development',
+                    chapters: [
+                        { title: 'Teoria Musical Básica', description: 'Notas, ritmos e harmonia fundamentais' },
+                        { title: 'Ferramentas de Produção Sonora', description: 'DAWs e sintetizadores para criação musical' },
+                        { title: 'Efeitos Sonoros', description: 'Criando sons únicos e ambientes sonoros' },
+                        { title: 'Integração com Jogos', description: 'Implementando áudio dinâmico e responsivo' },
+                        { title: 'Mixagem e Masterização', description: 'Balanceando e finalizando produções sonoras' },
+                        { title: 'Áudio Procedural', description: 'Gerando sons automaticamente em tempo real' }
+                    ]
+                },
+                engines: {
+                    title: 'Capítulo - Game Engines',
+                    subtitle: 'Explore as ferramentas que tornam possível criar jogos complexos',
+                    status: 'development',
+                    chapters: [
+                        { title: 'O que são Game Engines', description: 'Entendendo o coração dos jogos digitais' },
+                        { title: 'Unity vs Unreal Engine', description: 'Comparando as duas engines mais populares' },
+                        { title: 'Godot e Outras Opções', description: 'Alternativas open-source e especializadas' },
+                        { title: 'Escolhendo a Engine Certa', description: 'Critérios para seleção baseada no projeto' },
+                        { title: 'Arquitetura de Engines', description: 'Como funcionam por dentro' },
+                        { title: 'Ferramentas e Ecossistemas', description: 'Plugins, assets e comunidades' }
+                    ]
+                },
+                construct: {
+                    title: 'Capítulo - Desenvolvimento com Construct 3',
+                    subtitle: 'Crie seus primeiros jogos sem programar, usando uma engine visual',
+                    status: 'development',
+                    chapters: [
+                        { title: 'Interface do Construct 3', description: 'Navegando pela engine visual' },
+                        { title: 'Criação de Eventos Visuais', description: 'Programação por blocos e lógica visual' },
+                        { title: 'Prototipagem Rápida', description: 'Criando jogos funcionais rapidamente' },
+                        { title: 'Publicação de Jogos', description: 'Exportando e compartilhando seus jogos' },
+                        { title: 'Avançado: Behaviors e Families', description: 'Recursos avançados da engine' },
+                        { title: 'Integração com Outras Ferramentas', description: 'Expandindo possibilidades' }
+                    ]
+                }
+            };
+
+            return modules[module] || modules.teoria;
+        }
+    </script>
 </body>
 </html>
