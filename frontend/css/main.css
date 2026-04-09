@@ -23,6 +23,9 @@
 @import url('./pages/games.css');
 @import url('./pages/sumario.css');
 
+/* 5. Mobile - Responsividade para celulares */
+@import url('./mobile-responsive.css');
+
 /* Diamond Highlight Section */
 .section-diamond-highlight {
     padding: 2rem 0;

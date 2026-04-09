@@ -379,7 +379,18 @@ body {
 
     .quiz-card,
     .selection-card {
-        padding: 26px;
+        padding: 1.2rem;
+        margin: 0.5rem;
+    }
+
+    .selection-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .selection-card p {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
     }
 
     .btn-link,
@@ -387,5 +398,97 @@ body {
     .btn-secondary,
     .btn-next {
         width: 100%;
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+        min-height: 44px;
+    }
+
+    .chapter-card {
+        padding: 1.2rem;
+        min-height: 120px;
+        font-size: 0.95rem;
+    }
+
+    .chapter-card span {
+        font-size: 0.8rem;
+    }
+
+    .quiz-card-header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .quiz-label {
+        font-size: 0.85rem;
+    }
+
+    #chapterTitle,
+    #questionCounter,
+    #timerDisplay {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-main {
+        padding: 0.5rem;
+    }
+
+    .quiz-card,
+    .selection-card {
+        padding: 1rem;
+        margin: 0;
+        border-radius: 12px;
+    }
+
+    .selection-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .selection-card p {
+        font-size: 0.9rem;
+    }
+
+    .chapter-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .chapter-card {
+        padding: 1rem;
+        font-size: 0.9rem;
+        min-height: 100px;
+    }
+
+    .quiz-question-box {
+        margin: 1rem 0;
+    }
+
+    #questionText {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .options-grid {
+        gap: 0.8rem;
+    }
+
+    .quiz-option {
+        padding: 0.8rem;
+    }
+
+    .btn-link,
+    .btn-primary,
+    .btn-secondary,
+    .btn-next {
+        padding: 1rem;
+        font-size: 1rem;
+        min-height: 48px;
+    }
+
+    .quiz-actions-row {
+        gap: 0.8rem;
+        flex-direction: column;
     }
 }

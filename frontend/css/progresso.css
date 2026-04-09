@@ -203,6 +203,32 @@ body {
     gap: 1.5rem;
 }
 
+@media (max-width: 768px) {
+    .satisfaction-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .satisfaction-item {
+        padding: 1rem;
+    }
+
+    .satisfaction-item h3 {
+        font-size: 0.95rem;
+    }
+
+    .star {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .satisfaction-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+}
+
 .satisfaction-item {
     background: var(--bg-card);
     padding: 1.5rem;
@@ -710,5 +736,79 @@ body {
 
     .summary-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .satisfaction-section {
+        padding: 1.5rem 1rem;
+        margin: 1rem 0;
+    }
+
+    .satisfaction-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .performance-section {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .performance-card {
+        padding: 1.2rem 1rem;
+    }
+
+    .performance-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .performance-metrics {
+        gap: 0.8rem;
+    }
+
+    .metric {
+        padding: 0.8rem 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .metric strong {
+        font-size: 1.2rem;
+    }
+
+    .charts-section {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .chart-card {
+        padding: 1.2rem 1rem;
+    }
+
+    .chart-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .download-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .maintenance-section {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .action-card {
+        padding: 1.2rem 1rem;
+    }
+
+    .action-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .action-card p {
+        font-size: 0.85rem;
+    }
+
+    .reset-btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
     }
 }
