@@ -95,6 +95,11 @@ class UserProgressManager {
                     ]
                 };
             }
+            // Migrate achievements from satisfaction to userData if they exist there
+            if (this.userData.satisfaction.achievements && !this.userData.achievements) {
+                this.userData.achievements = this.userData.satisfaction.achievements;
+                delete this.userData.satisfaction.achievements; // Clean up old location
+            }
             // Ensure achievements exist
             if (!this.userData.achievements || this.userData.achievements.length === 0) {
                 this.userData.achievements = [
