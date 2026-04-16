@@ -3,106 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Estudante - Play Game Dev Academy</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/progresso.css">
-    <link rel="stylesheet" href="perfil.css">
+    <title>Teste Conquistas - Play Game Dev Academy</title>
+    <link rel="stylesheet" href="frontend/css/main.css">
+    <link rel="stylesheet" href="frontend/css/progresso.css">
+    <link rel="stylesheet" href="frontend/pages/perfil.css">
 </head>
 <body>
-    <!-- HEADER/NAVBAR -->
-    <header class="navbar">
-        <div class="navbar-container">
-            <div class="logo-section">
-                <img class="logo-image" src="../images/logotipo.png" alt="Logo Play Game Dev Academy">
-                <h1 class="logo">Play Game Dev Academy</h1>
-                <p class="tagline">Play the Game. Mission Complete. Congratulations.</p>
-            </div>
-            
-            <nav class="nav-links">
-                <a href="../../index.html" class="nav-link">Início</a>
-                <a href="../sumário/sumário.html" class="nav-link">Sumário</a>
-                <a href="jogos.html" class="nav-link">Jogos</a>
-                <a href="quizzes.html" class="nav-link">Quizzes</a>
-                <a href="progresso.html" class="nav-link">Progresso</a>
-            </nav>
+    <div class="container">
+        <h1>Teste do Sistema de Conquistas</h1>
 
-            <a href="perfil.html" class="user-profile-link">
-                <img src="../images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
-                <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
-            </a>
-
-            <button class="hamburger" onclick="toggleMobileMenu()">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-        </div>
-    </header>
-
-    <!-- MAIN CONTENT -->
-    <main class="container main-content">
-        <div class="profile-container profile-wrapper">
-            <!-- Yu-Gi-Oh Style Profile Card -->
-            <div class="profile-card yugioh-card">
-                <div class="card-header card-title-section">
-                    <h2 class="card-title">Carta do Jogador</h2>
-                    <div class="card-type card-category">Estudante</div>
-                </div>
-                
-                <div class="card-image profile-image-section">
-                    <img src="../images/default-profile.svg" alt="Foto de Perfil" id="largeProfilePic" class="profile-image">
-                    <input type="file" id="profileInput" accept="image/*" style="display: none;" class="file-input">
-                    <button class="btn-change-photo change-photo-btn" onclick="changeProfilePhoto()">Trocar Foto</button>
-                </div>
-                
-                <div class="card-content player-info-section">
-                    <div class="player-name player-display-name" id="playerName">Aprendiz</div>
-                    <div class="player-level player-level-display">Nível <span id="playerLevel" class="level-number">1</span></div>
-                    
-                    <div class="stats-section player-stats">
-                        <div class="stat stat-item">
-                            <div class="stat-label stat-label-text">Cursos Concluídos</div>
-                            <div class="stat-value stat-value-number" id="completedCourses">0</div>
-                        </div>
-                        <div class="stat stat-item">
-                            <div class="stat-label stat-label-text">Pontos Totais</div>
-                            <div class="stat-value stat-value-number" id="totalPoints">0</div>
-                        </div>
-                        <div class="stat stat-item">
-                            <div class="stat-label stat-label-text">Progresso Geral</div>
-                            <div class="stat-value stat-value-number" id="overallProgress">0%</div>
-                        </div>
-                    </div>
-                    
-                    <div class="progress-bar progress-container">
-                        <div class="progress-fill progress-fill-bar" id="progressFill"></div>
-                    </div>
-                    
-                    <div class="card-description player-description">
-                        <p class="description-text">Um dedicado estudante de desenvolvimento de jogos digitais, sempre buscando novos conhecimentos e desafios!</p>
-                    </div>
-                </div>
-                
-                <div class="card-footer card-actions-section">
-                    <button class="btn-primary change-name-btn" onclick="changeUserName()">Mudar Nome</button>
-                    <div class="card-rarity rarity-stars">★★★</div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- ACHIEVEMENTS SECTION -->
-    <section class="achievements-section">
-        <div class="container">
-            <h2>🏆 Conquistas Desbloqueadas</h2>
-            <div class="achievements-grid" id="achievementsGrid">
+        <!-- ACHIEVEMENTS SECTION -->
+        <section class="achievements-section">
+            <div class="container">
+                <h2>🏆 Conquistas Desbloqueadas</h2>
+                <div class="achievements-grid" id="achievementsGrid">
                 <!-- Achievement: Primeiro Quiz -->
                 <div class="achievement-item locked" data-achievement="first_quiz">
                     <div class="achievement-content">
@@ -309,26 +223,45 @@
                         <p>Faça commit e push do seu projeto</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Play Game Dev Academy - Educação em Desenvolvimento de Jogos</p>
-            <p>Feito com ❤️ para educadores e aprendizes</p>
+        <div style="margin-top: 2rem; text-align: center;">
+            <button onclick="simulateProgress()">Simular Progresso</button>
+            <button onclick="clearData()">Limpar Dados</button>
         </div>
-    </footer>
+    </div>
 
     <!-- Scripts -->
-    <script src="../js/utils.js"></script>
-    <script src="../js/progresso.js"></script>
-    <script src="perfil.js"></script>
+    <script src="frontend/js/utils.js"></script>
+    <script src="frontend/js/progresso.js"></script>
+    <script src="frontend/pages/perfil.js"></script>
     <script>
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('mobile-menu-open');
+        function simulateProgress() {
+            // Simulate some progress to unlock achievements
+            const manager = window.userProgressManager || userProgressManager;
+            if (manager && manager.userData) {
+                // Simulate completing some quizzes
+                manager.userData.performance.quizCompleted = 5;
+                manager.userData.performance.quizAccuracy = 85;
+                manager.userData.performance.exercisesCompleted = 3;
+                manager.userData.performance.exerciseAvgTime = 8;
+                manager.userData.profile.level = 3;
+                manager.userData.profile.totalPoints = 150;
+
+                // Simulate rating some topics
+                manager.userData.satisfaction.topics = [
+                    { rating: 5 }, { rating: 4 }, { rating: 3 }, { rating: 5 }, { rating: 4 }, { rating: 5 }, { rating: 4 }, { rating: 5 }
+                ];
+
+                manager.saveUserData();
+                loadAchievements();
+                alert('Progresso simulado! Recarregue as conquistas.');
+            }
+        }
+
+        function clearData() {
+            localStorage.clear();
+            location.reload();
         }
     </script>
 </body>

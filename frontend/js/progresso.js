@@ -80,61 +80,59 @@ class UserProgressManager {
                     chapterData: []
                 }
             };
-            // Ensure satisfaction exists for backward compatibility
-            if (!this.userData.satisfaction || !this.userData.satisfaction.topics) {
-                this.userData.satisfaction = {
-                    topics: [
-                        { name: 'O que é Teoria dos Jogos', rating: 0 },
-                        { name: 'Jogadores', rating: 0 },
-                        { name: 'Estratégias', rating: 0 },
-                        { name: 'Payoff (Recompensa)', rating: 0 },
-                        { name: 'Equilíbrio de Nash', rating: 0 },
-                        { name: 'Jogos Cooperativos vs Não Cooperativos', rating: 0 },
-                        { name: 'Dilema do Prisioneiro', rating: 0 },
-                        { name: 'Jogos de Soma Zero', rating: 0 }
-                    ]
-                };
-            }
-            // Migrate achievements from satisfaction to userData if they exist there
-            if (this.userData.satisfaction.achievements && !this.userData.achievements) {
-                this.userData.achievements = this.userData.satisfaction.achievements;
-                delete this.userData.satisfaction.achievements; // Clean up old location
-            }
-            // Ensure achievements exist
-            if (!this.userData.achievements || this.userData.achievements.length === 0) {
-                this.userData.achievements = [
-                    { id: 'first_quiz', name: 'Primeiro Quiz', description: 'Complete seu primeiro quiz', icon: '🎯', unlocked: false },
-                    { id: 'accuracy_master', name: 'Mestre da Precisão', description: 'Alcance 90% de acerto', icon: '🎯', unlocked: false },
-                    { id: 'speed_demon', name: 'Herói da Velocidade', description: 'Complete um exercício em menos de 5 min', icon: '⚡', unlocked: false },
-                    { id: 'perfectionist', name: 'Perfeccionista', description: 'Complete 5 exercícios com 100%', icon: '💎', unlocked: false },
-                    { id: 'explorer', name: 'Explorador', description: 'Visite todos os tópicos', icon: '🗺️', unlocked: false },
-                    { id: 'rpg_master', name: 'Mestre RPG', description: 'Alcance nível 10', icon: '🎮', unlocked: false },
-                    { id: 'first_exercise', name: 'Primeiro Exercício', description: 'Complete seu primeiro exercício prático', icon: '📝', unlocked: false },
-                    { id: 'quiz_warrior', name: 'Guerreiro de Quizzes', description: 'Complete 10 quizzes', icon: '⚔️', unlocked: false },
-                    { id: 'century', name: 'Centenário', description: 'Acumule 100 pontos', icon: '💯', unlocked: false },
-                    { id: 'level_5', name: 'Ascensão', description: 'Alcance nível 5', icon: '⬆️', unlocked: false },
-                    { id: 'consistency', name: 'Consistência', description: 'Mude de nível 3 vezes', icon: '🔄', unlocked: false },
-                    { id: 'theory_master', name: 'Teórico', description: 'Domine Teoria dos Jogos', icon: '🧠', unlocked: false },
-                    { id: 'speed_runner', name: 'Speed Runner', description: 'Complete 3 exercícios em menos de 10 min cada', icon: '🏃', unlocked: false },
-                    { id: 'satisfaction_guru', name: 'Guru da Satisfação', description: 'Avalie todos os 8 tópicos', icon: '⭐', unlocked: false },
-                    { id: 'combo_master', name: 'Mestre do Combo', description: 'Acerte 5 quizzes consecutivos', icon: '🔥', unlocked: false },
-                    { id: 'resilient', name: 'Resiliente', description: 'Mude de nível após errar vários exercícios', icon: '🛡️', unlocked: false },
-                    { id: 'all_star', name: 'Cada Um uma Estrela', description: 'Avalie algum tópico com 5 estrelas', icon: '🌟', unlocked: false },
-                    { id: 'first_blood', name: 'First Blood', description: 'Seja o primeiro a completar um capítulo', icon: '🩸', unlocked: false },
-                    { id: 'legend_status', name: 'Status de Lenda', description: 'Alcance nível 15', icon: '👑', unlocked: false },
-                    { id: 'eternal_learner', name: 'Aprendiz Eterno', description: 'Complete 50 exercícios', icon: '📚', unlocked: false },
-                    { id: 'achievement_collector', name: 'Colecionador de Conquistas', description: 'Desbloqueie 15 conquistas', icon: '🏆', unlocked: false },
-                    { id: 'hall_of_fame', name: 'Galeria da Fama', description: 'Desbloqueie 20 conquistas', icon: '🎖️', unlocked: false },
-                    { id: 'git_master', name: 'Mestre do Git', description: 'Faça commit e push do seu projeto', icon: '🚀', unlocked: false }
-                ];
-            }
-                    charts: {
-                        progressOverTime: [
-                            { date: '2024-01-01', score: 0 },
-                            { date: '2024-01-15', score: 0 },
-                            { date: '2024-02-01', score: 0 },
-                            { date: '2024-02-15', score: 0 },
-                            { date: '2024-03-01', score: 0 },
+        }
+        
+        // Ensure satisfaction exists for backward compatibility
+        if (!this.userData.satisfaction || !this.userData.satisfaction.topics) {
+            this.userData.satisfaction = {
+                topics: [
+                    { name: 'O que é Teoria dos Jogos', rating: 0 },
+                    { name: 'Jogadores', rating: 0 },
+                    { name: 'Estratégias', rating: 0 },
+                    { name: 'Payoff (Recompensa)', rating: 0 },
+                    { name: 'Equilíbrio de Nash', rating: 0 },
+                    { name: 'Jogos Cooperativos vs Não Cooperativos', rating: 0 },
+                    { name: 'Dilema do Prisioneiro', rating: 0 },
+                    { name: 'Jogos de Soma Zero', rating: 0 }
+                ]
+            };
+        }
+        
+        // Migrate achievements from satisfaction to userData if they exist there
+        if (this.userData.satisfaction.achievements && !this.userData.achievements) {
+            this.userData.achievements = this.userData.satisfaction.achievements;
+            delete this.userData.satisfaction.achievements; // Clean up old location
+        }
+        
+        // Ensure achievements exist
+        if (!this.userData.achievements || this.userData.achievements.length === 0) {
+            this.userData.achievements = [
+                { id: 'first_quiz', name: 'Primeiro Quiz', description: 'Complete seu primeiro quiz', icon: '🎯', unlocked: false },
+                { id: 'accuracy_master', name: 'Mestre da Precisão', description: 'Alcance 90% de acerto', icon: '🎯', unlocked: false },
+                { id: 'speed_demon', name: 'Herói da Velocidade', description: 'Complete um exercício em menos de 5 min', icon: '⚡', unlocked: false },
+                { id: 'perfectionist', name: 'Perfeccionista', description: 'Complete 5 exercícios com 100%', icon: '💎', unlocked: false },
+                { id: 'explorer', name: 'Explorador', description: 'Visite todos os tópicos', icon: '🗺️', unlocked: false },
+                { id: 'rpg_master', name: 'Mestre RPG', description: 'Alcance nível 10', icon: '🎮', unlocked: false },
+                { id: 'first_exercise', name: 'Primeiro Exercício', description: 'Complete seu primeiro exercício prático', icon: '📝', unlocked: false },
+                { id: 'quiz_warrior', name: 'Guerreiro de Quizzes', description: 'Complete 10 quizzes', icon: '⚔️', unlocked: false },
+                { id: 'century', name: 'Centenário', description: 'Acumule 100 pontos', icon: '💯', unlocked: false },
+                { id: 'level_5', name: 'Ascensão', description: 'Alcance nível 5', icon: '⬆️', unlocked: false },
+                { id: 'consistency', name: 'Consistência', description: 'Mude de nível 3 vezes', icon: '🔄', unlocked: false },
+                { id: 'theory_master', name: 'Teórico', description: 'Domine Teoria dos Jogos', icon: '🧠', unlocked: false },
+                { id: 'speed_runner', name: 'Speed Runner', description: 'Complete 3 exercícios em menos de 10 min cada', icon: '🏃', unlocked: false },
+                { id: 'satisfaction_guru', name: 'Guru da Satisfação', description: 'Avalie todos os 8 tópicos', icon: '⭐', unlocked: false },
+                { id: 'combo_master', name: 'Mestre do Combo', description: 'Acerte 5 quizzes consecutivos', icon: '🔥', unlocked: false },
+                { id: 'resilient', name: 'Resiliente', description: 'Mude de nível após errar vários exercícios', icon: '🛡️', unlocked: false },
+                { id: 'all_star', name: 'Cada Um uma Estrela', description: 'Avalie algum tópico com 5 estrelas', icon: '🌟', unlocked: false },
+                { id: 'first_blood', name: 'First Blood', description: 'Seja o primeiro a completar um capítulo', icon: '🩸', unlocked: false },
+                { id: 'legend_status', name: 'Status de Lenda', description: 'Alcance nível 15', icon: '👑', unlocked: false },
+                { id: 'eternal_learner', name: 'Aprendiz Eterno', description: 'Complete 50 exercícios', icon: '📚', unlocked: false },
+                { id: 'achievement_collector', name: 'Colecionador de Conquistas', description: 'Desbloqueie 15 conquistas', icon: '🏆', unlocked: false },
+                { id: 'hall_of_fame', name: 'Galeria da Fama', description: 'Desbloqueie 20 conquistas', icon: '🎖️', unlocked: false },
+                { id: 'git_master', name: 'Mestre do Git', description: 'Faça commit e push do seu projeto', icon: '🚀', unlocked: false }
+            ];
+        }
+    }
                             { date: '2024-03-15', score: 0 }
                         ],
                         chapterData: {
@@ -445,7 +443,6 @@ class UserProgressManager {
 // Inst�ncia global do gerenciador
 const userProgressManager = new UserProgressManager();
 window.userProgressManager = userProgressManager;
-
 // Fun��o principal de inicializa��o
 function initializeProgressPage() {
     // Sync ratings from progressManager to userProgressManager
@@ -525,6 +522,8 @@ function rateTopic(index, rating) {
     // Sync with userProgressManager
     userProgressManager.userData.satisfaction.topics[index].rating = rating;
     userProgressManager.saveUserData();
+    // Check achievements after rating update
+    userProgressManager.checkAchievements();
     updateSatisfactionDisplay();
 }
 
