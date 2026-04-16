@@ -98,6 +98,23 @@ function loadAchievements() {
             if (typeof UserProgressManager !== 'undefined') {
                 window.progressManager = new UserProgressManager();
                 // Try again after creating
+                setTimeout(() => loadAchievements(), 100);
+            }
+        }
+    } catch (e) {
+        console.error('Error loading achievements:', e);
+    }
+}
+
+function unlockGitAchievement() {
+    if (typeof progressManager !== 'undefined' && progressManager.unlockGitAchievement) {
+        progressManager.unlockGitAchievement();
+        loadAchievements(); // Reload to show the unlocked achievement
+        alert('🏆 Conquista "Mestre do Git" desbloqueada!');
+    } else {
+        alert('Erro: Sistema de progresso não carregado.');
+    }
+}
                 setTimeout(() => {
                     if (window.progressManager && window.progressManager.userData) {
                         loadAchievements();

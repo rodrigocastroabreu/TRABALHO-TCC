@@ -50,13 +50,36 @@ class UserProgressManager {
                         { name: 'Jogos de Soma Zero', rating: 0 }
                     ]
                 },
-                achievements: [],
+                achievements: [
+                    { id: 'first_quiz', name: 'Primeiro Quiz', description: 'Complete seu primeiro quiz', icon: '🎯', unlocked: false },
+                    { id: 'accuracy_master', name: 'Mestre da Precisão', description: 'Alcance 90% de acerto', icon: '🎯', unlocked: false },
+                    { id: 'speed_demon', name: 'Herói da Velocidade', description: 'Complete um exercício em menos de 5 min', icon: '⚡', unlocked: false },
+                    { id: 'perfectionist', name: 'Perfeccionista', description: 'Complete 5 exercícios com 100%', icon: '💎', unlocked: false },
+                    { id: 'explorer', name: 'Explorador', description: 'Visite todos os tópicos', icon: '🗺️', unlocked: false },
+                    { id: 'rpg_master', name: 'Mestre RPG', description: 'Alcance nível 10', icon: '🎮', unlocked: false },
+                    { id: 'first_exercise', name: 'Primeiro Exercício', description: 'Complete seu primeiro exercício prático', icon: '📝', unlocked: false },
+                    { id: 'quiz_warrior', name: 'Guerreiro de Quizzes', description: 'Complete 10 quizzes', icon: '⚔️', unlocked: false },
+                    { id: 'century', name: 'Centenário', description: 'Acumule 100 pontos', icon: '💯', unlocked: false },
+                    { id: 'level_5', name: 'Ascensão', description: 'Alcance nível 5', icon: '⬆️', unlocked: false },
+                    { id: 'consistency', name: 'Consistência', description: 'Mude de nível 3 vezes', icon: '🔄', unlocked: false },
+                    { id: 'theory_master', name: 'Teórico', description: 'Domine Teoria dos Jogos', icon: '🧠', unlocked: false },
+                    { id: 'speed_runner', name: 'Speed Runner', description: 'Complete 3 exercícios em menos de 10 min cada', icon: '🏃', unlocked: false },
+                    { id: 'satisfaction_guru', name: 'Guru da Satisfação', description: 'Avalie todos os 8 tópicos', icon: '⭐', unlocked: false },
+                    { id: 'combo_master', name: 'Mestre do Combo', description: 'Acerte 5 quizzes consecutivos', icon: '🔥', unlocked: false },
+                    { id: 'resilient', name: 'Resiliente', description: 'Mude de nível após errar vários exercícios', icon: '🛡️', unlocked: false },
+                    { id: 'all_star', name: 'Cada Um uma Estrela', description: 'Avalie algum tópico com 5 estrelas', icon: '🌟', unlocked: false },
+                    { id: 'first_blood', name: 'First Blood', description: 'Seja o primeiro a completar um capítulo', icon: '🩸', unlocked: false },
+                    { id: 'legend_status', name: 'Status de Lenda', description: 'Alcance nível 15', icon: '👑', unlocked: false },
+                    { id: 'eternal_learner', name: 'Aprendiz Eterno', description: 'Complete 50 exercícios', icon: '📚', unlocked: false },
+                    { id: 'achievement_collector', name: 'Colecionador de Conquistas', description: 'Desbloqueie 15 conquistas', icon: '🏆', unlocked: false },
+                    { id: 'hall_of_fame', name: 'Galeria da Fama', description: 'Desbloqueie 20 conquistas', icon: '🎖️', unlocked: false },
+                    { id: 'git_master', name: 'Mestre do Git', description: 'Faça commit e push do seu projeto', icon: '🚀', unlocked: false }
+                ],
                 charts: {
                     progressOverTime: [],
                     chapterData: []
                 }
             };
-        } else {
             // Ensure satisfaction exists for backward compatibility
             if (!this.userData.satisfaction || !this.userData.satisfaction.topics) {
                 this.userData.satisfaction = {
@@ -69,31 +92,37 @@ class UserProgressManager {
                         { name: 'Jogos Cooperativos vs Não Cooperativos', rating: 0 },
                         { name: 'Dilema do Prisioneiro', rating: 0 },
                         { name: 'Jogos de Soma Zero', rating: 0 }
-                    ],
-                    achievements: [
-                        { id: 'first_quiz', name: 'Primeiro Quiz', description: 'Complete seu primeiro quiz', icon: '??', unlocked: false },
-                        { id: 'accuracy_master', name: 'Mestre da Precis�o', description: 'Alcance 90% de acerto', icon: '??', unlocked: false },
-                        { id: 'speed_demon', name: 'Her�i da Velocidade', description: 'Complete um exerc�cio em menos de 5 min', icon: '?', unlocked: false },
-                        { id: 'perfectionist', name: 'Perfeccionista', description: 'Complete 5 exerc�cios com 100%', icon: '??', unlocked: false },
-                        { id: 'explorer', name: 'Explorador', description: 'Visite todos os t�picos', icon: '???', unlocked: false },
-                        { id: 'rpg_master', name: 'Mestre RPG', description: 'Alcance n�vel 10', icon: '??', unlocked: false },
-                        { id: 'first_exercise', name: 'Primeiro Exerc�cio', description: 'Complete seu primeiro exerc�cio pr�tico', icon: '?', unlocked: false },
-                        { id: 'quiz_warrior', name: 'Guerreiro de Quizzes', description: 'Complete 10 quizzes', icon: '??', unlocked: false },
-                        { id: 'century', name: 'Centen�rio', description: 'Acumule 100 pontos', icon: '??', unlocked: false },
-                        { id: 'level_5', name: 'Ascens�o', description: 'Alcance n�vel 5', icon: '??', unlocked: false },
-                        { id: 'consistency', name: 'Consist�ncia', description: 'Mude de n�vel 3 vezes', icon: '??', unlocked: false },
-                        { id: 'theory_master', name: 'Te�rico', description: 'Domine Teoria dos Jogos', icon: '??', unlocked: false },
-                        { id: 'speed_runner', name: 'Speed Runner', description: 'Complete 3 exerc�cios em menos de 10 min cada', icon: '??', unlocked: false },
-                        { id: 'satisfaction_guru', name: 'Guru da Satisfa��o', description: 'Avalie todos os 8 t�picos', icon: '?', unlocked: false },
-                        { id: 'combo_master', name: 'Mestre do Combo', description: 'Acerte 5 quizzes consecutivos', icon: '??', unlocked: false },
-                        { id: 'resilient', name: 'Resiliente', description: 'Mude de n�vel ap�s errar v�rios exerc�cios', icon: '??', unlocked: false },
-                        { id: 'all_star', name: 'Cada Um uma Estrela', description: 'Avalie algum t�pico com 5 estrelas', icon: '?', unlocked: false },
-                        { id: 'first_blood', name: 'First Blood', description: 'Seja o primeiro a completar um cap�tulo', icon: '??', unlocked: false },
-                        { id: 'legend_status', name: 'Status de Lenda', description: 'Alcance n�vel 15', icon: '??', unlocked: false },
-                        { id: 'eternal_learner', name: 'Aprendiz Eterno', description: 'Complete 50 exerc�cios', icon: '??', unlocked: false },
-                        { id: 'achievement_collector', name: 'Colecionador de Conquistas', description: 'Desbloqueie 15 conquistas', icon: '???', unlocked: false },
-                        { id: 'hall_of_fame', name: 'Galeria da Fama', description: 'Desbloqueie 20 conquistas', icon: '??', unlocked: false }
-                    ],
+                    ]
+                };
+            }
+            // Ensure achievements exist
+            if (!this.userData.achievements || this.userData.achievements.length === 0) {
+                this.userData.achievements = [
+                    { id: 'first_quiz', name: 'Primeiro Quiz', description: 'Complete seu primeiro quiz', icon: '🎯', unlocked: false },
+                    { id: 'accuracy_master', name: 'Mestre da Precisão', description: 'Alcance 90% de acerto', icon: '🎯', unlocked: false },
+                    { id: 'speed_demon', name: 'Herói da Velocidade', description: 'Complete um exercício em menos de 5 min', icon: '⚡', unlocked: false },
+                    { id: 'perfectionist', name: 'Perfeccionista', description: 'Complete 5 exercícios com 100%', icon: '💎', unlocked: false },
+                    { id: 'explorer', name: 'Explorador', description: 'Visite todos os tópicos', icon: '🗺️', unlocked: false },
+                    { id: 'rpg_master', name: 'Mestre RPG', description: 'Alcance nível 10', icon: '🎮', unlocked: false },
+                    { id: 'first_exercise', name: 'Primeiro Exercício', description: 'Complete seu primeiro exercício prático', icon: '📝', unlocked: false },
+                    { id: 'quiz_warrior', name: 'Guerreiro de Quizzes', description: 'Complete 10 quizzes', icon: '⚔️', unlocked: false },
+                    { id: 'century', name: 'Centenário', description: 'Acumule 100 pontos', icon: '💯', unlocked: false },
+                    { id: 'level_5', name: 'Ascensão', description: 'Alcance nível 5', icon: '⬆️', unlocked: false },
+                    { id: 'consistency', name: 'Consistência', description: 'Mude de nível 3 vezes', icon: '🔄', unlocked: false },
+                    { id: 'theory_master', name: 'Teórico', description: 'Domine Teoria dos Jogos', icon: '🧠', unlocked: false },
+                    { id: 'speed_runner', name: 'Speed Runner', description: 'Complete 3 exercícios em menos de 10 min cada', icon: '🏃', unlocked: false },
+                    { id: 'satisfaction_guru', name: 'Guru da Satisfação', description: 'Avalie todos os 8 tópicos', icon: '⭐', unlocked: false },
+                    { id: 'combo_master', name: 'Mestre do Combo', description: 'Acerte 5 quizzes consecutivos', icon: '🔥', unlocked: false },
+                    { id: 'resilient', name: 'Resiliente', description: 'Mude de nível após errar vários exercícios', icon: '🛡️', unlocked: false },
+                    { id: 'all_star', name: 'Cada Um uma Estrela', description: 'Avalie algum tópico com 5 estrelas', icon: '🌟', unlocked: false },
+                    { id: 'first_blood', name: 'First Blood', description: 'Seja o primeiro a completar um capítulo', icon: '🩸', unlocked: false },
+                    { id: 'legend_status', name: 'Status de Lenda', description: 'Alcance nível 15', icon: '👑', unlocked: false },
+                    { id: 'eternal_learner', name: 'Aprendiz Eterno', description: 'Complete 50 exercícios', icon: '📚', unlocked: false },
+                    { id: 'achievement_collector', name: 'Colecionador de Conquistas', description: 'Desbloqueie 15 conquistas', icon: '🏆', unlocked: false },
+                    { id: 'hall_of_fame', name: 'Galeria da Fama', description: 'Desbloqueie 20 conquistas', icon: '🎖️', unlocked: false },
+                    { id: 'git_master', name: 'Mestre do Git', description: 'Faça commit e push do seu projeto', icon: '🚀', unlocked: false }
+                ];
+            }
                     charts: {
                         progressOverTime: [
                             { date: '2024-01-01', score: 0 },
@@ -303,7 +332,22 @@ class UserProgressManager {
             this.userData.achievements[21].unlocked = true;
         }
 
+        // Mestre do Git (index 22)
+        if (this.userData.achievements[22] && localStorage.getItem('gitCommitted') === 'true' && !this.userData.achievements[22].unlocked) {
+            this.userData.achievements[22].unlocked = true;
+        }
+
         this.saveUserData();
+    }
+
+    // Método para desbloquear conquista do Git
+    unlockGitAchievement() {
+        if (this.userData.achievements[22] && !this.userData.achievements[22].unlocked) {
+            this.userData.achievements[22].unlocked = true;
+            localStorage.setItem('gitCommitted', 'true');
+            this.saveUserData();
+            this.checkAchievements(); // Recheck to unlock collector if needed
+        }
     }
 
     // M�todo para resetar todo o progresso

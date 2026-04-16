@@ -334,6 +334,13 @@
     z-index: 1;
 }
 
+.achievement-actions {
+    text-align: center;
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
 .achievement-item {
     /* Card Style - RPG/Anime */
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
