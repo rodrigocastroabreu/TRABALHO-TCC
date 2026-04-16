@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadProfileData() {
     try {
-        const profile = progressManager.userData.profile;
+        const profile = userProgressManager.userData.profile;
         const totalTutorials = 8; // 8 tópicos do Capítulo 1
         const progressPercent = profile.totalPoints >= 100 ? Math.min(100, Math.round((profile.totalPoints / 500) * 100)) : Math.round((profile.totalPoints / 100) * 100);
 
         document.getElementById('playerName').textContent = profile.name;
         document.getElementById('playerLevel').textContent = profile.level;
-        document.getElementById('completedCourses').textContent = progressManager.userData.performance.quizCompleted;
+        document.getElementById('completedCourses').textContent = userProgressManager.userData.performance.quizCompleted;
         document.getElementById('totalPoints').textContent = profile.totalPoints;
         document.getElementById('overallProgress').textContent = progressPercent + '%';
 
@@ -75,10 +75,10 @@ function loadAchievements() {
 
     try {
         // Ensure we have achievements data
-        if (typeof progressManager !== 'undefined' && progressManager.userData && progressManager.userData.achievements) {
-            progressManager.checkAchievements();
+        if (typeof userProgressManager !== 'undefined' && userProgressManager.userData && userProgressManager.userData.achievements) {
+            userProgressManager.checkAchievements();
 
-            progressManager.userData.achievements.forEach((achievement) => {
+            userProgressManager.userData.achievements.forEach((achievement) => {
                 const item = document.createElement('div');
                 item.className = `achievement-item ${achievement.unlocked ? 'unlocked' : 'locked'}`;
 
@@ -94,9 +94,9 @@ function loadAchievements() {
                 grid.appendChild(item);
             });
         } else {
-            // Fallback: try to create progressManager if it doesn't exist
+            // Fallback: try to create userProgressManager if it doesn't exist
             if (typeof UserProgressManager !== 'undefined') {
-                window.progressManager = new UserProgressManager();
+                window.userProgressManager = new UserProgressManager();
                 // Try again after creating
                 setTimeout(() => loadAchievements(), 100);
             }
@@ -107,8 +107,8 @@ function loadAchievements() {
 }
 
 function unlockGitAchievement() {
-    if (typeof progressManager !== 'undefined' && progressManager.unlockGitAchievement) {
-        progressManager.unlockGitAchievement();
+    if (typeof userProgressManager !== 'undefined' && userProgressManager.unlockGitAchievement) {
+        userProgressManager.unlockGitAchievement();
         loadAchievements(); // Reload to show the unlocked achievement
         alert('🏆 Conquista "Mestre do Git" desbloqueada!');
     } else {
@@ -131,10 +131,10 @@ function unlockGitAchievement() {
 }
 
 function changeUserName() {
-    const newName = prompt('Digite seu novo nome:', progressManager.userData.profile.name);
+    const newName = prompt('Digite seu novo nome:', userProgressManager.userData.profile.name);
     if (newName && newName.trim()) {
-        progressManager.userData.profile.name = newName.trim();
-        progressManager.saveData();
+        userProgressManager.userData.profile.name = newName.trim();
+        userProgressManager.saveUserData();
         loadProfileData();
         // Update navbar name if it exists
         const navbarName = document.getElementById('userName');
