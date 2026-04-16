@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadProfileData() {
     try {
-        const profile = userProgressManager.userData.profile;
+        const profile = progressManager.userData.profile;
         const totalTutorials = 8; // 8 tópicos do Capítulo 1
         const progressPercent = profile.totalPoints >= 100 ? Math.min(100, Math.round((profile.totalPoints / 500) * 100)) : Math.round((profile.totalPoints / 100) * 100);
 
         document.getElementById('playerName').textContent = profile.name;
         document.getElementById('playerLevel').textContent = profile.level;
-        document.getElementById('completedCourses').textContent = userProgressManager.userData.performance.quizCompleted;
+        document.getElementById('completedCourses').textContent = progressManager.userData.performance.quizCompleted;
         document.getElementById('totalPoints').textContent = profile.totalPoints;
         document.getElementById('overallProgress').textContent = progressPercent + '%';
 
@@ -75,10 +75,10 @@ function loadAchievements() {
 
     try {
         // Ensure we have achievements data
-        if (typeof userProgressManager !== 'undefined' && userProgressManager.userData && userProgressManager.userData.achievements) {
-            userProgressManager.checkAchievements();
+        if (typeof progressManager !== 'undefined' && progressManager.userData && progressManager.userData.achievements) {
+            progressManager.checkAchievements();
 
-            userProgressManager.userData.achievements.forEach((achievement) => {
+            progressManager.userData.achievements.forEach((achievement) => {
                 const item = document.createElement('div');
                 item.className = `achievement-item ${achievement.unlocked ? 'unlocked' : 'locked'}`;
 
@@ -94,17 +94,10 @@ function loadAchievements() {
                 grid.appendChild(item);
             });
         } else {
-            // Fallback: try to create userProgressManager if it doesn't exist
+            // Fallback: try to create progressManager if it doesn't exist
             if (typeof UserProgressManager !== 'undefined') {
-                window.userProgressManager = new UserProgressManager();
+                window.progressManager = new UserProgressManager();
                 // Try again after creating
-                setTimeout(() => loadAchievements(), 100);
-            }
-        }
-    } catch (e) {
-        console.error('Error loading achievements:', e);
-    }
-}
                 setTimeout(() => loadAchievements(), 100);
             }
         }
@@ -114,8 +107,8 @@ function loadAchievements() {
 }
 
 function unlockGitAchievement() {
-    if (typeof userProgressManager !== 'undefined' && userProgressManager.unlockGitAchievement) {
-        userProgressManager.unlockGitAchievement();
+    if (typeof progressManager !== 'undefined' && progressManager.unlockGitAchievement) {
+        progressManager.unlockGitAchievement();
         loadAchievements(); // Reload to show the unlocked achievement
         alert('🏆 Conquista "Mestre do Git" desbloqueada!');
     } else {
