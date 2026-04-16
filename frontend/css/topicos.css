@@ -1,0 +1,159 @@
+/* Tópico 3 - Estratégias - CSS Styles */
+
+/* Chart Containers */
+.chart-container {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.chart-container h3 {
+    color: #1e293b;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.chart-controls {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.chart-controls button {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.chart-controls button:hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+}
+
+.chart-explanation {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+    border-left: 4px solid #6366f1;
+}
+
+.chart-explanation p {
+    color: #475569;
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Payoff Matrix Styles */
+.payoff-matrix {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+#nashMatrix {
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#nashMatrix th,
+#nashMatrix td {
+    padding: 1rem;
+    text-align: center;
+    border: 2px solid #e2e8f0;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+#nashMatrix th {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: #334155;
+    font-size: 0.875rem;
+}
+
+#nashMatrix td {
+    font-size: 1.125rem;
+    color: #1e293b;
+    cursor: pointer;
+}
+
+#nashMatrix td:hover {
+    background: #f8fafc;
+    transform: scale(1.05);
+}
+
+.cell {
+    min-width: 80px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nash-equilibrium {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-color: #dc2626;
+    color: #dc2626;
+    font-weight: 700;
+}
+
+.cell.highlighted {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-color: #2563eb;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .chart-container {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .chart-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chart-controls button {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    #nashMatrix th,
+    #nashMatrix td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .cell {
+        min-width: 60px;
+        min-height: 50px;
+    }
+}

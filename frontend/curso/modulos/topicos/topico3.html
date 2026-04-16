@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/main.css">
     <link rel="stylesheet" href="../../css/topicos.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <!-- HEADER/NAVBAR -->
     <header class="navbar">
@@ -19,7 +22,7 @@
                 <h1 class="logo">Play Game Dev Academy</h1>
                 <p class="tagline">Play the Game. Mission Complete. Congratulations.</p>
             </div>
-            
+
             <nav class="nav-links">
                 <a href="../../../../index.html" class="nav-link">Início</a>
                 <a href="../../../../frontend/sumário/sumário.html" class="nav-link">Sumário</a>
@@ -29,7 +32,8 @@
             </nav>
 
             <a href="../../../../frontend/pages/perfil.html" class="user-profile-link">
-                <img src="../../../../frontend/images/default-profile.svg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+                <img src="../../../../frontend/images/default-profile.svg" alt="Foto de Perfil" class="profile-pic"
+                    id="profilePic">
                 <span class="user-greeting">Bem-vindo, <strong id="userName">Aprendiz</strong>!</span>
             </a>
 
@@ -45,120 +49,458 @@
         <aside class="sidebar">
             <div class="sidebar-title">Capítulo 1</div>
             <ul class="sidebar-nav">
-                <li><a href="#conceito" class="nav-link active">Conceito</a></li>
-                <li><a href="#tipos" class="nav-link">Tipos de Estratégias</a></li>
-                <li><a href="#pura-mista" class="nav-link">Pura vs Mista</a></li>
-                <li><a href="#exemplos" class="nav-link">Exemplos</a></li>
+                <li><a href="#introducao" class="nav-link">Introdução às Estratégias</a></li>
+                <li><a href="#tomada-decisao" class="nav-link">Tomada de Decisão Estratégica</a></li>
+                <li><a href="#racionalidade" class="nav-link">Princípios da Racionalidade</a></li>
+                <li><a href="#equilibrio" class="nav-link">Equilíbrio de Nash</a></li>
+                <li><a href="#dominancia" class="nav-link">Estratégias Dominantes</a></li>
+                <li><a href="#jogos-repetidos" class="nav-link">Jogos Repetidos</a></li>
+                <li><a href="#aplicacoes-praticas" class="nav-link">Aplicações Práticas</a></li>
             </ul>
         </aside>
 
         <main>
             <header class="header">
-                <h1>Estratégias</h1>
-                <div class="paragraph"><p>Ações possíveis de cada jogador</p></div>
+                <h1>Tópico 3 — <span class="text-highlight">Estratégias</span></h1>
+                <p>Conceitos fundamentais para tomada de decisão estratégica</p>
             </header>
 
-            <section class="section" id="conceito">
-                <h2>O que é uma Estratégia?</h2>
-                <div class="paragraph">
-                    <p>Uma <strong>estratégia</strong> é um plano de ação completo que um jogador pode executar em um jogo. Define exatamente o que o jogador fará em cada situação possível.</p>
-                </div>
-                <div class="paragraph">
-                    <p>Diferente de uma "ação", uma estratégia é uma descrição completa de como se comportar durante todo o jogo.</p>
+            <section class="section" id="introducao">
+                <h2>🎯 Introdução às <span class="text-highlight">Estratégias</span></h2>
+                <div class="text-content">
+                    <div class="paragraph">
+                        <p>As estratégias representam o núcleo da Teoria dos Jogos. Elas são os planos completos de ação
+                            que os jogadores elaboram para maximizar seus resultados, considerando tanto suas próprias
+                            escolhas quanto as possíveis reações dos outros participantes.</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>Uma estratégia eficaz vai além de decisões impulsivas — ela envolve análise racional,
+                            antecipação de cenários e adaptação contínua. Neste tópico, exploraremos os conceitos
+                            fundamentais que tornam a tomada de decisão estratégica uma ferramenta poderosa para
+                            desenvolvedores de jogos.</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>Descubra como transformar decisões simples em planos estratégicos que criam experiências de
+                            jogo memoráveis e desafiadoras!</p>
+                    </div>
                 </div>
 
-                <div class="content-flex">
-                    <div class="content-text">
-                        <div class="heading-block">
-                            <h3>Diferença Importante</h3>
-                        </div>
-                        <div class="paragraph">
-                            <p><strong>Ação:</strong> Uma escolha específica em um momento específico</p>
-                        </div>
-                        <div class="paragraph">
-                            <p>Ex: "Subir os preços hoje"</p>
-                        </div>
-                        <div class="paragraph">
-                            <p><strong>Estratégia:</strong> Um plano completo para todo o jogo</p>
-                        </div>
-                        <div class="paragraph">
-                            <p>Ex: "Começar com preço baixo, depois aumentar gradualmente conforme aumenta a demanda"</p>
-                        </div>
-                    </div>
-                    <div class="content-image">
-                        <div class="image-block">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f0f4ff' width='400' height='300'/%3E%3Ccircle cx='200' cy='100' r='60' fill='%236366f1'/%3E%3Ctext x='200' y='110' text-anchor='middle' font-size='14' fill='white' font-weight='bold'%3EEstratégia%3C/text%3E%3Cg%3E%3Cpath d='M140,180 L160,200 L180,180 M160,200 L160,220' stroke='%236366f1' stroke-width='2' fill='none'/%3E%3Ctext x='130' y='245' text-anchor='middle' font-size='11' fill='%236b7280'%3EAção 1%3C/text%3E%3Cpath d='M220,180 L240,200 L260,180 M240,200 L240,220' stroke='%236366f1' stroke-width='2' fill='none'/%3E%3Ctext x='270' y='245' text-anchor='middle' font-size='11' fill='%236b7280'%3EAção 2%3C/text%3E%3Cpath d='M340,180 L360,200 L380,180 M360,200 L360,220' stroke='%236366f1' stroke-width='2' fill='none'/%3E%3Ctext x='340' y='245' text-anchor='middle' font-size='11' fill='%236b7280'%3EAção N%3C/text%3E%3C/g%3E%3C/svg%3E" alt="Estratégia comta ações" />
-                            <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
-                        </div>
+                <div class="image-div-vertical">
+                    <img src="imagens/topico3/ChatGPT Image 16 de abr. de 2026, 01_41_42.png"
+                        alt="Diversos tipos de jogadores em um cenário estratégico">
+                    <div class="image-credit">
+                        Imagem gerada com IA ChatGPT Image ChatGPT Image 16 de abr. de 2026, 01_41_42.png<br>
+                        Prompt: "Ilustração moderna de um jogador de xadrez pensativo em um ambiente futurista, com
+                        peças de xadrez flutuando ao redor representando diferentes estratégias, fundo com elementos
+                        tecnológicos abstratos, iluminação dramática, estilo digital art, cores azul e verde, alta
+                        resolução para material educacional sobre teoria dos jogos"
                     </div>
                 </div>
             </section>
 
-            <section class="section" id="tipos">
-                <h2>Tipos de Estratégias</h2>
-                
-                <div class="interactive-section">
-                    <div class="heading-block"><h3>Classificações Principais</h3></div>
-                    <div class="list-block"><ol class="ordered-list">
-                        <li><strong>Estratégia Dominante:</strong> Sempre melhor independente do que outro faz</li>
-                        <li><strong>Estratégia Dominada:</strong> Sempre pior que outra estratégia</li>
-                        <li><strong>Estratégia Segura:</strong> Garante um nível mínimo de ganho</li>
-                        <li><strong>Estratégia Agressiva:</strong> Busca ganhos altos com mais risco</li>
-                        <li><strong>Estratégia Defensiva:</strong> Minimiza perdas</li>
-                    </ol></div>
-                </div>
-            </section>
-
-            <section class="section" id="pura-mista">
-                <h2>Estratégias Puras vs Mistas</h2>
-
-                <div class="content-flex reverse">
-                    <div class="content-text">
-                        <div class="heading-block"><h3>Definições</h3></div>
-                        <div class="paragraph"><p><strong>Estratégia Pura:</strong> Escolher uma ação específica com 100% de probabilidade</p></div>
-                        <div class="paragraph"><p>Ex: "Sempre abrir o jogo com a peça branca no xadrez"</p></div>
-                        <div class="paragraph"><p><strong>Estratégia Mista:</strong> Escolher entre diferentes ações com probabilidades específicas</p></div>
-                        <div class="paragraph"><p>Ex: "Abrir 80% com a peça branca e 20% com a peça preta"</p></div>
+            <section class="section" id="tomada-decisao">
+                <h2>🎲 Tomada de Decisão <span class="text-highlight">Estratégica</span></h2>
+                <div class="text-content">
+                    <div class="paragraph">
+                        <p>A tomada de decisão estratégica envolve um processo sistemático de análise que considera
+                            múltiplas variáveis simultaneamente. Os jogadores devem avaliar não apenas suas próprias
+                            preferências, mas também antecipar as ações dos outros participantes.</p>
                     </div>
-                    <div class="content-image">
-                        <div class="image-block"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23eef2ff' width='400' height='300'/%3E%3Crect x='50' y='80' width='120' height='120' fill='%236366f1'/%3E%3Ctext x='110' y='140' text-anchor='middle' font-size='14' fill='white' font-weight='bold'%3E100%25%3C/text%3E%3Ctext x='110' y='220' text-anchor='middle' font-size='11' fill='%231f2937'%3EPura%3C/text%3E%3Cg x='230'%3E%3Crect x='230' y='80' width='50' height='120' fill='%236366f1'/%3E%3Crect x='290' y='80' width='70' height='120' fill='%236366f1' opacity='0.6'/%3E%3Ctext x='255' y='140' text-anchor='middle' font-size='13' fill='white' font-weight='bold'%3E70%25%3C/text%3E%3Ctext x='325' y='140' text-anchor='middle' font-size='13' fill='white' font-weight='bold'%3E30%25%3C/text%3E%3Ctext x='290' y='220' text-anchor='middle' font-size='11' fill='%231f2937'%3EMista%3C/text%3E%3C/g%3E%3C/svg%3E" alt="Estratégias puras vs mistas" /></div>
-                        <div class="image-credit">Ilustração: Criação própria | Desenvolvido com foco educacional</div>
+                    <div class="heading-block">
+                        <h3>Componentes Essenciais da Decisão Estratégica</h3>
+                    </div>
+                    <div class="list-block">
+                        <ul class="unordered-list">
+                            <li><strong>Análise de Cenários:</strong> Avaliar todas as possibilidades de ação</li>
+                            <li><strong>Antecipação:</strong> Prever reações dos outros jogadores</li>
+                            <li><strong>Avaliação de Riscos:</strong> Considerar probabilidades e consequências</li>
+                            <li><strong>Otimização:</strong> Escolher a melhor ação baseada em critérios racionais</li>
+                        </ul>
                     </div>
                 </div>
+
+     
+
+                <!-- Additional Charts: Pie Chart and Line Chart -->
+                <div class="chart-grid">
+                    <div class="chart-container">
+                        <h3>Distribuição de Estratégias</h3>
+                        <canvas id="strategyPieChart" width="300" height="300"></canvas>
+                        <div class="chart-explanation">
+                            <p>Gráfico pizza mostrando a distribuição de diferentes tipos de estratégias. Use os botões
+                                para ver como interpretar cada fatia.</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3>Evolução da Estratégia ao Longo do Tempo</h3>
+                        <canvas id="strategyLineChart" width="300" height="300"></canvas>
+                        <div class="chart-explanation">
+                            <p>Gráfico de linha mostrando como as estratégias evoluem em jogos repetidos. Clique nos
+                                comandos para aprender a leitura dos eixos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-div-vertical">
+                    <img src="imagens/topico3/ChatGPT Image 16 de abr. de 2026, 01_57_50.png"
+                        alt="Processo de tomada de decisão" />
+
+                    <div class="image-credit">
+                        Imagem gerada com IA ChatGPT Image ChatGPT Image 16 de abr. de 2026, 01_57_50.png<br>
+                        Prompt: "Ilustração de um empresária moderna analisando dados em um tablet digital, com gráficos
+                        e estatísticas flutuando ao redor, representando análise de mercado e tomada de decisão
+                        estratégica, fundo com elementos abstratos de dados e algoritmos, estilo digital art
+                        profissional, cores azul e prata, iluminação dramática, alta resolução para conteúdo
+                        educacional"
+                    </div>
+                </div>
             </section>
 
-            <section class="section" id="exemplos">
-                <h2>Exemplos Reais</h2>
-                <div class="list-block"><ol class="ordered-list">
-                    <li>🏊 <strong>Futebol:</strong> Estratégia de jogo ofensivo ou defensivo</li>
-                    <li>💰 <strong>Mercado:</strong> Estratégia de precificação alta vs baixa</li>
-                    <li>🎲 <strong>Poker:</strong> Blefar com certa probabilidade</li>
-                    <li>🎬 <strong>Rock-Paper-Scissors:</strong> Escolher cada opção com 1/3 de probabilidade</li>
-                    <li>🏛️ <strong>Política:</strong> Campanhas agressivas vs moderadas</li>
-                </ol></div>
+            <section class="section" id="racionalidade">
+                <h2>🧠 Princípios da <span class="text-highlight">Racionalidade</span></h2>
+                <div class="text-content">
+                    <div class="paragraph">
+                        <p>A racionalidade é o pressuposto fundamental da Teoria dos Jogos. Jogadores racionais tomam
+                            decisões baseadas em análise lógica, maximizando seus benefícios enquanto consideram as
+                            consequências de suas ações.</p>
+                    </div>
+                    <div class="heading-block">
+                        <h3>Características da Racionalidade Estratégica</h3>
+                    </div>
+                    <div class="list-block">
+                        <ul class="unordered-list">
+                            <li><strong>Consistência:</strong> Decisões alinhadas com objetivos estabelecidos</li>
+                            <li><strong>Informação Completa:</strong> Uso de todos os dados disponíveis</li>
+                            <li><strong>Previsibilidade:</strong> Comportamento lógico e antecipável</li>
+                            <li><strong>Otimização:</strong> Busca pelo melhor resultado possível</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Interactive Chart: Rationality Scale -->
+                <div class="chart-container">
+                    <h3>Escala de Racionalidade em Decisões</h3>
+                    <canvas id="rationalityChart" width="400" height="250"></canvas>
+                    <div class="chart-explanation">
+                        <p>Este gráfico mostra como diferentes níveis de racionalidade afetam os resultados em jogos
+                            estratégicos.</p>
+                    </div>
+                </div>
+
+                <div class="image-div-vertical">
+                    <img src="imagens/topico3/ChatGPT Image 16 de abr. de 2026, 02_04_25.png"
+                        alt="Princípios da racionalidade" />
+                    <div class="image-credit">
+                        Imagem gerada com IA ChatGPT Image ChatGPT Image 16 de abr. de 2026, 02_04_25.png<br>
+                        Prompt: "Representação artística de um cérebro humano com circuitos neurais e algoritmos
+                        matemáticos integrados, simbolizando pensamento racional e processamento lógico, fundo com
+                        equações matemáticas abstratas, estilo arte digital futurista, cores roxo e azul, iluminação
+                        neon, alta resolução para material educacional avançado"
+                    </div>
+                </div>
             </section>
 
-            <!-- SLIDES E JOGO INTERATIVO -->
-            <section class="section">
-                <h2>Saiba Mais com Slides</h2>
-                <div class="iframe-block">
-                    <iframe src="https://slides-estrategias-jogos.gamma.site/" title="Slides Interativos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="frame-credit">🎬 Slides: "Estratégias em Jogos" | Créditos ao autor original</div>
-                <a href="https://slides-estrategias-jogos.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse os Slides</a>
+            <section class="section" id="equilibrio">
+                <h2>⚖️ Equilíbrio de <span class="text-highlight">Nash</span></h2>
+                <div class="text-content">
+                    <div class="paragraph">
+                        <p>O Equilíbrio de Nash, nomeado em homenagem ao matemático John Nash, representa um estado onde
+                            nenhum jogador pode melhorar seu resultado mudando unilateralmente sua estratégia, assumindo
+                            que os outros jogadores mantêm suas estratégias.</p>
+                    </div>
+                    <div class="heading-block">
+                        <h3>Conceitos Fundamentais do Equilíbrio</h3>
+                    </div>
+                    <div class="list-block">
+                        <ul class="unordered-list">
+                            <li><strong>Estabilidade:</strong> Nenhuma mudança unilateral beneficia o jogador</li>
+                            <li><strong>Previsibilidade:</strong> Jogadores antecipam corretamente as ações dos outros
+                            </li>
+                            <li><strong>Otimização Coletiva:</strong> Melhor resultado possível dadas as restrições</li>
+                        </ul>
+                    </div>
+                    <div class="image-div-horizontal">
+                        <img src="imagens/topico3/ChatGPT Image 16 de abr. de 2026, 02_18_59.png"
+                            alt="Equilíbrio de Nash" />
+                        <div class="image-credit">
+                            Imagem gerada com IA ChatGPT Image ChatGPT Image 16 de abr. de 2026, 02_18_59.png<br>
+                            Prompt: "Cristiano Ronaldo e Lionel Messi jogando xadrez em uma cena épica, imagem criada
+                            com IA
+                            inspirada na icônica foto da campanha da Louis Vuitton com os dois jogadores juntos, mesma
+                            composição com ambos frente a frente concentrados sobre o tabuleiro. O tabuleiro apresenta
+                            uma
+                            posição real de xadrez que representa um empate forçado (easter egg sutil), simbolizando
+                            equilíbrio absoluto entre dois gênios. Estilo cinematográfico hiper-realista, iluminação
+                            dramática e alto contraste. Cristiano Ronaldo envolto em energia dourada e fogo, Lionel
+                            Messi
+                            cercado por energia azul elétrica e gelo. Peças de xadrez brilhando com efeitos de energia
+                            em
+                            colisão. Ao fundo, um gigantesco rei de xadrez dourado imponente, simbolizando poder e
+                            estratégia. Cenário místico com ruínas, céu tempestuoso, relâmpagos, partículas e atmosfera
+                            intensa. Composição 16:9, ultra-detalhado, 8K, luz volumétrica, profundidade de campo, epic
+                            fantasy, conceito cinematográfico, masterpiece."
+                        </div>
+                    </div>
+                    <div class="heading-block">
+                        <h3>🧠 O que realmente acontece no jogo da imagem</h3>
+                    </div>
+                    <div class="paragraph">
+                        <p>Segundo a matéria da ESPN Brasil, a posição do tabuleiro não é aleatória. Ela foi baseada
+                            em uma partida real entre Magnus Carlsen e Hikaru Nakamura, e essa partida leva a um empate
+                            forçado.</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>Na posição da imagem: é a vez das pretas jogarem (Messi). O rei das brancas (Ronaldo) parece
+                            em perigo, mas não existe xeque-mate possível.</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>👉 Resultado: as pretas só conseguem dar xeques contínuos. Se tentarem algo diferente,
+                            pioram a posição. O jogo termina inevitavelmente empatado.</p>
+                    </div>
+                    <div class="heading-block">
+                        <h3>🎓 Como explicar isso no tema “Jogadores”</h3>
+                    </div>
+                    <div class="list-block">
+                        <ul class="unordered-list">
+                            <li><strong>1. Jogadores não controlam tudo:</strong> Mesmo sendo dois jogadores perfeitos,
+                                o
+                                resultado não depende só da habilidade — depende da estrutura do jogo.</li>
+                            <li><strong>2. Estratégia tem limites:</strong> Existe um conjunto de jogadas possíveis, mas
+                                nenhuma
+                                leva à vitória. O jogador está “preso” a um resultado.</li>
 
-                <h3>Jogo Interativo</h3>
-                <div class="iframe-block">
-                    <iframe src="https://jogo-estrategias.gamma.site/" title="Jogo Interativo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <li><strong>3. Conexão com equilíbrio:</strong> O sistema está em um estado estável; nenhum
+                                jogador
+                                consegue melhorar sua posição sozinho. Isso funciona como uma analogia natural ao
+                                Equilíbrio de Nash.</li>
+                        </ul>
+                    </div>
+                    <div class="paragraph">
+                        <p>💬 Forma perfeita para usar em aula: “Essa imagem não é só estética. O tabuleiro representa
+                            uma
+                            posição real de xadrez que leva a um empate forçado, baseada em uma partida entre grandes
+                            mestres. Isso significa que, mesmo com jogadores perfeitos, não existe estratégia vencedora.
+                            Esse exemplo mostra que, em jogos estratégicos, os jogadores são limitados pela própria
+                            estrutura do jogo — e que o resultado pode ser um equilíbrio inevitável.”</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>🔥 Insight final: “A genialidade dos jogadores não garante vitória — às vezes revela que o
+                            jogo já está resolvido.”</p>
+                    </div>
+                    <div class="heading-block">
+                        <h3>♟️ Curiosidade final</h3>
+                    </div>
+                    <div class="paragraph">
+                        <p>“Você sabia que o xadrez tem um número gigantesco de jogadas possíveis?”</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>O número estimado é chamado de Número de Shannon.</p>
+                    </div>
+                    <div class="list-block">
+                        <ul class="unordered-list">
+                            <li><strong>🔢 O que é isso?</strong> É uma estimativa de quantas partidas diferentes podem
+                                existir no xadrez.</li>
+                            <li><strong>Valor aproximado:</strong> 10¹²⁰ (um 1 seguido de 120 zeros)</li>
+                            <li><strong>🤯 Para ter noção:</strong> isso é maior que o número de átomos no universo
+                                observável (~10⁸⁰).</li>
+                            <li><strong>➡️ Conexão com sua aula:</strong> Mesmo com cerca de 10¹²⁰ possibilidades no
+                                xadrez,
+                                a posição dessa imagem mostra que, em alguns casos, todas essas possibilidades levam ao
+                                mesmo resultado: empate.</li>
+                        </ul>
+                    </div>
+                    <div class="image-div-horizontal">
+                        <img src="imagens/topico3/ChatGPT Image 16 de abr. de 2026, 02_36_35.png"
+                            alt=" Tabuleiro de xadrez" />
+                        <div class="image-credit">
+                            Imagem gerada com IA ChatGPT Image ChatGPT Image 16 de abr. de 2026, 02_36_35.png<br>
+                            Tabuleiro de xadrez flutuando no centro do universo, perfeitamente iluminado, peças de
+                            xadrez emitindo energia brilhante. A partir do tabuleiro, infinitas ramificações de jogadas
+                            se expandem como linhas de luz fractais em todas as direções, simbolizando complexidade
+                            infinita. Representação visual do número 10¹²⁰ como uma explosão massiva de possibilidades,
+                            com números e símbolos matemáticos luminosos espalhados pelo espaço. Ao fundo, o universo
+                            observável com galáxias, estrelas e poeira cósmica, representando 10⁸⁰ átomos, criando
+                            contraste visual entre os dois conceitos. Sensação de escala cósmica, infinito e
+                            complexidade extrema. Estilo hiper-realista, cinematográfico, iluminação dramática, alto
+                            contraste, luz volumétrica, partículas, profundidade de campo, ultra-detalhado, 8K,
+                            composição 16:9, epic
+                        </div>
+                    </div>
+                    <div class="paragraph">
+                        <p>“Mesmo com cerca de 10¹²⁰ possibilidades no xadrez, a posição dessa imagem mostra que, em
+                            alguns casos, todas essas possibilidades levam ao mesmo resultado: empate. Isso reforça que,
+                            em jogos estratégicos, não é só a quantidade de escolhas que importa, mas como elas se
+                            estruturam.”</p>
+                    </div>
+                    <div class="paragraph">
+                        <p>💬 Frase de efeito final: “Um jogo com infinitas possibilidades… pode terminar sem vencedor.”
+                        </p>
+                    </div>
                 </div>
-                <div class="frame-credit">🎮 Jogo: "Simulação de Estratégias" | Créditos ao autor original</div>
-                <a href="https://jogo-estrategias.gamma.site/" target="_blank" rel="noopener noreferrer">Acesse o Jogo Interativo</a>
+
+
+            </section>
+
+            <section class="section" id="dominancia">
+                <h2>👑 Estratégias <span class="text-highlight">Dominantes</span></h2>
+                <div class="text-content">
+                    <div class="paragraph">
+                        <p>Uma estratégia é considerada dominante quando produz um resultado melhor ou igual para o
+                            jogador, independentemente das ações dos outros jogadores. Estratégias dominantes são
+                            particularmente importantes porque representam escolhas racionais óbvias.</p>
+                    </div>
+                    <div class="heading-block">
+                        <h3>Tipos de Dominância</h3>
+                    </div>
+                    <div class="list-block">
+                        <ul class="unordered-list">
+                            <li><strong>Dominante Forte:</strong> Sempre produz melhor resultado</li>
+                            <li><strong>Dominante Fraca:</strong> Produz resultado igual ou melhor</li>
+                            <li><strong>Dominada:</strong> Nunca deve ser escolhida (existe alternativa melhor)</li>
+                        </ul>
+                    </div>
+                </div>
+
+             
+
+                <div class="image-div-horizontal">
+                    <img src="imagens/topico3/ChatGPT Image 16 de abr. de 2026, 02_10_34.png"
+                        alt="Estratégias dominantes" />
+                    <div class="image-credit">
+                        Imagem gerada com IA ChatGPT Image ChatGPT Image 16 de abr. de 2026, 02_10_34.png<br>
+                        Prompt: ""Representação 16:9 do rei e da rainha feitos como peças de xadrez douradas, sentados
+                        em dois tronos elevados, lado a lado, simbolizando estratégia dominante. Ao redor, súditos
+                        menores, também peças de xadrez, representam estratégias inferiores. O fundo apresenta um
+                        tabuleiro de xadrez abstrato, com o chão no mesmo padrão. Estilo de arte digital realista, com
+                        cores em ouro e preto, iluminação dramática e alta resolução."
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="jogos-repetidos">
+                <h2>🔄 Jogos <span class="text-highlight">Repetidos</span></h2>
+                <div class="text-content">
+                    <div class="paragraph">
+                        <p>Jogos repetidos ocorrem quando o mesmo jogo é jogado múltiplas vezes entre os mesmos
+                            jogadores. Este contexto permite estratégias mais complexas, incluindo punição, recompensa e
+                            desenvolvimento de reputação.</p>
+                    </div>
+                    <div class="heading-block">
+                        <h3>Estratégias em Jogos Repetidos</h3>
+                    </div>
+                    <div class="list-block">
+                        <ul class="unordered-list">
+                            <li><strong>Olho por Olho:</strong> Cooperar inicialmente, depois imitar a ação do oponente
+                            </li>
+                            <li><strong>Cooperação Sustentada:</strong> Manter cooperação apesar de traições ocasionais
+                            </li>
+                            <li><strong>Punição Gradual:</strong> Responder proporcionalmente às violações</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Interactive Chart: Repeated Game Evolution -->
+                <div class="chart-container">
+                    <h3>Evolução da Cooperação em Jogos Repetidos</h3>
+                    <canvas id="repeatedGameChart" width="400" height="300"></canvas>
+                    <div class="chart-explanation">
+                        <p>Observe como a cooperação emerge em jogos repetidos através da estratégia "olho por olho".
+                        </p>
+                    </div>
+                </div>
+
+                <div class="image-div-horizontal">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f0f9ff' width='400' height='300'/%3E%3Cg%3E%3Ccircle cx='150' cy='120' r='40' fill='%230ea5e9'/%3E%3Ctext x='150' y='130' text-anchor='middle' font-size='12' fill='white'%3ERodada 1%3C/text%3E%3Ccircle cx='200' cy='120' r='40' fill='%230ea5e9'/%3E%3Ctext x='200' y='130' text-anchor='middle' font-size='12' fill='white'%3ERodada 2%3C/text%3E%3Ccircle cx='250' cy='120' r='40' fill='%230ea5e9'/%3E%3Ctext x='250' y='130' text-anchor='middle' font-size='12' fill='white'%3ERodada N%3C/text%3E%3C/g%3E%3Cpath d='M150,160 L200,160 L250,160' stroke='%230ea5e9' stroke-width='3' fill='none' marker-end='url(%23arrow)'/%3E%3Ctext x='200' y='185' text-anchor='middle' font-size='12' fill='%230ea5e9'%3ERepetição%3C/text%3E%3Cdefs%3E%3Cmarker id='arrow' markerWidth='10' markerHeight='10' refX='9' refY='3' orient='auto' markerUnits='strokeWidth'%3E%3Cpath d='M0,0 L0,6 L9,3 z' fill='%230ea5e9'/%3E%3C/marker%3E%3C/defs%3E%3C/svg%3E"
+                        alt="Jogos repetidos" />
+                    <div class="image-credit">
+                        Imagem gerada com IA ChatGPT Image<br>
+                        Prompt: "Sequência de jogadores interagindo repetidamente em um ciclo, com setas conectando
+                        diferentes rodadas de jogo, representando aprendizado e adaptação estratégica ao longo do tempo,
+                        fundo com elementos de relógio e progresso, estilo infográfico digital, cores azul e verde,
+                        design limpo e moderno"
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="aplicacoes-praticas">
+                <h2>🎯 Aplicações <span class="text-highlight">Práticas</span></h2>
+                <div class="text-content">
+                    <div class="paragraph">
+                        <p>Os conceitos estratégicos da Teoria dos Jogos têm aplicações práticas em diversos campos,
+                            desde desenvolvimento de jogos até decisões empresariais e políticas.</p>
+                    </div>
+                    <div class="heading-block">
+                        <h3>Áreas de Aplicação</h3>
+                    </div>
+                    <div class="list-block">
+                        <ul class="unordered-list">
+                            <li><strong>Desenvolvimento de Jogos:</strong> Balanceamento e design de mecânicas</li>
+                            <li><strong>Economia:</strong> Análise de mercados e concorrência</li>
+                            <li><strong>Política:</strong> Negociações internacionais e eleições</li>
+                            <li><strong>Negócios:</strong> Estratégias de precificação e marketing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Interactive Charts: Multiple Chart Types -->
+                <div class="chart-container">
+                    <h3>Distribuição de Aplicações da Teoria dos Jogos</h3>
+                    <canvas id="applicationsChart" width="400" height="300"></canvas>
+                    <div class="chart-explanation">
+                        <p>Gráfico pizza mostrando as principais áreas onde os conceitos estratégicos são aplicados.</p>
+                    </div>
+                </div>
+
+                <div class="chart-grid">
+                    <div class="chart-container">
+                        <h3>Eficiência de Estratégias</h3>
+                        <canvas id="efficiencyChart" width="300" height="300"></canvas>
+                        <div class="chart-explanation">
+                            <p>Gráfico de barras comparando a eficiência de diferentes abordagens estratégicas.</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3>Riscos vs Recompensas</h3>
+                        <canvas id="riskRewardChart" width="300" height="300"></canvas>
+                        <div class="chart-explanation">
+                            <p>Gráfico de dispersão mostrando a relação entre risco e recompensa em decisões
+                                estratégicas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Tendências de Adoção de Estratégias</h3>
+                    <canvas id="strategyTrendsChart" width="400" height="300"></canvas>
+                    <div class="chart-explanation">
+                        <p>Gráfico de área mostrando como diferentes estratégias ganham popularidade ao longo do tempo.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="image-div-horizontal">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f3f4f6' width='400' height='300'/%3E%3Cg%3E%3Crect x='50' y='100' width='80' height='60' fill='%236366f1' rx='8'/%3E%3Ctext x='90' y='125' text-anchor='middle' font-size='10' fill='white'%3EJogos%3C/text%3E%3Crect x='150' y='100' width='80' height='60' fill='%2310b981' rx='8'/%3E%3Ctext x='190' y='125' text-anchor='middle' font-size='10' fill='white'%3EEconomia%3C/text%3E%3Crect x='250' y='100' width='80' height='60' fill='%23f59e0b' rx='8'/%3E%3Ctext x='290' y='125' text-anchor='middle' font-size='10' fill='white'%3EPolítica%3C/text%3E%3Crect x='100' y='180' width='80' height='60' fill='%23ef4444' rx='8'/%3E%3Ctext x='140' y='205' text-anchor='middle' font-size='10' fill='white'%3ENegócios%3C/text%3E%3Crect x='200' y='180' width='80' height='60' fill='%238b5cf6' rx='8'/%3E%3Ctext x='240' y='205' text-anchor='middle' font-size='10' fill='white'%3ECiência%3C/text%3E%3C/g%3E%3C/svg%3E"
+                        alt="Aplicações práticas" />
+                    <div class="image-credit">
+                        Imagem gerada com IA ChatGPT Image<br>
+                        Prompt: "Colagem de diferentes profissionais trabalhando em seus campos: programador de jogos,
+                        economista com gráficos, político em debate, empresário em reunião, cientista pesquisando, todos
+                        conectados por linhas representando teoria dos jogos, fundo urbano moderno, estilo fotografia
+                        realista com elementos digitais, cores vibrantes, composição equilibrada"
+                    </div>
+                </div>
             </section>
 
             <!-- RATING -->
             <div class="rating-section">
-                <div class="heading-block"><h3>Avalie este Tópico</h3></div>
-                <div class="paragraph"><p>Como foi sua experiência?</p></div>
+                <div class="heading-block">
+                    <h3>Avalie este Tópico</h3>
+                </div>
+                <div class="paragraph">
+                    <p>Como foi sua experiência?</p>
+                </div>
                 <div class="star-rating" id="rating">
                     <span class="star" data-value="1">★</span>
                     <span class="star" data-value="2">★</span>
@@ -168,7 +510,8 @@
                 </div>
                 <div class="rating-feedback" id="feedback"></div>
                 <div class="next-topic-container" style="margin-top: 20px;">
-                    <button id="nextTopicButton" class="btn-primary" disabled style="padding: 12px 18px; border: none; border-radius: 8px; background-color: #6366f1; color: #fff; font-size: 1rem; cursor: not-allowed;">
+                    <button id="nextTopicButton" class="btn-primary" disabled
+                        style="padding: 12px 18px; border: none; border-radius: 8px; background-color: #6366f1; color: #fff; font-size: 1rem; cursor: not-allowed;">
                         Próximo Tópico (avaliar primeiro)
                     </button>
                 </div>
@@ -178,6 +521,7 @@
 
     <script src="../../../js/utils.js"></script>
     <script src="../../../js/progress.js"></script>
+    <script src="../../../js/topicos.js"></script>
     <script src="../../js/topicos.js"></script>
     <script>
         function toggleMobileMenu() {
@@ -185,7 +529,7 @@
             navLinks.classList.toggle('mobile-menu-open');
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const savedPic = localStorage.getItem('userProfilePic');
             const profilePic = document.getElementById('profilePic');
             if (savedPic && profilePic) {
@@ -200,9 +544,5 @@
         });
     </script>
 </body>
+
 </html>
-
-
-
-
-
